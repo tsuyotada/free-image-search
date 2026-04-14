@@ -21,7 +21,7 @@ export default function Home() {
   const [images, setImages] = useState<ImageItem[]>([])
   const [loading, setLoading] = useState(false)
   const [history, setHistory] = useState<string[]>([])
-  const [activeTab, setActiveTab] = useState<"all" | "Unsplash" | "Pexels">("all")
+  const [activeTab, setActiveTab] = useState<"all" | "Unsplash" | "Pexels" | "Pixabay">("all")
   const [hoveredId, setHoveredId] = useState<string | null>(null)
 
   useEffect(() => {
@@ -149,7 +149,7 @@ export default function Home() {
               marginBottom: 28,
             }}
           >
-            Unsplash と Pexels をまとめて検索
+            Unsplash・Pexels・Pixabay をまとめて検索
           </p>
 
           <div
@@ -223,10 +223,13 @@ export default function Home() {
               { key: "all", label: "すべて" },
               { key: "Unsplash", label: "Unsplash" },
               { key: "Pexels", label: "Pexels" },
+              { key: "Pixabay", label: "Pixabay" },
             ].map((tab) => (
               <button
                 key={tab.key}
-                onClick={() => setActiveTab(tab.key as "all" | "Unsplash" | "Pexels")}
+                onClick={() =>
+                  setActiveTab(tab.key as "all" | "Unsplash" | "Pexels" | "Pixabay")
+                }
                 style={{
                   border: activeTab === tab.key ? "1px solid #111827" : "1px solid #d1d5db",
                   background: activeTab === tab.key ? "#111827" : "#ffffff",
@@ -361,7 +364,10 @@ export default function Home() {
                 boxShadow: "0 8px 30px rgba(0,0,0,0.08)",
                 border: "1px solid #ececec",
                 transition: "transform 0.18s ease, box-shadow 0.18s ease",
-                transform: hoveredId === img.id ? "translateY(-4px) scale(1.03)" : "translateY(0) scale(1)",
+                transform:
+                  hoveredId === img.id
+                    ? "translateY(-4px) scale(1.03)"
+                    : "translateY(0) scale(1)",
               }}
               onMouseEnter={() => setHoveredId(img.id)}
               onMouseLeave={() => setHoveredId(null)}
