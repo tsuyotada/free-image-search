@@ -21,7 +21,9 @@ export default function Home() {
   const [images, setImages] = useState<ImageItem[]>([])
   const [loading, setLoading] = useState(false)
   const [history, setHistory] = useState<string[]>([])
-  const [activeTab, setActiveTab] = useState<"all" | "Unsplash" | "Pexels" | "Pixabay">("all")
+  const [activeTab, setActiveTab] = useState<
+    "all" | "Unsplash" | "Pexels" | "Pixabay" | "Openverse"
+  >("all")
   const [hoveredId, setHoveredId] = useState<string | null>(null)
 
   useEffect(() => {
@@ -149,7 +151,7 @@ export default function Home() {
               marginBottom: 28,
             }}
           >
-            Unsplash・Pexels・Pixabay をまとめて検索
+            Unsplash・Pexels・Pixabay・Openverse をまとめて検索
           </p>
 
           <div
@@ -224,11 +226,14 @@ export default function Home() {
               { key: "Unsplash", label: "Unsplash" },
               { key: "Pexels", label: "Pexels" },
               { key: "Pixabay", label: "Pixabay" },
+              { key: "Openverse", label: "Openverse" },
             ].map((tab) => (
               <button
                 key={tab.key}
                 onClick={() =>
-                  setActiveTab(tab.key as "all" | "Unsplash" | "Pexels" | "Pixabay")
+                  setActiveTab(
+                    tab.key as "all" | "Unsplash" | "Pexels" | "Pixabay" | "Openverse"
+                  )
                 }
                 style={{
                   border: activeTab === tab.key ? "1px solid #111827" : "1px solid #d1d5db",

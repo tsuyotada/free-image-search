@@ -28,11 +28,17 @@ export async function GET(req: Request) {
   )
   const pexelsData = await pexelsRes.json()
 
-  // ===== Pixabay（追加）=====
+  // ===== Pixabay =====
   const pixabayRes = await fetch(
     `https://pixabay.com/api/?key=${process.env.PIXABAY_KEY}&q=${encodeURIComponent(query)}&image_type=photo&per_page=12`
   )
   const pixabayData = await pixabayRes.json()
+
+  // ===== Openverse =====
+  const openverseRes = await fetch(
+    `https://api.openverse.engineering/v1/images?q=${encodeURIComponent(query)}&page_size=20`
+  )
+  const openverseData = await openverseRes.json()
 
   // ===== 整形 =====
   const unsplashImages =
@@ -74,10 +80,37 @@ export async function GET(req: Request) {
       height: img.imageHeight,
     })) || []
 
-  // ===== 全部まとめて返す =====
+  // ===== Openverse（ノイズ削減）=====
+  const openverseImages =
+    openverseData?.results
+      ?.filter((img: any) => {
+        return (
+          img.url &&
+          img.thumbnail &&
+          img.width &&
+          img.height &&
+          img.width > 300 &&   // 小さすぎ除外
+          img.height > 300     // 小さすぎ除外
+        )
+      })
+      .slice(0, 12) // 件数制限
+      .map((img: any) => ({
+        id: `openverse-${img.id}`,
+        url: img.url,
+        thumb: img.thumbnail || img.url,
+        source: "Openverse",
+        author: img.creator || "",
+        downloadUrl: img.url,
+        pageUrl: img.foreign_landing_url,
+        width: img.width,
+        height: img.height,
+      })) || []
+
+  // ===== 全部まとめる =====
   return Response.json([
     ...unsplashImages,
     ...pexelsImages,
-    ...pixabayImages
+    ...pixabayImages,
+    ...openverseImages,
   ])
 }
