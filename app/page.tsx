@@ -165,7 +165,7 @@ export default function Home() {
               color: "#264653",
             }}
           >
-            FreeStock Finder
+            Free Stock Finder
           </h1>
 
           <p

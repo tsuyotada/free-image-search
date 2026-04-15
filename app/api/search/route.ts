@@ -93,7 +93,7 @@ export async function GET(req: Request) {
           img.height > 300     // 小さすぎ除外
         )
       })
-      .slice(0, 12) // 件数制限
+      .slice(0, 24) // 件数制限
       .map((img: any) => ({
         id: `openverse-${img.id}`,
         url: img.url,
