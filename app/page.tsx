@@ -52,7 +52,7 @@ export default function Home() {
     const trimmed = word.trim()
     if (!trimmed) return
 
-    const next = [trimmed, ...history.filter((item) => item !== trimmed)].slice(0, 8)
+    const next = [trimmed, ...history.filter((item) => item !== trimmed)].slice(0, 16)
     setHistory(next)
     localStorage.setItem(HISTORY_KEY, JSON.stringify(next))
   }
