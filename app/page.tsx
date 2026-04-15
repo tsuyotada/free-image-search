@@ -25,12 +25,26 @@ export default function Home() {
     "all" | "Unsplash" | "Pexels" | "Pixabay" | "Openverse"
   >("all")
   const [hoveredId, setHoveredId] = useState<string | null>(null)
+  const [columnCount, setColumnCount] = useState(4)
 
   useEffect(() => {
     const saved = localStorage.getItem(HISTORY_KEY)
     if (saved) {
       setHistory(JSON.parse(saved))
     }
+
+    const updateColumns = () => {
+      const width = window.innerWidth
+      if (width < 640) setColumnCount(1)
+      else if (width < 900) setColumnCount(2)
+      else if (width < 1200) setColumnCount(3)
+      else setColumnCount(4)
+    }
+
+    updateColumns()
+    window.addEventListener("resize", updateColumns)
+
+    return () => window.removeEventListener("resize", updateColumns)
   }, [])
 
   const saveHistory = (word: string) => {
@@ -111,19 +125,27 @@ export default function Home() {
     return `${filteredImages.length}件の画像`
   }, [loading, filteredImages.length])
 
+  const accent = "#2aa7a1"
+  const accentDark = "#1f8d88"
+  const sand = "#f5efe6"
+  const sandDeep = "#e8dcc8"
+  const card = "#fffdf9"
+  const text = "#334155"
+  const sub = "#7c8a8b"
+
   return (
     <main
       style={{
         minHeight: "100vh",
-        background: "#f7f7f8",
-        padding: "40px 24px 80px",
-        color: "#111827",
+        background: `linear-gradient(180deg, ${sand} 0%, #f8f4ed 100%)`,
+        padding: "32px 18px 72px",
+        color: text,
         fontFamily: "Arial, Helvetica, sans-serif",
       }}
     >
       <div
         style={{
-          maxWidth: 1200,
+          maxWidth: 1380,
           margin: "0 auto",
         }}
       >
@@ -133,22 +155,39 @@ export default function Home() {
             marginBottom: 28,
           }}
         >
-          <h1
+          <div
             style={{
-              fontSize: 40,
-              marginBottom: 10,
+              display: "inline-block",
+              padding: "8px 14px",
+              borderRadius: 999,
+              background: "#ffffffaa",
+              border: `1px solid ${sandDeep}`,
+              color: accentDark,
+              fontSize: 13,
               fontWeight: 700,
-              letterSpacing: "-0.03em",
+              marginBottom: 14,
             }}
           >
             Free Image Search
+          </div>
+
+          <h1
+            style={{
+              fontSize: 44,
+              marginBottom: 12,
+              fontWeight: 800,
+              letterSpacing: "-0.04em",
+              color: "#264653",
+            }}
+          >
+            フリー画像検索
           </h1>
 
           <p
             style={{
               fontSize: 16,
-              color: "#6b7280",
-              marginBottom: 28,
+              color: sub,
+              marginBottom: 26,
             }}
           >
             Unsplash・Pexels・Pixabay・Openverse をまとめて検索
@@ -156,17 +195,27 @@ export default function Home() {
 
           <div
             style={{
-              maxWidth: 820,
+              maxWidth: 920,
               margin: "0 auto",
-              background: "#ffffff",
+              background: "#fffdfa",
               borderRadius: 999,
               display: "flex",
               alignItems: "center",
-              padding: "10px 12px 10px 20px",
-              boxShadow: "0 2px 14px rgba(0,0,0,0.08)",
-              border: "1px solid #e5e7eb",
+              padding: "10px 12px 10px 18px",
+              boxShadow: "0 10px 30px rgba(71, 85, 105, 0.08)",
+              border: `1px solid ${sandDeep}`,
+              gap: 10,
             }}
           >
+            <div
+              style={{
+                fontSize: 18,
+                color: accentDark,
+              }}
+            >
+              🔎
+            </div>
+
             <input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
@@ -175,14 +224,15 @@ export default function Home() {
                   search()
                 }
               }}
-              placeholder="検索ワードを入力（例: cat / coffee / 海）"
+              placeholder="検索ワードを入力（例: cat / interior / 海 / cafe）"
               style={{
                 flex: 1,
                 border: "none",
                 outline: "none",
                 fontSize: 17,
                 background: "transparent",
-                padding: "10px 8px",
+                padding: "10px 6px",
+                color: "#264653",
               }}
             />
 
@@ -190,13 +240,14 @@ export default function Home() {
               onClick={() => search()}
               style={{
                 border: "none",
-                background: "#111827",
+                background: accent,
                 color: "#ffffff",
                 borderRadius: 999,
                 padding: "12px 22px",
                 fontSize: 15,
                 fontWeight: 700,
                 cursor: "pointer",
+                boxShadow: "0 8px 20px rgba(42, 167, 161, 0.28)",
               }}
             >
               検索
@@ -236,26 +287,44 @@ export default function Home() {
                   )
                 }
                 style={{
-                  border: activeTab === tab.key ? "1px solid #111827" : "1px solid #d1d5db",
-                  background: activeTab === tab.key ? "#111827" : "#ffffff",
-                  color: activeTab === tab.key ? "#ffffff" : "#374151",
+                  border: activeTab === tab.key ? `1px solid ${accent}` : `1px solid ${sandDeep}`,
+                  background: activeTab === tab.key ? accent : "#fffdfa",
+                  color: activeTab === tab.key ? "#ffffff" : "#4b5563",
                   borderRadius: 999,
                   padding: "10px 16px",
                   fontSize: 14,
                   fontWeight: 700,
                   cursor: "pointer",
+                  boxShadow:
+                    activeTab === tab.key
+                      ? "0 8px 18px rgba(42, 167, 161, 0.22)"
+                      : "none",
                 }}
               >
                 {tab.label}
               </button>
             ))}
           </div>
+
+          <div
+            style={{
+              fontSize: 14,
+              color: sub,
+              fontWeight: 700,
+            }}
+          >
+            {resultCountText}
+          </div>
         </section>
 
         <section
           style={{
-            maxWidth: 920,
-            margin: "0 auto 26px",
+            marginBottom: 26,
+            background: "#fffaf3",
+            border: `1px solid ${sandDeep}`,
+            borderRadius: 24,
+            padding: "18px 18px 16px",
+            boxShadow: "0 10px 24px rgba(71, 85, 105, 0.05)",
           }}
         >
           <div
@@ -263,7 +332,7 @@ export default function Home() {
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              marginBottom: 10,
+              marginBottom: 12,
               gap: 12,
               flexWrap: "wrap",
             }}
@@ -271,8 +340,8 @@ export default function Home() {
             <div
               style={{
                 fontSize: 14,
-                color: "#6b7280",
-                fontWeight: 700,
+                color: accentDark,
+                fontWeight: 800,
               }}
             >
               検索履歴
@@ -284,9 +353,10 @@ export default function Home() {
                 style={{
                   border: "none",
                   background: "transparent",
-                  color: "#6b7280",
+                  color: sub,
                   cursor: "pointer",
                   fontSize: 13,
+                  fontWeight: 700,
                 }}
               >
                 履歴を消す
@@ -304,7 +374,7 @@ export default function Home() {
             {history.length === 0 ? (
               <span
                 style={{
-                  color: "#9ca3af",
+                  color: "#9aa6a7",
                   fontSize: 14,
                 }}
               >
@@ -316,13 +386,14 @@ export default function Home() {
                   key={item}
                   onClick={() => search(item)}
                   style={{
-                    border: "1px solid #d1d5db",
+                    border: `1px solid ${sandDeep}`,
                     background: "#ffffff",
                     borderRadius: 999,
                     padding: "9px 14px",
                     fontSize: 14,
                     cursor: "pointer",
-                    color: "#374151",
+                    color: "#4b5563",
+                    fontWeight: 700,
                   }}
                 >
                   {item}
@@ -334,45 +405,29 @@ export default function Home() {
 
         <section
           style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            marginBottom: 18,
-            gap: 12,
-            flexWrap: "wrap",
-          }}
-        >
-          <div
-            style={{
-              fontSize: 14,
-              color: "#6b7280",
-            }}
-          >
-            {resultCountText}
-          </div>
-        </section>
-
-        <section
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
-            gap: 18,
+            columnCount,
+            columnGap: "18px",
           }}
         >
           {filteredImages.map((img) => (
             <article
               key={img.id}
               style={{
-                background: "#ffffff",
-                borderRadius: 20,
+                breakInside: "avoid",
+                marginBottom: "18px",
+                background: card,
+                borderRadius: 24,
                 overflow: "hidden",
-                boxShadow: "0 8px 30px rgba(0,0,0,0.08)",
-                border: "1px solid #ececec",
-                transition: "transform 0.18s ease, box-shadow 0.18s ease",
+                border: `1px solid ${sandDeep}`,
+                boxShadow:
+                  hoveredId === img.id
+                    ? "0 18px 40px rgba(42, 167, 161, 0.16)"
+                    : "0 10px 24px rgba(71, 85, 105, 0.08)",
                 transform:
                   hoveredId === img.id
-                    ? "translateY(-4px) scale(1.03)"
-                    : "translateY(0) scale(1)",
+                    ? "translateY(-4px)"
+                    : "translateY(0)",
+                transition: "all 0.22s ease",
               }}
               onMouseEnter={() => setHoveredId(img.id)}
               onMouseLeave={() => setHoveredId(null)}
@@ -380,13 +435,7 @@ export default function Home() {
               <div
                 style={{
                   position: "relative",
-                  width: "100%",
-                  aspectRatio: "16 / 9",
-                  overflow: "hidden",
-                  background: "#e5e7eb",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
+                  background: "#f6efe5",
                 }}
               >
                 <img
@@ -394,14 +443,39 @@ export default function Home() {
                   alt={img.author || img.source}
                   style={{
                     width: "100%",
-                    height: "100%",
+                    height: "auto",
                     display: "block",
-                    objectFit: hoveredId === img.id ? "contain" : "cover",
-                    transition: "all 0.22s ease",
-                    background: hoveredId === img.id ? "#f3f4f6" : "transparent",
-                    padding: hoveredId === img.id ? "8px" : "0px",
+                    transition: "transform 0.22s ease, filter 0.22s ease",
+                    transform: hoveredId === img.id ? "scale(1.02)" : "scale(1)",
+                    filter: hoveredId === img.id ? "saturate(1.03)" : "saturate(1)",
                   }}
                 />
+
+                <div
+                  style={{
+                    position: "absolute",
+                    top: 12,
+                    left: 12,
+                    display: "flex",
+                    gap: 8,
+                    alignItems: "center",
+                  }}
+                >
+                  <span
+                    style={{
+                      display: "inline-block",
+                      fontSize: 12,
+                      fontWeight: 800,
+                      color: "#ffffff",
+                      background: "rgba(38, 70, 83, 0.78)",
+                      padding: "7px 10px",
+                      borderRadius: 999,
+                      backdropFilter: "blur(8px)",
+                    }}
+                  >
+                    {img.source}
+                  </span>
+                </div>
               </div>
 
               <div
@@ -415,34 +489,31 @@ export default function Home() {
                     justifyContent: "space-between",
                     alignItems: "center",
                     gap: 10,
-                    marginBottom: 10,
+                    marginBottom: 12,
                   }}
                 >
                   <span
                     style={{
-                      display: "inline-block",
                       fontSize: 12,
+                      color: sub,
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      whiteSpace: "nowrap",
+                      maxWidth: 170,
                       fontWeight: 700,
-                      color: "#111827",
-                      background: "#f3f4f6",
-                      padding: "6px 10px",
-                      borderRadius: 999,
                     }}
                   >
-                    {img.source}
+                    {img.author || "Unknown"}
                   </span>
 
                   <span
                     style={{
                       fontSize: 12,
-                      color: "#6b7280",
-                      overflow: "hidden",
-                      textOverflow: "ellipsis",
-                      whiteSpace: "nowrap",
-                      maxWidth: 160,
+                      color: accentDark,
+                      fontWeight: 800,
                     }}
                   >
-                    {img.author}
+                    {img.width && img.height ? `${img.width}×${img.height}` : ""}
                   </span>
                 </div>
 
@@ -452,16 +523,18 @@ export default function Home() {
                     width: "100%",
                     border: "none",
                     textAlign: "center",
-                    background: "#111827",
+                    background: hoveredId === img.id ? accentDark : accent,
                     color: "#ffffff",
                     padding: "13px 14px",
                     borderRadius: 14,
-                    fontWeight: 700,
+                    fontWeight: 800,
                     fontSize: 15,
                     cursor: "pointer",
+                    boxShadow: "0 10px 24px rgba(42, 167, 161, 0.22)",
+                    transition: "all 0.2s ease",
                   }}
                 >
-                  ダウンロード
+                  Download
                 </button>
               </div>
             </article>
