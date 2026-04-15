@@ -61,6 +61,7 @@ export default function Home() {
     if (!q) return
 
     setLoading(true)
+    setImages([])
 
     try {
       const res = await fetch(`/api/search?q=${encodeURIComponent(q)}`)
@@ -155,22 +156,6 @@ export default function Home() {
             marginBottom: 28,
           }}
         >
-          <div
-            style={{
-              display: "inline-block",
-              padding: "8px 14px",
-              borderRadius: 999,
-              background: "#ffffffaa",
-              border: `1px solid ${sandDeep}`,
-              color: accentDark,
-              fontSize: 13,
-              fontWeight: 700,
-              marginBottom: 14,
-            }}
-          >
-            Free Image Search
-          </div>
-
           <h1
             style={{
               fontSize: 44,
@@ -180,7 +165,7 @@ export default function Home() {
               color: "#264653",
             }}
           >
-            フリー画像検索
+            FreeStock Finder
           </h1>
 
           <p
@@ -403,144 +388,192 @@ export default function Home() {
           </div>
         </section>
 
-        <section
-          style={{
-            columnCount,
-            columnGap: "18px",
-          }}
-        >
-          {filteredImages.map((img) => (
-            <article
-              key={img.id}
+        {loading && (
+          <section
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: "42px 0 54px",
+              gap: 16,
+            }}
+          >
+            <div
               style={{
-                breakInside: "avoid",
-                marginBottom: "18px",
-                background: card,
-                borderRadius: 24,
-                overflow: "hidden",
-                border: `1px solid ${sandDeep}`,
-                boxShadow:
-                  hoveredId === img.id
-                    ? "0 18px 40px rgba(42, 167, 161, 0.16)"
-                    : "0 10px 24px rgba(71, 85, 105, 0.08)",
-                transform:
-                  hoveredId === img.id
-                    ? "translateY(-4px)"
-                    : "translateY(0)",
-                transition: "all 0.22s ease",
+                width: 46,
+                height: 46,
+                border: `4px solid ${sandDeep}`,
+                borderTop: `4px solid ${accent}`,
+                borderRadius: "50%",
+                animation: "spin 1s linear infinite",
+                boxShadow: "0 8px 20px rgba(42, 167, 161, 0.14)",
               }}
-              onMouseEnter={() => setHoveredId(img.id)}
-              onMouseLeave={() => setHoveredId(null)}
+            />
+            <div
+              style={{
+                color: accentDark,
+                fontWeight: 800,
+                fontSize: 15,
+                letterSpacing: "0.02em",
+              }}
             >
-              <div
+              画像を探しています...
+            </div>
+          </section>
+        )}
+
+        {!loading && (
+          <section
+            style={{
+              columnCount,
+              columnGap: "18px",
+            }}
+          >
+            {filteredImages.map((img) => (
+              <article
+                key={img.id}
                 style={{
-                  position: "relative",
-                  background: "#f6efe5",
+                  breakInside: "avoid",
+                  marginBottom: "18px",
+                  background: card,
+                  borderRadius: 24,
+                  overflow: "hidden",
+                  border: `1px solid ${sandDeep}`,
+                  boxShadow:
+                    hoveredId === img.id
+                      ? "0 18px 40px rgba(42, 167, 161, 0.16)"
+                      : "0 10px 24px rgba(71, 85, 105, 0.08)",
+                  transform:
+                    hoveredId === img.id
+                      ? "translateY(-4px)"
+                      : "translateY(0)",
+                  transition: "all 0.22s ease",
                 }}
+                onMouseEnter={() => setHoveredId(img.id)}
+                onMouseLeave={() => setHoveredId(null)}
               >
-                <img
-                  src={img.thumb}
-                  alt={img.author || img.source}
+                <div
                   style={{
-                    width: "100%",
-                    height: "auto",
-                    display: "block",
-                    transition: "transform 0.22s ease, filter 0.22s ease",
-                    transform: hoveredId === img.id ? "scale(1.02)" : "scale(1)",
-                    filter: hoveredId === img.id ? "saturate(1.03)" : "saturate(1)",
+                    position: "relative",
+                    background: "#f6efe5",
                   }}
-                />
+                >
+                  <img
+                    src={img.thumb}
+                    alt={img.author || img.source}
+                    style={{
+                      width: "100%",
+                      height: "auto",
+                      display: "block",
+                      transition: "transform 0.22s ease, filter 0.22s ease",
+                      transform: hoveredId === img.id ? "scale(1.02)" : "scale(1)",
+                      filter: hoveredId === img.id ? "saturate(1.03)" : "saturate(1)",
+                    }}
+                  />
+
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: 12,
+                      left: 12,
+                      display: "flex",
+                      gap: 8,
+                      alignItems: "center",
+                    }}
+                  >
+                    <span
+                      style={{
+                        display: "inline-block",
+                        fontSize: 12,
+                        fontWeight: 800,
+                        color: "#ffffff",
+                        background: "rgba(38, 70, 83, 0.78)",
+                        padding: "7px 10px",
+                        borderRadius: 999,
+                        backdropFilter: "blur(8px)",
+                      }}
+                    >
+                      {img.source}
+                    </span>
+                  </div>
+                </div>
 
                 <div
                   style={{
-                    position: "absolute",
-                    top: 12,
-                    left: 12,
-                    display: "flex",
-                    gap: 8,
-                    alignItems: "center",
+                    padding: 14,
                   }}
                 >
-                  <span
+                  <div
                     style={{
-                      display: "inline-block",
-                      fontSize: 12,
-                      fontWeight: 800,
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      gap: 10,
+                      marginBottom: 12,
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontSize: 12,
+                        color: sub,
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                        whiteSpace: "nowrap",
+                        maxWidth: 170,
+                        fontWeight: 700,
+                      }}
+                    >
+                      {img.author || "Unknown"}
+                    </span>
+
+                    <span
+                      style={{
+                        fontSize: 12,
+                        color: accentDark,
+                        fontWeight: 800,
+                      }}
+                    >
+                      {img.width && img.height ? `${img.width}×${img.height}` : ""}
+                    </span>
+                  </div>
+
+                  <button
+                    onClick={() => handleDownload(img)}
+                    style={{
+                      width: "100%",
+                      border: "none",
+                      textAlign: "center",
+                      background: hoveredId === img.id ? accentDark : accent,
                       color: "#ffffff",
-                      background: "rgba(38, 70, 83, 0.78)",
-                      padding: "7px 10px",
-                      borderRadius: 999,
-                      backdropFilter: "blur(8px)",
-                    }}
-                  >
-                    {img.source}
-                  </span>
-                </div>
-              </div>
-
-              <div
-                style={{
-                  padding: 14,
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    gap: 10,
-                    marginBottom: 12,
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: 12,
-                      color: sub,
-                      overflow: "hidden",
-                      textOverflow: "ellipsis",
-                      whiteSpace: "nowrap",
-                      maxWidth: 170,
-                      fontWeight: 700,
-                    }}
-                  >
-                    {img.author || "Unknown"}
-                  </span>
-
-                  <span
-                    style={{
-                      fontSize: 12,
-                      color: accentDark,
+                      padding: "13px 14px",
+                      borderRadius: 14,
                       fontWeight: 800,
+                      fontSize: 15,
+                      cursor: "pointer",
+                      boxShadow: "0 10px 24px rgba(42, 167, 161, 0.22)",
+                      transition: "all 0.2s ease",
                     }}
                   >
-                    {img.width && img.height ? `${img.width}×${img.height}` : ""}
-                  </span>
+                    Download
+                  </button>
                 </div>
-
-                <button
-                  onClick={() => handleDownload(img)}
-                  style={{
-                    width: "100%",
-                    border: "none",
-                    textAlign: "center",
-                    background: hoveredId === img.id ? accentDark : accent,
-                    color: "#ffffff",
-                    padding: "13px 14px",
-                    borderRadius: 14,
-                    fontWeight: 800,
-                    fontSize: 15,
-                    cursor: "pointer",
-                    boxShadow: "0 10px 24px rgba(42, 167, 161, 0.22)",
-                    transition: "all 0.2s ease",
-                  }}
-                >
-                  Download
-                </button>
-              </div>
-            </article>
-          ))}
-        </section>
+              </article>
+            ))}
+          </section>
+        )}
       </div>
+
+      <style jsx global>{`
+        @keyframes spin {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+      `}</style>
     </main>
   )
 }
