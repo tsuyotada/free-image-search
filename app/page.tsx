@@ -84,38 +84,32 @@ export default function Home() {
     localStorage.removeItem(HISTORY_KEY)
   }
 
-  const sanitizeFileName = (name: string) => {
-    return name.replace(/[\\/:*?"<>|]/g, "_")
+const sanitizeFileName = (name: string) => {
+  return name.replace(/[\\/:*?"<>|]/g, "_")
+}
+
+const handleDownload = (img: ImageItem) => {
+  try {
+    const extension =
+      img.downloadUrl.includes(".png")
+        ? "png"
+        : img.downloadUrl.includes(".webp")
+          ? "webp"
+          : "jpg"
+
+    const fileName = sanitizeFileName(`${img.source}-${img.id}.${extension}`)
+
+    const a = document.createElement("a")
+    a.href = `/api/download?url=${encodeURIComponent(img.downloadUrl)}&filename=${encodeURIComponent(fileName)}`
+    a.download = fileName
+    document.body.appendChild(a)
+    a.click()
+    a.remove()
+  } catch (error) {
+    console.error(error)
+    alert("ダウンロードに失敗しました。")
   }
-
-  const handleDownload = async (img: ImageItem) => {
-    try {
-      const response = await fetch(img.downloadUrl)
-      const blob = await response.blob()
-
-      const extension =
-        blob.type.includes("png")
-          ? "png"
-          : blob.type.includes("webp")
-            ? "webp"
-            : "jpg"
-
-      const fileName = sanitizeFileName(`${img.source}-${img.id}.${extension}`)
-      const blobUrl = URL.createObjectURL(blob)
-
-      const a = document.createElement("a")
-      a.href = blobUrl
-      a.download = fileName
-      document.body.appendChild(a)
-      a.click()
-      a.remove()
-
-      URL.revokeObjectURL(blobUrl)
-    } catch (error) {
-      console.error(error)
-      alert("ダウンロードに失敗しました。")
-    }
-  }
+}
 
   const filteredImages = images.filter((img) => {
     if (activeTab === "all") return true
