@@ -356,26 +356,26 @@ export default function Home() {
         <div style={{ maxWidth: 1380, margin: "0 auto" }}>
 
           {/* ── ヘッダー ── */}
-          <section style={{ textAlign: "center", marginBottom: 28 }}>
-            {/* ── サイト名（post-search）：ヒーローと同じ 28px ── */}
+          <section style={{ textAlign: "center", marginBottom: 22 }}>
+            {/* ── サイト名（post-search）：検索バーの引き立て役。極力目立たせない ── */}
             <h1
               style={{
-                fontSize: 28,
-                marginBottom: 5,
-                fontWeight: 700,
-                letterSpacing: "-0.02em",
-                color: text,
+                fontSize: 13,
+                marginBottom: 3,
+                fontWeight: 400,
+                letterSpacing: "0.03em",
+                color: "#c8c8c8",
               }}
             >
               Free Stock Finder
             </h1>
 
-            {/* ディスクリプション（英語・控えめ） */}
+            {/* ディスクリプション：ほぼ背景に溶け込ませる */}
             <p
               style={{
-                fontSize: 13,
-                color: muted,
-                marginBottom: 22,
+                fontSize: 11,
+                color: "#d4d4d4",
+                marginBottom: 16,
                 letterSpacing: "0.01em",
               }}
             >
@@ -397,7 +397,8 @@ export default function Home() {
                 gap: 8,
               }}
             >
-              <div style={{ fontSize: 17, color: muted, flexShrink: 0 }}>🔎</div>
+              {/* 虫眼鏡：存在は残しつつ視線を奪わないよう opacity を下げる */}
+              <div style={{ fontSize: 17, color: muted, flexShrink: 0, opacity: 0.38 }}>🔎</div>
 
               <input
                 value={query}
@@ -698,21 +699,22 @@ export default function Home() {
                         </span>
                       </div>
 
+                      {/* Download：黒CTAではなく「上品な操作ボタン」として軽く見せる */}
                       <button
                         onClick={() => handleDownload(img)}
                         style={{
                           width: "100%",
-                          border: "none",
+                          border: "1px solid #e4e4e4",
                           textAlign: "center",
-                          background: hoveredId === img.id ? inkDark : ink,
-                          color: "#ffffff",
-                          padding: "11px 14px",
+                          background: hoveredId === img.id ? "#e6e6e6" : "#f0f0f0",
+                          color: hoveredId === img.id ? "#222222" : "#505050",
+                          padding: "9px 14px",
                           borderRadius: 12,
-                          fontWeight: 600,
+                          fontWeight: 500,
                           fontSize: 13,
                           cursor: "pointer",
                           letterSpacing: "0.01em",
-                          transition: "background 0.18s ease",
+                          transition: "background 0.18s ease, color 0.18s ease",
                         }}
                       >
                         Download
