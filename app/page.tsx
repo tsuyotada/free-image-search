@@ -356,31 +356,20 @@ export default function Home() {
         <div style={{ maxWidth: 1380, margin: "0 auto" }}>
 
           {/* ── ヘッダー ── */}
-          <section style={{ textAlign: "center", marginBottom: 22 }}>
-            {/* ── サイト名（post-search）：検索バーの引き立て役。極力目立たせない ── */}
+          <section style={{ textAlign: "center", marginBottom: 20 }}>
+            {/* サイト名 · ディスクリプション：1行・既存 sub 色・通常ウェイト */}
             <h1
               style={{
-                fontSize: 13,
-                marginBottom: 3,
+                fontSize: 12,
                 fontWeight: 400,
-                letterSpacing: "0.03em",
-                color: "#c8c8c8",
+                color: sub,
+                letterSpacing: "0.02em",
+                lineHeight: 1.5,
+                marginBottom: 14,
               }}
             >
-              Free Stock Finder
+              Free Stock Finder &nbsp;·&nbsp; Search across Unsplash, Pexels, Pixabay &amp; Openverse
             </h1>
-
-            {/* ディスクリプション：ほぼ背景に溶け込ませる */}
-            <p
-              style={{
-                fontSize: 11,
-                color: "#d4d4d4",
-                marginBottom: 16,
-                letterSpacing: "0.01em",
-              }}
-            >
-              Search across Unsplash, Pexels, Pixabay &amp; Openverse
-            </p>
 
             {/* 検索バー */}
             <div
@@ -397,8 +386,7 @@ export default function Home() {
                 gap: 8,
               }}
             >
-              {/* 虫眼鏡：存在は残しつつ視線を奪わないよう opacity を下げる */}
-              <div style={{ fontSize: 17, color: muted, flexShrink: 0, opacity: 0.38 }}>🔎</div>
+              <div style={{ fontSize: 17, color: muted, flexShrink: 0 }}>🔎</div>
 
               <input
                 value={query}
