@@ -17,6 +17,19 @@ type ImageItem = {
 const HISTORY_KEY = "free-image-search-history"
 const FADE_MS = 650
 
+// ── Monochrome palette ──────────────────────────────────────────────────────
+// ヒーロー・Pinterest 画面どちらでも同じ世界観に見えるよう、
+// ターコイズ・サンドベージュを廃してグレーの階調に統一する。
+const bg       = "#f3f3f3"   // ページ背景
+const bgDeep   = "#e9e9e9"   // グラデーション終端
+const bgCard   = "#ffffff"   // カード・検索バー
+const border   = "#e0e0e0"   // 通常ボーダー
+const text     = "#1a1a1a"   // 一次テキスト
+const sub      = "#767676"   // 二次テキスト
+const muted    = "#b2b2b2"   // ミュートテキスト
+const ink      = "#313131"   // プライマリボタン（チャコール）
+const inkDark  = "#1a1a1a"   // ボタンホバー
+
 export default function Home() {
   const [query, setQuery] = useState("")
   const [images, setImages] = useState<ImageItem[]>([])
@@ -29,7 +42,6 @@ export default function Home() {
   const [columnCount, setColumnCount] = useState(4)
   const [visibleCount, setVisibleCount] = useState(24)
   const [heroImage, setHeroImage] = useState<string | null>(null)
-  // "visible" → "fading" → "hidden" の3フェーズでトランジション管理
   const [heroPhase, setHeroPhase] = useState<"visible" | "fading" | "hidden">("visible")
 
   useEffect(() => {
@@ -48,9 +60,7 @@ export default function Home() {
 
     fetch("/api/hero")
       .then((r) => r.json())
-      .then((data) => {
-        if (data.url) setHeroImage(data.url)
-      })
+      .then((data) => { if (data.url) setHeroImage(data.url) })
       .catch(() => {})
 
     return () => window.removeEventListener("resize", updateColumns)
@@ -68,7 +78,6 @@ export default function Home() {
     const q = (forcedQuery ?? query).trim()
     if (!q) return
 
-    // ヒーローをフェードアウト開始 → FADE_MS 後に DOM から除去
     setHeroPhase("fading")
     setLoading(true)
     setImages([])
@@ -123,19 +132,10 @@ export default function Home() {
   const hasMore = filteredImages.length > visibleCount
 
   const resultCountText = useMemo(() => {
-    if (loading) return "検索中..."
-    if (filteredImages.length === 0) return "画像はまだありません"
-    return `${filteredImages.length}件の画像`
+    if (loading) return "Searching..."
+    if (filteredImages.length === 0) return "No images yet"
+    return `${filteredImages.length} photos`
   }, [loading, filteredImages.length])
-
-  const accent = "#2aa7a1"
-  const accentDark = "#1f8d88"
-  // 検索後は彩度をやや抑えたサンドベージュ
-  const sand = "#ede9e2"
-  const sandDeep = "#dbd6ce"
-  const card = "#faf8f5"
-  const text = "#3a4150"
-  const sub = "#7c8a8b"
 
   return (
     <>
@@ -146,7 +146,7 @@ export default function Home() {
             position: "fixed",
             inset: 0,
             backgroundImage: heroImage ? `url(${heroImage})` : undefined,
-            backgroundColor: heroImage ? undefined : "#1a2b3c",
+            backgroundColor: heroImage ? undefined : "#111111",
             backgroundSize: "cover",
             backgroundPosition: "center",
             display: "flex",
@@ -154,7 +154,6 @@ export default function Home() {
             justifyContent: "center",
             fontFamily: "Arial, Helvetica, sans-serif",
             zIndex: 10,
-            // fading フェーズで opacity 0 + 微妙なズームでフェードアウト
             opacity: heroPhase === "visible" ? 1 : 0,
             transform: heroPhase === "visible" ? "scale(1)" : "scale(1.04)",
             transition: `opacity ${FADE_MS}ms ease, transform ${FADE_MS}ms ease`,
@@ -162,16 +161,17 @@ export default function Home() {
             willChange: "opacity, transform",
           }}
         >
-          {/* Dark overlay */}
+          {/* オーバーレイ：純粋なブラック系グレデーション */}
           <div
             style={{
               position: "absolute",
               inset: 0,
-              background: "rgba(0, 0, 0, 0.38)",
+              background:
+                "linear-gradient(to bottom, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.48) 100%)",
             }}
           />
 
-          {/* Center content */}
+          {/* 中央コンテンツ */}
           <div
             style={{
               position: "relative",
@@ -184,39 +184,52 @@ export default function Home() {
               padding: "0 18px",
             }}
           >
-            {/* コンパクトタイトル */}
-            <div
+            {/* ── サイト名（ヒーロー）：post-search と同じ 28px に揃える ── */}
+            <h1
               style={{
-                fontSize: 14,
-                fontWeight: 800,
-                color: "rgba(255,255,255,0.6)",
-                letterSpacing: "0.12em",
-                textTransform: "uppercase",
-                marginBottom: 24,
-                textShadow: "0 1px 8px rgba(0,0,0,0.4)",
+                fontSize: 28,
+                fontWeight: 700,
+                color: "#ffffff",
+                letterSpacing: "-0.02em",
+                marginBottom: 6,
+                textShadow: "0 1px 12px rgba(0,0,0,0.45)",
+                textAlign: "center",
               }}
             >
               Free Stock Finder
-            </div>
+            </h1>
+
+            {/* ディスクリプション（英語・控えめ） */}
+            <p
+              style={{
+                fontSize: 13,
+                color: "rgba(255,255,255,0.50)",
+                marginBottom: 28,
+                textAlign: "center",
+                letterSpacing: "0.01em",
+              }}
+            >
+              Search across Unsplash, Pexels, Pixabay &amp; Openverse
+            </p>
 
             {/* ガラス風検索バー */}
             <div
               style={{
                 width: "100%",
-                background: "rgba(255,255,255,0.16)",
-                backdropFilter: "blur(16px)",
-                WebkitBackdropFilter: "blur(16px)",
+                background: "rgba(255,255,255,0.14)",
+                backdropFilter: "blur(18px)",
+                WebkitBackdropFilter: "blur(18px)",
                 borderRadius: 999,
                 display: "flex",
                 alignItems: "center",
                 padding: "8px 8px 8px 20px",
-                border: "1px solid rgba(255,255,255,0.32)",
-                boxShadow: "0 8px 32px rgba(0,0,0,0.22)",
+                border: "1px solid rgba(255,255,255,0.28)",
+                boxShadow: "0 8px 32px rgba(0,0,0,0.24)",
                 gap: 8,
               }}
             >
               <div
-                style={{ fontSize: 18, color: "rgba(255,255,255,0.75)", flexShrink: 0 }}
+                style={{ fontSize: 17, color: "rgba(255,255,255,0.65)", flexShrink: 0 }}
               >
                 🔎
               </div>
@@ -225,38 +238,39 @@ export default function Home() {
                 className="hero-input"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") search()
-                }}
-                placeholder="検索ワードを入力（例: cat / interior / 海 / cafe）"
+                onKeyDown={(e) => { if (e.key === "Enter") search() }}
+                placeholder="Search photos (e.g. cat, interior, landscape…)"
                 style={{
                   flex: 1,
                   border: "none",
                   outline: "none",
-                  fontSize: 17,
+                  fontSize: 16,
                   background: "transparent",
                   padding: "10px 6px",
                   color: "#ffffff",
                 }}
               />
 
+              {/* ボタン：ダーク・フロストガラス ─ どんな背景にも馴染む */}
               <button
                 onClick={() => search()}
                 style={{
-                  border: "none",
-                  background: accent,
+                  border: "1px solid rgba(255,255,255,0.18)",
+                  background: "rgba(15,15,15,0.65)",
+                  backdropFilter: "blur(12px)",
+                  WebkitBackdropFilter: "blur(12px)",
                   color: "#ffffff",
                   borderRadius: 999,
-                  padding: "12px 24px",
-                  fontSize: 15,
-                  fontWeight: 700,
+                  padding: "11px 22px",
+                  fontSize: 14,
+                  fontWeight: 600,
                   cursor: "pointer",
-                  boxShadow: "0 8px 20px rgba(42, 167, 161, 0.32)",
                   whiteSpace: "nowrap",
                   flexShrink: 0,
+                  letterSpacing: "0.01em",
                 }}
               >
-                検索
+                Search
               </button>
             </div>
 
@@ -273,14 +287,14 @@ export default function Home() {
                 >
                   <span
                     style={{
-                      color: "rgba(255,255,255,0.5)",
+                      color: "rgba(255,255,255,0.40)",
                       fontSize: 11,
-                      fontWeight: 700,
+                      fontWeight: 600,
                       letterSpacing: "0.08em",
                       textTransform: "uppercase",
                     }}
                   >
-                    最近の検索
+                    Recent
                   </span>
 
                   <button
@@ -288,32 +302,32 @@ export default function Home() {
                     style={{
                       border: "none",
                       background: "transparent",
-                      color: "rgba(255,255,255,0.42)",
+                      color: "rgba(255,255,255,0.35)",
                       cursor: "pointer",
                       fontSize: 12,
-                      fontWeight: 700,
+                      fontWeight: 600,
                     }}
                   >
-                    履歴を消す
+                    Clear
                   </button>
                 </div>
 
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 7 }}>
                   {history.slice(0, 10).map((item) => (
                     <button
                       key={item}
                       onClick={() => search(item)}
                       style={{
-                        border: "1px solid rgba(255,255,255,0.22)",
-                        background: "rgba(255,255,255,0.11)",
+                        border: "1px solid rgba(255,255,255,0.20)",
+                        background: "rgba(255,255,255,0.10)",
                         backdropFilter: "blur(8px)",
                         WebkitBackdropFilter: "blur(8px)",
                         borderRadius: 999,
-                        padding: "7px 14px",
+                        padding: "7px 13px",
                         fontSize: 13,
                         cursor: "pointer",
-                        color: "rgba(255,255,255,0.86)",
-                        fontWeight: 600,
+                        color: "rgba(255,255,255,0.82)",
+                        fontWeight: 500,
                       }}
                     >
                       {item}
@@ -330,66 +344,74 @@ export default function Home() {
       <main
         style={{
           minHeight: "100vh",
-          background: `linear-gradient(180deg, ${sand} 0%, #e4e0d8 100%)`,
+          background: `linear-gradient(180deg, ${bg} 0%, ${bgDeep} 100%)`,
           padding: "32px 18px 72px",
           color: text,
           fontFamily: "Arial, Helvetica, sans-serif",
-          // ヒーロー表示中は透明・非インタラクティブ、fading で同時にフェードイン
           opacity: heroPhase === "visible" ? 0 : 1,
           transition: `opacity ${FADE_MS}ms ease`,
           pointerEvents: heroPhase === "visible" ? "none" : "auto",
         }}
       >
         <div style={{ maxWidth: 1380, margin: "0 auto" }}>
-          {/* ヘッダー（タイトル＋検索バー） */}
+
+          {/* ── ヘッダー ── */}
           <section style={{ textAlign: "center", marginBottom: 28 }}>
+            {/* ── サイト名（post-search）：ヒーローと同じ 28px ── */}
             <h1
               style={{
-                fontSize: 44,
-                marginBottom: 12,
-                fontWeight: 800,
-                letterSpacing: "-0.04em",
-                color: "#264653",
+                fontSize: 28,
+                marginBottom: 5,
+                fontWeight: 700,
+                letterSpacing: "-0.02em",
+                color: text,
               }}
             >
               Free Stock Finder
             </h1>
 
-            <p style={{ fontSize: 16, color: sub, marginBottom: 26 }}>
-              Unsplash・Pexels・Pixabay・Openverse をまとめて検索
+            {/* ディスクリプション（英語・控えめ） */}
+            <p
+              style={{
+                fontSize: 13,
+                color: muted,
+                marginBottom: 22,
+                letterSpacing: "0.01em",
+              }}
+            >
+              Search across Unsplash, Pexels, Pixabay &amp; Openverse
             </p>
 
+            {/* 検索バー */}
             <div
               style={{
                 maxWidth: 920,
                 margin: "0 auto",
-                background: "#fffdfa",
+                background: bgCard,
                 borderRadius: 999,
                 display: "flex",
                 alignItems: "center",
-                padding: "10px 12px 10px 18px",
-                boxShadow: "0 10px 30px rgba(71, 85, 105, 0.08)",
-                border: `1px solid ${sandDeep}`,
-                gap: 10,
+                padding: "9px 9px 9px 18px",
+                boxShadow: "0 2px 16px rgba(0,0,0,0.06)",
+                border: `1px solid ${border}`,
+                gap: 8,
               }}
             >
-              <div style={{ fontSize: 18, color: accentDark }}>🔎</div>
+              <div style={{ fontSize: 17, color: muted, flexShrink: 0 }}>🔎</div>
 
               <input
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") search()
-                }}
-                placeholder="検索ワードを入力（例: cat / interior / 海 / cafe）"
+                onKeyDown={(e) => { if (e.key === "Enter") search() }}
+                placeholder="Search photos (e.g. cat, interior, landscape…)"
                 style={{
                   flex: 1,
                   border: "none",
                   outline: "none",
-                  fontSize: 17,
+                  fontSize: 16,
                   background: "transparent",
-                  padding: "10px 6px",
-                  color: "#264653",
+                  padding: "9px 6px",
+                  color: text,
                 }}
               />
 
@@ -397,22 +419,23 @@ export default function Home() {
                 onClick={() => search()}
                 style={{
                   border: "none",
-                  background: accent,
+                  background: ink,
                   color: "#ffffff",
                   borderRadius: 999,
-                  padding: "12px 22px",
-                  fontSize: 15,
-                  fontWeight: 700,
+                  padding: "11px 22px",
+                  fontSize: 14,
+                  fontWeight: 600,
                   cursor: "pointer",
-                  boxShadow: "0 8px 20px rgba(42, 167, 161, 0.28)",
+                  letterSpacing: "0.01em",
+                  flexShrink: 0,
                 }}
               >
-                検索
+                Search
               </button>
             </div>
           </section>
 
-          {/* タブ＋件数 */}
+          {/* ── タブ＋件数 ── */}
           <section
             style={{
               display: "flex",
@@ -423,9 +446,9 @@ export default function Home() {
               marginBottom: 18,
             }}
           >
-            <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+            <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
               {[
-                { key: "all", label: "すべて" },
+                { key: "all", label: "All" },
                 { key: "Unsplash", label: "Unsplash" },
                 { key: "Pexels", label: "Pexels" },
                 { key: "Pixabay", label: "Pixabay" },
@@ -441,19 +464,17 @@ export default function Home() {
                   style={{
                     border:
                       activeTab === tab.key
-                        ? `1px solid ${accent}`
-                        : `1px solid ${sandDeep}`,
-                    background: activeTab === tab.key ? accent : "#fffdfa",
-                    color: activeTab === tab.key ? "#ffffff" : "#4b5563",
+                        ? `1px solid ${ink}`
+                        : `1px solid ${border}`,
+                    background: activeTab === tab.key ? ink : bgCard,
+                    color: activeTab === tab.key ? "#ffffff" : sub,
                     borderRadius: 999,
-                    padding: "10px 16px",
-                    fontSize: 14,
-                    fontWeight: 700,
+                    padding: "9px 16px",
+                    fontSize: 13,
+                    fontWeight: 600,
                     cursor: "pointer",
-                    boxShadow:
-                      activeTab === tab.key
-                        ? "0 8px 18px rgba(42, 167, 161, 0.22)"
-                        : "none",
+                    letterSpacing: "0.01em",
+                    boxShadow: "none",
                   }}
                 >
                   {tab.label}
@@ -461,20 +482,20 @@ export default function Home() {
               ))}
             </div>
 
-            <div style={{ fontSize: 14, color: sub, fontWeight: 700 }}>
+            <div style={{ fontSize: 13, color: muted, fontWeight: 500 }}>
               {resultCountText}
             </div>
           </section>
 
-          {/* 検索履歴 */}
+          {/* ── 検索履歴 ── */}
           <section
             style={{
-              marginBottom: 26,
-              background: "#faf8f2",
-              border: `1px solid ${sandDeep}`,
-              borderRadius: 24,
-              padding: "18px 18px 16px",
-              boxShadow: "0 10px 24px rgba(71, 85, 105, 0.05)",
+              marginBottom: 24,
+              background: bgCard,
+              border: `1px solid ${border}`,
+              borderRadius: 20,
+              padding: "16px 18px 14px",
+              boxShadow: "0 1px 8px rgba(0,0,0,0.04)",
             }}
           >
             <div
@@ -482,13 +503,21 @@ export default function Home() {
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
-                marginBottom: 12,
+                marginBottom: 11,
                 gap: 12,
                 flexWrap: "wrap",
               }}
             >
-              <div style={{ fontSize: 14, color: accentDark, fontWeight: 800 }}>
-                検索履歴
+              <div
+                style={{
+                  fontSize: 11,
+                  color: muted,
+                  fontWeight: 600,
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
+                }}
+              >
+                Recent searches
               </div>
 
               {history.length > 0 && (
@@ -497,36 +526,34 @@ export default function Home() {
                   style={{
                     border: "none",
                     background: "transparent",
-                    color: sub,
+                    color: muted,
                     cursor: "pointer",
-                    fontSize: 13,
-                    fontWeight: 700,
+                    fontSize: 12,
+                    fontWeight: 500,
                   }}
                 >
-                  履歴を消す
+                  Clear
                 </button>
               )}
             </div>
 
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
               {history.length === 0 ? (
-                <span style={{ color: "#9aa6a7", fontSize: 14 }}>
-                  まだ履歴はありません
-                </span>
+                <span style={{ color: muted, fontSize: 13 }}>No history yet</span>
               ) : (
                 history.map((item) => (
                   <button
                     key={item}
                     onClick={() => search(item)}
                     style={{
-                      border: `1px solid ${sandDeep}`,
-                      background: "#ffffff",
+                      border: `1px solid ${border}`,
+                      background: bg,
                       borderRadius: 999,
-                      padding: "9px 14px",
-                      fontSize: 14,
+                      padding: "8px 14px",
+                      fontSize: 13,
                       cursor: "pointer",
-                      color: "#4b5563",
-                      fontWeight: 700,
+                      color: sub,
+                      fontWeight: 500,
                     }}
                   >
                     {item}
@@ -536,7 +563,7 @@ export default function Home() {
             </div>
           </section>
 
-          {/* ローディング */}
+          {/* ── ローディング ── */}
           {loading && (
             <section
               style={{
@@ -544,60 +571,59 @@ export default function Home() {
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
-                padding: "42px 0 54px",
+                padding: "48px 0 60px",
                 gap: 16,
               }}
             >
               <div
                 style={{
-                  width: 46,
-                  height: 46,
-                  border: `4px solid ${sandDeep}`,
-                  borderTop: `4px solid ${accent}`,
+                  width: 40,
+                  height: 40,
+                  border: `3px solid ${border}`,
+                  borderTop: `3px solid ${ink}`,
                   borderRadius: "50%",
-                  animation: "spin 1s linear infinite",
-                  boxShadow: "0 8px 20px rgba(42, 167, 161, 0.14)",
+                  animation: "spin 0.9s linear infinite",
                 }}
               />
               <div
                 style={{
-                  color: accentDark,
-                  fontWeight: 800,
-                  fontSize: 15,
+                  color: sub,
+                  fontWeight: 500,
+                  fontSize: 14,
                   letterSpacing: "0.02em",
                 }}
               >
-                画像を探しています...
+                Searching…
               </div>
             </section>
           )}
 
-          {/* 画像グリッド */}
+          {/* ── 画像グリッド ── */}
           {!loading && (
             <>
-              <section style={{ columnCount, columnGap: "18px" }}>
+              <section style={{ columnCount, columnGap: "16px" }}>
                 {visibleImages.map((img) => (
                   <article
                     key={img.id}
                     style={{
                       breakInside: "avoid",
-                      marginBottom: "18px",
-                      background: card,
-                      borderRadius: 24,
+                      marginBottom: "16px",
+                      background: bgCard,
+                      borderRadius: 20,
                       overflow: "hidden",
-                      border: `1px solid ${sandDeep}`,
+                      border: `1px solid ${border}`,
                       boxShadow:
                         hoveredId === img.id
-                          ? "0 18px 40px rgba(42, 167, 161, 0.16)"
-                          : "0 10px 24px rgba(71, 85, 105, 0.08)",
+                          ? "0 12px 32px rgba(0,0,0,0.12)"
+                          : "0 2px 10px rgba(0,0,0,0.05)",
                       transform:
-                        hoveredId === img.id ? "translateY(-4px)" : "translateY(0)",
-                      transition: "all 0.22s ease",
+                        hoveredId === img.id ? "translateY(-3px)" : "translateY(0)",
+                      transition: "box-shadow 0.22s ease, transform 0.22s ease",
                     }}
                     onMouseEnter={() => setHoveredId(img.id)}
                     onMouseLeave={() => setHoveredId(null)}
                   >
-                    <div style={{ position: "relative", background: "#f6efe5" }}>
+                    <div style={{ position: "relative", background: "#f0f0f0" }}>
                       <img
                         src={img.thumb}
                         alt={img.author || img.source}
@@ -605,33 +631,30 @@ export default function Home() {
                           width: "100%",
                           height: "auto",
                           display: "block",
-                          transition: "transform 0.22s ease, filter 0.22s ease",
+                          transition: "transform 0.22s ease",
                           transform: hoveredId === img.id ? "scale(1.02)" : "scale(1)",
-                          filter:
-                            hoveredId === img.id ? "saturate(1.03)" : "saturate(1)",
                         }}
                       />
 
+                      {/* ソースバッジ */}
                       <div
                         style={{
                           position: "absolute",
-                          top: 12,
-                          left: 12,
-                          display: "flex",
-                          gap: 8,
-                          alignItems: "center",
+                          top: 10,
+                          left: 10,
                         }}
                       >
                         <span
                           style={{
                             display: "inline-block",
-                            fontSize: 12,
-                            fontWeight: 800,
+                            fontSize: 11,
+                            fontWeight: 600,
                             color: "#ffffff",
-                            background: "rgba(38, 70, 83, 0.78)",
-                            padding: "7px 10px",
+                            background: "rgba(10,10,10,0.68)",
+                            padding: "5px 10px",
                             borderRadius: 999,
                             backdropFilter: "blur(8px)",
+                            letterSpacing: "0.02em",
                           }}
                         >
                           {img.source}
@@ -639,31 +662,38 @@ export default function Home() {
                       </div>
                     </div>
 
-                    <div style={{ padding: 14 }}>
+                    <div style={{ padding: "12px 14px 14px" }}>
                       <div
                         style={{
                           display: "flex",
                           justifyContent: "space-between",
                           alignItems: "center",
-                          gap: 10,
-                          marginBottom: 12,
+                          gap: 8,
+                          marginBottom: 11,
                         }}
                       >
                         <span
                           style={{
                             fontSize: 12,
-                            color: sub,
+                            color: muted,
                             overflow: "hidden",
                             textOverflow: "ellipsis",
                             whiteSpace: "nowrap",
                             maxWidth: 170,
-                            fontWeight: 700,
+                            fontWeight: 400,
                           }}
                         >
                           {img.author || "Unknown"}
                         </span>
 
-                        <span style={{ fontSize: 12, color: accentDark, fontWeight: 800 }}>
+                        <span
+                          style={{
+                            fontSize: 11,
+                            color: muted,
+                            fontWeight: 400,
+                            whiteSpace: "nowrap",
+                          }}
+                        >
                           {img.width && img.height ? `${img.width}×${img.height}` : ""}
                         </span>
                       </div>
@@ -674,15 +704,15 @@ export default function Home() {
                           width: "100%",
                           border: "none",
                           textAlign: "center",
-                          background: hoveredId === img.id ? accentDark : accent,
+                          background: hoveredId === img.id ? inkDark : ink,
                           color: "#ffffff",
-                          padding: "13px 14px",
-                          borderRadius: 14,
-                          fontWeight: 800,
-                          fontSize: 15,
+                          padding: "11px 14px",
+                          borderRadius: 12,
+                          fontWeight: 600,
+                          fontSize: 13,
                           cursor: "pointer",
-                          boxShadow: "0 10px 24px rgba(42, 167, 161, 0.22)",
-                          transition: "all 0.2s ease",
+                          letterSpacing: "0.01em",
+                          transition: "background 0.18s ease",
                         }}
                       >
                         Download
@@ -694,23 +724,24 @@ export default function Home() {
 
               {hasMore && (
                 <div
-                  style={{ display: "flex", justifyContent: "center", marginTop: 30 }}
+                  style={{ display: "flex", justifyContent: "center", marginTop: 32 }}
                 >
                   <button
                     onClick={() => setVisibleCount((prev) => prev + 24)}
                     style={{
-                      border: "none",
-                      background: accent,
-                      color: "#ffffff",
-                      padding: "14px 24px",
+                      border: `1px solid ${border}`,
+                      background: bgCard,
+                      color: sub,
+                      padding: "12px 28px",
                       borderRadius: 999,
-                      fontWeight: 800,
-                      fontSize: 15,
+                      fontWeight: 600,
+                      fontSize: 14,
                       cursor: "pointer",
-                      boxShadow: "0 10px 24px rgba(42, 167, 161, 0.22)",
+                      letterSpacing: "0.01em",
+                      boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
                     }}
                   >
-                    もっと見る
+                    Load more
                   </button>
                 </div>
               )}
@@ -721,11 +752,14 @@ export default function Home() {
 
       <style jsx global>{`
         @keyframes spin {
-          0% { transform: rotate(0deg); }
+          0%   { transform: rotate(0deg); }
           100% { transform: rotate(360deg); }
         }
         .hero-input::placeholder {
-          color: rgba(255, 255, 255, 0.52);
+          color: rgba(255, 255, 255, 0.45);
+        }
+        input::placeholder {
+          color: #b2b2b2;
         }
       `}</style>
     </>
