@@ -1,6 +1,7 @@
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url)
   const query = searchParams.get("q")
+  const perPage = Math.min(Number(searchParams.get("per_page") || "12"), 30)
 
   if (!query) {
     return Response.json([])
@@ -8,7 +9,7 @@ export async function GET(req: Request) {
 
   // ===== Unsplash =====
   const unsplashRes = await fetch(
-    `https://api.unsplash.com/search/photos?query=${encodeURIComponent(query)}&per_page=12`,
+    `https://api.unsplash.com/search/photos?query=${encodeURIComponent(query)}&per_page=${perPage}`,
     {
       headers: {
         Authorization: `Client-ID ${process.env.UNSPLASH_KEY}`,
@@ -19,7 +20,7 @@ export async function GET(req: Request) {
 
   // ===== Pexels =====
   const pexelsRes = await fetch(
-    `https://api.pexels.com/v1/search?query=${encodeURIComponent(query)}&per_page=12`,
+    `https://api.pexels.com/v1/search?query=${encodeURIComponent(query)}&per_page=${perPage}`,
     {
       headers: {
         Authorization: process.env.PEXELS_KEY!,
@@ -30,13 +31,13 @@ export async function GET(req: Request) {
 
   // ===== Pixabay =====
   const pixabayRes = await fetch(
-    `https://pixabay.com/api/?key=${process.env.PIXABAY_KEY}&q=${encodeURIComponent(query)}&image_type=photo&per_page=12`
+    `https://pixabay.com/api/?key=${process.env.PIXABAY_KEY}&q=${encodeURIComponent(query)}&image_type=photo&per_page=${perPage}`
   )
   const pixabayData = await pixabayRes.json()
 
   // ===== Openverse =====
   const openverseRes = await fetch(
-    `https://api.openverse.engineering/v1/images?q=${encodeURIComponent(query)}&page_size=20`
+    `https://api.openverse.engineering/v1/images?q=${encodeURIComponent(query)}&page_size=${perPage}`
   )
   const openverseData = await openverseRes.json()
 

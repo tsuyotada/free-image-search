@@ -56,6 +56,11 @@ export default function Home() {
   const [heroPhase, setHeroPhase] = useState<"visible" | "fading" | "hidden">("visible")
   const [downloadHistory, setDownloadHistory] = useState<DownloadHistoryItem[]>([])
   const [showHistory, setShowHistory] = useState(false)
+  const [mode, setMode] = useState<"normal" | "ai">("normal")
+  const [aiPrompt, setAiPrompt] = useState("")
+  const [aiQueries, setAiQueries] = useState<string[]>([])
+  const [aiLoading, setAiLoading] = useState(false)
+  const [aiError, setAiError] = useState("")
 
   useEffect(() => {
     const saved = localStorage.getItem(HISTORY_KEY)
@@ -159,6 +164,60 @@ export default function Home() {
   const clearDownloadHistory = () => {
     setDownloadHistory([])
     localStorage.removeItem(DOWNLOAD_HISTORY_KEY)
+  }
+
+  const searchAiRecommend = async () => {
+    const prompt = aiPrompt.trim()
+    if (!prompt) return
+
+    setHeroPhase("fading")
+    setAiLoading(true)
+    setAiError("")
+    setAiQueries([])
+    setImages([])
+    setVisibleCount(24)
+    setTimeout(() => setHeroPhase("hidden"), FADE_MS)
+
+    try {
+      const aiRes = await fetch("/api/ai-recommend", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt }),
+      })
+      const aiData = await aiRes.json()
+      if (!aiRes.ok || !aiData.queries) {
+        setAiError(aiData.error || "AIの処理に失敗しました。")
+        return
+      }
+
+      const queries: string[] = aiData.queries
+      setAiQueries(queries)
+
+      const results = await Promise.all(
+        queries.map((q) =>
+          fetch(`/api/search?q=${encodeURIComponent(q)}&per_page=6`)
+            .then((r) => r.json())
+            .catch(() => [])
+        )
+      )
+
+      const seenIds = new Set<string>()
+      const merged: ImageItem[] = []
+      for (const batch of results) {
+        for (const img of batch) {
+          if (!seenIds.has(img.id)) {
+            seenIds.add(img.id)
+            merged.push(img)
+          }
+        }
+      }
+      setImages(merged)
+    } catch (error) {
+      console.error(error)
+      setAiError("ネットワークエラーが発生しました。")
+    } finally {
+      setAiLoading(false)
+    }
   }
 
   const filteredImages = images.filter((img) =>
@@ -393,7 +452,6 @@ export default function Home() {
 
           {/* ── ヘッダー ── */}
           <section style={{ textAlign: "center", marginBottom: 20 }}>
-            {/* サイト名 · ディスクリプション：1行・既存 sub 色・通常ウェイト */}
             <h1
               style={{
                 fontSize: 12,
@@ -407,58 +465,191 @@ export default function Home() {
               Free Stock Finder &nbsp;·&nbsp; Search across Unsplash, Pexels, Pixabay &amp; Openverse
             </h1>
 
-            {/* 検索バー */}
+            {/* モード切替トグル */}
             <div
               style={{
-                maxWidth: 920,
-                margin: "0 auto",
-                background: bgCard,
-                borderRadius: 999,
-                display: "flex",
-                alignItems: "center",
-                padding: "9px 9px 9px 18px",
-                boxShadow: "0 2px 16px rgba(0,0,0,0.06)",
+                display: "inline-flex",
                 border: `1px solid ${border}`,
-                gap: 8,
+                borderRadius: 999,
+                background: bgCard,
+                padding: 3,
+                marginBottom: 12,
+                gap: 2,
               }}
             >
-              <div style={{ fontSize: 17, color: muted, flexShrink: 0 }}>🔎</div>
+              {(["normal", "ai"] as const).map((m) => (
+                <button
+                  key={m}
+                  onClick={() => { setMode(m); setAiError("") }}
+                  style={{
+                    border: "none",
+                    background: mode === m ? ink : "transparent",
+                    color: mode === m ? "#ffffff" : muted,
+                    borderRadius: 999,
+                    padding: "7px 16px",
+                    fontSize: 12,
+                    fontWeight: 600,
+                    cursor: "pointer",
+                    letterSpacing: "0.01em",
+                    transition: "background 0.15s ease, color 0.15s ease",
+                  }}
+                >
+                  {m === "normal" ? "Search" : "AI Recommend"}
+                </button>
+              ))}
+            </div>
 
-              <input
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                onKeyDown={(e) => { if (e.key === "Enter") search() }}
-                placeholder="Search photos (e.g. cat, interior, landscape…)"
+            {/* 通常検索バー */}
+            {mode === "normal" && (
+              <div
                 style={{
-                  flex: 1,
-                  border: "none",
-                  outline: "none",
-                  fontSize: 16,
-                  background: "transparent",
-                  padding: "9px 6px",
-                  color: text,
-                }}
-              />
-
-              <button
-                onClick={() => search()}
-                style={{
-                  border: "none",
-                  background: ink,
-                  color: "#ffffff",
+                  maxWidth: 920,
+                  margin: "0 auto",
+                  background: bgCard,
                   borderRadius: 999,
-                  padding: "11px 22px",
-                  fontSize: 14,
-                  fontWeight: 600,
-                  cursor: "pointer",
-                  letterSpacing: "0.01em",
-                  flexShrink: 0,
+                  display: "flex",
+                  alignItems: "center",
+                  padding: "9px 9px 9px 18px",
+                  boxShadow: "0 2px 16px rgba(0,0,0,0.06)",
+                  border: `1px solid ${border}`,
+                  gap: 8,
                 }}
               >
-                Search
-              </button>
-            </div>
+                <div style={{ fontSize: 17, color: muted, flexShrink: 0 }}>🔎</div>
+
+                <input
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  onKeyDown={(e) => { if (e.key === "Enter") search() }}
+                  placeholder="Search photos (e.g. cat, interior, landscape…)"
+                  style={{
+                    flex: 1,
+                    border: "none",
+                    outline: "none",
+                    fontSize: 16,
+                    background: "transparent",
+                    padding: "9px 6px",
+                    color: text,
+                  }}
+                />
+
+                <button
+                  onClick={() => search()}
+                  style={{
+                    border: "none",
+                    background: ink,
+                    color: "#ffffff",
+                    borderRadius: 999,
+                    padding: "11px 22px",
+                    fontSize: 14,
+                    fontWeight: 600,
+                    cursor: "pointer",
+                    letterSpacing: "0.01em",
+                    flexShrink: 0,
+                  }}
+                >
+                  Search
+                </button>
+              </div>
+            )}
+
+            {/* AI Recommend 入力エリア */}
+            {mode === "ai" && (
+              <div style={{ maxWidth: 920, margin: "0 auto" }}>
+                <div
+                  style={{
+                    background: bgCard,
+                    borderRadius: 20,
+                    border: `1px solid ${border}`,
+                    boxShadow: "0 2px 16px rgba(0,0,0,0.06)",
+                    padding: "14px 18px 12px",
+                  }}
+                >
+                  <textarea
+                    value={aiPrompt}
+                    onChange={(e) => setAiPrompt(e.target.value)}
+                    placeholder="どんな写真がほしいですか？（例：地方の小さなカフェのWebサイトに使う、温かくて静かな朝の写真がほしい）"
+                    rows={3}
+                    style={{
+                      width: "100%",
+                      border: "none",
+                      outline: "none",
+                      fontSize: 15,
+                      background: "transparent",
+                      color: text,
+                      resize: "none",
+                      lineHeight: 1.6,
+                      fontFamily: "Arial, Helvetica, sans-serif",
+                    }}
+                  />
+                  <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 8 }}>
+                    <button
+                      onClick={searchAiRecommend}
+                      disabled={aiLoading}
+                      style={{
+                        border: "none",
+                        background: aiLoading ? muted : ink,
+                        color: "#ffffff",
+                        borderRadius: 999,
+                        padding: "10px 22px",
+                        fontSize: 14,
+                        fontWeight: 600,
+                        cursor: aiLoading ? "default" : "pointer",
+                        letterSpacing: "0.01em",
+                        transition: "background 0.15s ease",
+                      }}
+                    >
+                      {aiLoading ? "生成中…" : "写真を提案してもらう"}
+                    </button>
+                  </div>
+                </div>
+                {aiError && (
+                  <div
+                    style={{
+                      marginTop: 10,
+                      fontSize: 13,
+                      color: sub,
+                      textAlign: "center",
+                    }}
+                  >
+                    {aiError}
+                  </div>
+                )}
+              </div>
+            )}
           </section>
+
+          {/* ── AI生成クエリ表示 ── */}
+          {aiQueries.length > 0 && (
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: 6,
+                alignItems: "center",
+                marginBottom: 14,
+              }}
+            >
+              <span style={{ fontSize: 11, color: muted, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase" }}>
+                AI queries
+              </span>
+              {aiQueries.map((q) => (
+                <span
+                  key={q}
+                  style={{
+                    fontSize: 11,
+                    color: sub,
+                    background: bgCard,
+                    border: `1px solid ${border}`,
+                    borderRadius: 999,
+                    padding: "3px 10px",
+                  }}
+                >
+                  {q}
+                </span>
+              ))}
+            </div>
+          )}
 
           {/* ── タブ＋件数 ── */}
           <section
