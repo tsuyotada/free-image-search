@@ -299,7 +299,7 @@ export default function Home() {
               style={{
                 fontSize: 13,
                 color: "rgba(255,255,255,0.50)",
-                marginBottom: 28,
+                marginBottom: 18,
                 textAlign: "center",
                 letterSpacing: "0.01em",
               }}
@@ -307,67 +307,169 @@ export default function Home() {
               Search across Unsplash, Pexels, Pixabay &amp; Openverse
             </p>
 
-            {/* ガラス風検索バー */}
+            {/* モード切替トグル（ヒーロー） */}
             <div
               style={{
-                width: "100%",
-                background: "rgba(255,255,255,0.14)",
-                backdropFilter: "blur(18px)",
-                WebkitBackdropFilter: "blur(18px)",
+                display: "inline-flex",
+                background: "rgba(255,255,255,0.12)",
+                backdropFilter: "blur(12px)",
+                WebkitBackdropFilter: "blur(12px)",
+                border: "1px solid rgba(255,255,255,0.22)",
                 borderRadius: 999,
-                display: "flex",
-                alignItems: "center",
-                padding: "8px 8px 8px 20px",
-                border: "1px solid rgba(255,255,255,0.28)",
-                boxShadow: "0 8px 32px rgba(0,0,0,0.24)",
-                gap: 8,
+                padding: 3,
+                marginBottom: 16,
+                gap: 2,
               }}
             >
-              <div
-                style={{ fontSize: 17, color: "rgba(255,255,255,0.65)", flexShrink: 0 }}
-              >
-                🔎
-              </div>
-
-              <input
-                className="hero-input"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                onKeyDown={(e) => { if (e.key === "Enter") search() }}
-                placeholder="Search photos (e.g. cat, interior, landscape…)"
-                style={{
-                  flex: 1,
-                  border: "none",
-                  outline: "none",
-                  fontSize: 16,
-                  background: "transparent",
-                  padding: "10px 6px",
-                  color: "#ffffff",
-                }}
-              />
-
-              {/* ボタン：ダーク・フロストガラス ─ どんな背景にも馴染む */}
-              <button
-                onClick={() => search()}
-                style={{
-                  border: "1px solid rgba(255,255,255,0.18)",
-                  background: "rgba(15,15,15,0.65)",
-                  backdropFilter: "blur(12px)",
-                  WebkitBackdropFilter: "blur(12px)",
-                  color: "#ffffff",
-                  borderRadius: 999,
-                  padding: "11px 22px",
-                  fontSize: 14,
-                  fontWeight: 600,
-                  cursor: "pointer",
-                  whiteSpace: "nowrap",
-                  flexShrink: 0,
-                  letterSpacing: "0.01em",
-                }}
-              >
-                Search
-              </button>
+              {(["normal", "ai"] as const).map((m) => (
+                <button
+                  key={m}
+                  onClick={() => { setMode(m); setAiError("") }}
+                  style={{
+                    border: "none",
+                    background: mode === m ? "rgba(255,255,255,0.22)" : "transparent",
+                    color: mode === m ? "#ffffff" : "rgba(255,255,255,0.55)",
+                    borderRadius: 999,
+                    padding: "7px 16px",
+                    fontSize: 12,
+                    fontWeight: 600,
+                    cursor: "pointer",
+                    letterSpacing: "0.01em",
+                    transition: "background 0.15s ease, color 0.15s ease",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {m === "normal" ? "Search" : "AI Recommend"}
+                </button>
+              ))}
             </div>
+
+            {/* ガラス風検索バー（通常モード） */}
+            {mode === "normal" && (
+              <div
+                style={{
+                  width: "100%",
+                  background: "rgba(255,255,255,0.14)",
+                  backdropFilter: "blur(18px)",
+                  WebkitBackdropFilter: "blur(18px)",
+                  borderRadius: 999,
+                  display: "flex",
+                  alignItems: "center",
+                  padding: "8px 8px 8px 20px",
+                  border: "1px solid rgba(255,255,255,0.28)",
+                  boxShadow: "0 8px 32px rgba(0,0,0,0.24)",
+                  gap: 8,
+                }}
+              >
+                <div
+                  style={{ fontSize: 17, color: "rgba(255,255,255,0.65)", flexShrink: 0 }}
+                >
+                  🔎
+                </div>
+
+                <input
+                  className="hero-input"
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  onKeyDown={(e) => { if (e.key === "Enter") search() }}
+                  placeholder="Search photos (e.g. cat, interior, landscape…)"
+                  style={{
+                    flex: 1,
+                    border: "none",
+                    outline: "none",
+                    fontSize: 16,
+                    background: "transparent",
+                    padding: "10px 6px",
+                    color: "#ffffff",
+                  }}
+                />
+
+                <button
+                  onClick={() => search()}
+                  style={{
+                    border: "1px solid rgba(255,255,255,0.18)",
+                    background: "rgba(15,15,15,0.65)",
+                    backdropFilter: "blur(12px)",
+                    WebkitBackdropFilter: "blur(12px)",
+                    color: "#ffffff",
+                    borderRadius: 999,
+                    padding: "11px 22px",
+                    fontSize: 14,
+                    fontWeight: 600,
+                    cursor: "pointer",
+                    whiteSpace: "nowrap",
+                    flexShrink: 0,
+                    letterSpacing: "0.01em",
+                  }}
+                >
+                  Search
+                </button>
+              </div>
+            )}
+
+            {/* AI Recommend 入力（ヒーロー） */}
+            {mode === "ai" && (
+              <div style={{ width: "100%" }}>
+                <div
+                  style={{
+                    width: "100%",
+                    background: "rgba(255,255,255,0.14)",
+                    backdropFilter: "blur(18px)",
+                    WebkitBackdropFilter: "blur(18px)",
+                    borderRadius: 20,
+                    border: "1px solid rgba(255,255,255,0.28)",
+                    boxShadow: "0 8px 32px rgba(0,0,0,0.24)",
+                    padding: "14px 16px 12px",
+                  }}
+                >
+                  <textarea
+                    className="hero-textarea"
+                    value={aiPrompt}
+                    onChange={(e) => setAiPrompt(e.target.value)}
+                    placeholder="どんな写真がほしいですか？（例：地方の小さなカフェに使う、温かくて静かな朝の写真）"
+                    rows={3}
+                    style={{
+                      width: "100%",
+                      border: "none",
+                      outline: "none",
+                      fontSize: 15,
+                      background: "transparent",
+                      color: "#ffffff",
+                      resize: "none",
+                      lineHeight: 1.6,
+                      fontFamily: "Arial, Helvetica, sans-serif",
+                    }}
+                  />
+                  <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 8 }}>
+                    <button
+                      onClick={searchAiRecommend}
+                      disabled={aiLoading}
+                      style={{
+                        border: "1px solid rgba(255,255,255,0.18)",
+                        background: aiLoading ? "rgba(255,255,255,0.10)" : "rgba(15,15,15,0.65)",
+                        backdropFilter: "blur(12px)",
+                        WebkitBackdropFilter: "blur(12px)",
+                        color: "#ffffff",
+                        borderRadius: 999,
+                        padding: "10px 22px",
+                        fontSize: 14,
+                        fontWeight: 600,
+                        cursor: aiLoading ? "default" : "pointer",
+                        letterSpacing: "0.01em",
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      {aiLoading ? "生成中…" : "写真を提案してもらう"}
+                    </button>
+                  </div>
+                </div>
+                {aiError && (
+                  <div style={{ marginTop: 10, fontSize: 13, color: "rgba(255,255,255,0.60)", textAlign: "center" }}>
+                    {aiError}
+                  </div>
+                )}
+              </div>
+            )}
 
             {/* 検索履歴チップ（ヒーロー内） */}
             {history.length > 0 && (
@@ -1014,7 +1116,13 @@ export default function Home() {
         .hero-input::placeholder {
           color: rgba(255, 255, 255, 0.45);
         }
+        .hero-textarea::placeholder {
+          color: rgba(255, 255, 255, 0.40);
+        }
         input::placeholder {
+          color: #b2b2b2;
+        }
+        textarea::placeholder {
           color: #b2b2b2;
         }
       `}</style>
