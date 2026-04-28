@@ -707,6 +707,25 @@ export default function Home() {
                       >
                         Download
                       </button>
+
+                      {img.pageUrl && (
+                        <a
+                          href={img.pageUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{
+                            display: "block",
+                            textAlign: "center",
+                            marginTop: 8,
+                            fontSize: 11,
+                            color: muted,
+                            textDecoration: "none",
+                            letterSpacing: "0.01em",
+                          }}
+                        >
+                          元ページを見る
+                        </a>
+                      )}
                     </div>
                   </article>
                 ))}
