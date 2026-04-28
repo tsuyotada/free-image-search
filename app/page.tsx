@@ -14,7 +14,18 @@ type ImageItem = {
   height?: number
 }
 
+type DownloadHistoryItem = {
+  historyId: string
+  id: string
+  thumb: string
+  source: string
+  author: string
+  pageUrl: string
+  downloadedAt: string
+}
+
 const HISTORY_KEY = "free-image-search-history"
+const DOWNLOAD_HISTORY_KEY = "free-image-search-dl-history"
 const FADE_MS = 650
 
 // ── Monochrome palette ──────────────────────────────────────────────────────
@@ -43,10 +54,15 @@ export default function Home() {
   const [visibleCount, setVisibleCount] = useState(24)
   const [heroImage, setHeroImage] = useState<string | null>(null)
   const [heroPhase, setHeroPhase] = useState<"visible" | "fading" | "hidden">("visible")
+  const [downloadHistory, setDownloadHistory] = useState<DownloadHistoryItem[]>([])
+  const [showHistory, setShowHistory] = useState(false)
 
   useEffect(() => {
     const saved = localStorage.getItem(HISTORY_KEY)
     if (saved) setHistory(JSON.parse(saved))
+
+    const savedDl = localStorage.getItem(DOWNLOAD_HISTORY_KEY)
+    if (savedDl) setDownloadHistory(JSON.parse(savedDl))
 
     const updateColumns = () => {
       const w = window.innerWidth
@@ -119,10 +135,30 @@ export default function Home() {
       document.body.appendChild(a)
       a.click()
       a.remove()
+
+      const entry: DownloadHistoryItem = {
+        historyId: `${Date.now()}-${Math.random().toString(36).slice(2)}`,
+        id: img.id,
+        thumb: img.thumb,
+        source: img.source,
+        author: img.author,
+        pageUrl: img.pageUrl,
+        downloadedAt: new Date().toISOString(),
+      }
+      setDownloadHistory((prev) => {
+        const next = [entry, ...prev]
+        localStorage.setItem(DOWNLOAD_HISTORY_KEY, JSON.stringify(next))
+        return next
+      })
     } catch (error) {
       console.error(error)
       alert("ダウンロードに失敗しました。")
     }
+  }
+
+  const clearDownloadHistory = () => {
+    setDownloadHistory([])
+    localStorage.removeItem(DOWNLOAD_HISTORY_KEY)
   }
 
   const filteredImages = images.filter((img) =>
@@ -471,8 +507,28 @@ export default function Home() {
               ))}
             </div>
 
-            <div style={{ fontSize: 13, color: muted, fontWeight: 500 }}>
-              {resultCountText}
+            <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+              <div style={{ fontSize: 13, color: muted, fontWeight: 500 }}>
+                {resultCountText}
+              </div>
+              <button
+                onClick={() => setShowHistory(true)}
+                style={{
+                  border: "none",
+                  background: "transparent",
+                  color: muted,
+                  fontSize: 12,
+                  fontWeight: 500,
+                  cursor: "pointer",
+                  padding: 0,
+                  letterSpacing: "0.01em",
+                  textDecoration: "underline",
+                  textDecorationColor: border,
+                  textUnderlineOffset: 3,
+                }}
+              >
+                History {downloadHistory.length > 0 ? `(${downloadHistory.length})` : ""}
+              </button>
             </div>
           </section>
 
@@ -771,6 +827,222 @@ export default function Home() {
           color: #b2b2b2;
         }
       `}</style>
+
+      {/* ── ダウンロード履歴モーダル ── */}
+      {showHistory && (
+        <div
+          onClick={() => setShowHistory(false)}
+          style={{
+            position: "fixed",
+            inset: 0,
+            background: "rgba(0,0,0,0.38)",
+            zIndex: 50,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "flex-start",
+            paddingTop: 60,
+            overflowY: "auto",
+          }}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              background: bgCard,
+              borderRadius: 20,
+              width: "100%",
+              maxWidth: 680,
+              margin: "0 18px 60px",
+              boxShadow: "0 24px 64px rgba(0,0,0,0.18)",
+              border: `1px solid ${border}`,
+              overflow: "hidden",
+            }}
+          >
+            {/* モーダルヘッダー */}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                padding: "18px 22px 16px",
+                borderBottom: `1px solid ${border}`,
+              }}
+            >
+              <div style={{ fontSize: 15, fontWeight: 700, color: text, letterSpacing: "-0.01em" }}>
+                Download History
+              </div>
+              <button
+                onClick={() => setShowHistory(false)}
+                style={{
+                  border: "none",
+                  background: "transparent",
+                  color: muted,
+                  fontSize: 20,
+                  cursor: "pointer",
+                  lineHeight: 1,
+                  padding: "2px 6px",
+                }}
+              >
+                ✕
+              </button>
+            </div>
+
+            {/* モーダルボディ */}
+            <div style={{ padding: "8px 0 4px" }}>
+              {downloadHistory.length === 0 ? (
+                <div
+                  style={{
+                    textAlign: "center",
+                    padding: "56px 24px",
+                    color: muted,
+                    fontSize: 14,
+                  }}
+                >
+                  ダウンロード履歴はまだありません
+                </div>
+              ) : (
+                (() => {
+                  const grouped: Record<string, DownloadHistoryItem[]> = {}
+                  for (const item of downloadHistory) {
+                    const d = new Date(item.downloadedAt)
+                    const key = `${d.getFullYear()}/${String(d.getMonth() + 1).padStart(2, "0")}/${String(d.getDate()).padStart(2, "0")}`
+                    if (!grouped[key]) grouped[key] = []
+                    grouped[key].push(item)
+                  }
+                  return Object.entries(grouped).map(([date, items]) => (
+                    <div key={date}>
+                      <div
+                        style={{
+                          fontSize: 11,
+                          fontWeight: 600,
+                          color: muted,
+                          letterSpacing: "0.06em",
+                          textTransform: "uppercase",
+                          padding: "14px 22px 8px",
+                        }}
+                      >
+                        {date}
+                      </div>
+                      {items.map((item) => {
+                        const d = new Date(item.downloadedAt)
+                        const time = `${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`
+                        return (
+                          <div
+                            key={item.historyId}
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: 14,
+                              padding: "10px 22px",
+                              borderTop: `1px solid ${border}`,
+                            }}
+                          >
+                            <img
+                              src={item.thumb}
+                              alt={item.author || item.source}
+                              style={{
+                                width: 56,
+                                height: 40,
+                                objectFit: "cover",
+                                borderRadius: 8,
+                                flexShrink: 0,
+                                background: "#e9e9e9",
+                              }}
+                            />
+                            <div style={{ flex: 1, minWidth: 0 }}>
+                              <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 3 }}>
+                                <span
+                                  style={{
+                                    fontSize: 11,
+                                    fontWeight: 600,
+                                    color: sub,
+                                    background: bg,
+                                    border: `1px solid ${border}`,
+                                    borderRadius: 999,
+                                    padding: "2px 8px",
+                                    flexShrink: 0,
+                                  }}
+                                >
+                                  {item.source}
+                                </span>
+                                <span
+                                  style={{
+                                    fontSize: 12,
+                                    color: muted,
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    whiteSpace: "nowrap",
+                                  }}
+                                >
+                                  {item.author || "Unknown"}
+                                </span>
+                              </div>
+                              {item.pageUrl && (
+                                <a
+                                  href={item.pageUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  style={{
+                                    fontSize: 11,
+                                    color: muted,
+                                    textDecoration: "none",
+                                    borderBottom: `1px solid ${border}`,
+                                    paddingBottom: 1,
+                                  }}
+                                >
+                                  元ページを見る
+                                </a>
+                              )}
+                            </div>
+                            <div
+                              style={{
+                                fontSize: 11,
+                                color: muted,
+                                flexShrink: 0,
+                              }}
+                            >
+                              {time}
+                            </div>
+                          </div>
+                        )
+                      })}
+                    </div>
+                  ))
+                })()
+              )}
+            </div>
+
+            {/* モーダルフッター */}
+            {downloadHistory.length > 0 && (
+              <div
+                style={{
+                  padding: "12px 22px 16px",
+                  borderTop: `1px solid ${border}`,
+                  display: "flex",
+                  justifyContent: "flex-end",
+                }}
+              >
+                <button
+                  onClick={clearDownloadHistory}
+                  style={{
+                    border: "none",
+                    background: "transparent",
+                    color: muted,
+                    fontSize: 12,
+                    cursor: "pointer",
+                    padding: 0,
+                    fontWeight: 500,
+                    textDecoration: "underline",
+                    textDecorationColor: border,
+                    textUnderlineOffset: 3,
+                  }}
+                >
+                  履歴をすべて削除
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </>
   )
 }
