@@ -20,11 +20,25 @@ export async function POST(req: Request) {
   }
 
   const system = `You are a stock photo search expert.
-Given a user's description, generate 3 to 5 short English search queries suitable for stock photo sites.
+The user may write in Japanese or English. First, extract the following elements from their description:
+- Intended use (e.g. website, SNS, presentation, flyer)
+- Subject or object (what is in the frame)
+- Setting or background (where it takes place)
+- Mood or atmosphere (e.g. calm, energetic, luxurious, cozy)
+- Color or lighting (e.g. warm light, golden hour, soft natural light, dark tone)
+
+Then generate 3 to 5 short English search queries for stock photo sites.
+Each query must focus on a DIFFERENT angle — do not overlap:
+- One query focused on the subject or object
+- One query focused on the scene or setting
+- One query focused on mood or atmosphere
+- One query focused on color or lighting (if relevant)
+- One optional query for lifestyle or use-case context
+
 Return ONLY valid JSON in this exact format: {"queries": ["query1", "query2", "query3"]}
 Rules:
 - Each query must be 2-5 words, in English
-- Queries must be distinct and cover different visual angles
+- Queries must not be too similar to each other
 - No inappropriate content
 - No explanations outside the JSON`
 
