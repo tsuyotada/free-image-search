@@ -1,3 +1,20 @@
+const OPENVERSE_LICENSE_NAMES: Record<string, string> = {
+  cc0: "CC0",
+  pdm: "Public Domain",
+  "cc-by": "CC BY",
+  "cc-by-sa": "CC BY-SA",
+  "cc-by-nc": "CC BY-NC",
+  "cc-by-nd": "CC BY-ND",
+  "cc-by-nc-sa": "CC BY-NC-SA",
+  "cc-by-nc-nd": "CC BY-NC-ND",
+}
+
+function formatOpenverseLicense(license: string, version?: string): string {
+  if (!license) return ""
+  const name = OPENVERSE_LICENSE_NAMES[license.toLowerCase()] ?? license.toUpperCase()
+  return version ? `${name} ${version}` : name
+}
+
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url)
   const query = searchParams.get("q")
@@ -46,6 +63,7 @@ export async function GET(req: Request) {
       pageUrl: img.links.html,
       width: img.width,
       height: img.height,
+      license: "Unsplash License",
     })) || []
 
   const pexelsImages =
@@ -59,6 +77,7 @@ export async function GET(req: Request) {
       pageUrl: img.url,
       width: img.width,
       height: img.height,
+      license: "Pexels License",
     })) || []
 
   const pixabayImages =
@@ -72,6 +91,7 @@ export async function GET(req: Request) {
       pageUrl: img.pageURL,
       width: img.imageWidth,
       height: img.imageHeight,
+      license: "Pixabay License",
     })) || []
 
   // ===== Openverse（ノイズ削減）=====
@@ -98,6 +118,7 @@ export async function GET(req: Request) {
         pageUrl: img.foreign_landing_url,
         width: img.width,
         height: img.height,
+        license: formatOpenverseLicense(img.license, img.license_version),
       })) || []
 
   return Response.json([

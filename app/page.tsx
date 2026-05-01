@@ -12,6 +12,16 @@ type ImageItem = {
   pageUrl: string
   width?: number
   height?: number
+  license?: string
+}
+
+function isCommercialSafe(license?: string): boolean {
+  if (!license) return false
+  const u = license.toUpperCase()
+  if (u.includes("NC")) return false
+  if (u.includes("ND")) return false
+  if (u === "ALL RIGHTS RESERVED") return false
+  return true
 }
 
 type DownloadHistoryItem = {
@@ -58,6 +68,7 @@ export default function Home() {
   const [showHistory, setShowHistory] = useState(false)
   const [mode, setMode] = useState<"normal" | "ai">("normal")
   const [aiPrompt, setAiPrompt] = useState("")
+  const [commercialOnly, setCommercialOnly] = useState(true)
   const [aiQueries, setAiQueries] = useState<string[]>([])
   const [aiLoading, setAiLoading] = useState(false)
   const [aiError, setAiError] = useState("")
@@ -220,9 +231,11 @@ export default function Home() {
     }
   }
 
-  const filteredImages = images.filter((img) =>
-    activeTab === "all" ? true : img.source === activeTab
-  )
+  const filteredImages = images.filter((img) => {
+    if (activeTab !== "all" && img.source !== activeTab) return false
+    if (commercialOnly && !isCommercialSafe(img.license)) return false
+    return true
+  })
   const visibleImages = filteredImages.slice(0, visibleCount)
   const hasMore = filteredImages.length > visibleCount
 
@@ -801,6 +814,50 @@ export default function Home() {
             </div>
 
             <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+              {/* 商用利用フィルタトグル */}
+              <button
+                onClick={() => setCommercialOnly((v) => !v)}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 6,
+                  border: "none",
+                  background: "transparent",
+                  cursor: "pointer",
+                  padding: 0,
+                }}
+              >
+                <span
+                  style={{
+                    display: "inline-block",
+                    width: 30,
+                    height: 17,
+                    borderRadius: 999,
+                    background: commercialOnly ? ink : border,
+                    position: "relative",
+                    transition: "background 0.2s",
+                    flexShrink: 0,
+                  }}
+                >
+                  <span
+                    style={{
+                      position: "absolute",
+                      top: 2,
+                      left: commercialOnly ? 15 : 2,
+                      width: 13,
+                      height: 13,
+                      borderRadius: 999,
+                      background: "#ffffff",
+                      transition: "left 0.2s",
+                      boxShadow: "0 1px 3px rgba(0,0,0,0.2)",
+                    }}
+                  />
+                </span>
+                <span style={{ fontSize: 12, color: sub, fontWeight: 500, whiteSpace: "nowrap" }}>
+                  商用利用OKのみ
+                </span>
+              </button>
+
               <div style={{ fontSize: 13, color: muted, fontWeight: 500 }}>
                 {resultCountText}
               </div>
@@ -1035,6 +1092,26 @@ export default function Home() {
                           {img.width && img.height ? `${img.width}×${img.height}` : ""}
                         </span>
                       </div>
+
+                      {/* ライセンスバッジ */}
+                      {img.license && (
+                        <div style={{ marginBottom: 9 }}>
+                          <span
+                            style={{
+                              fontSize: 10,
+                              color: muted,
+                              background: bg,
+                              border: `1px solid ${border}`,
+                              borderRadius: 6,
+                              padding: "2px 7px",
+                              letterSpacing: "0.02em",
+                              fontWeight: 500,
+                            }}
+                          >
+                            {img.license}
+                          </span>
+                        </div>
+                      )}
 
                       {/* Download：黒CTAではなく「上品な操作ボタン」として軽く見せる */}
                       <button
