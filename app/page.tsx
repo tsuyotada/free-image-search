@@ -24,6 +24,11 @@ function isCommercialSafe(license?: string): boolean {
   return true
 }
 
+function needsAttribution(license?: string): boolean {
+  if (!license) return false
+  return license.toUpperCase().includes("CC BY")
+}
+
 type DownloadHistoryItem = {
   historyId: string
   id: string
@@ -72,6 +77,7 @@ export default function Home() {
   const [aiQueries, setAiQueries] = useState<string[]>([])
   const [aiLoading, setAiLoading] = useState(false)
   const [aiError, setAiError] = useState("")
+  const [copiedId, setCopiedId] = useState<string | null>(null)
 
   useEffect(() => {
     const saved = localStorage.getItem(HISTORY_KEY)
@@ -170,6 +176,14 @@ export default function Home() {
       console.error(error)
       alert("ダウンロードに失敗しました。")
     }
+  }
+
+  const handleCopyCredit = (img: ImageItem) => {
+    const credit = `Photo by ${img.author || "Unknown"} / ${img.source} (${img.license})`
+    navigator.clipboard.writeText(credit).then(() => {
+      setCopiedId(img.id)
+      setTimeout(() => setCopiedId(null), 2000)
+    })
   }
 
   const clearDownloadHistory = () => {
@@ -475,6 +489,9 @@ export default function Home() {
                       {aiLoading ? "生成中…" : "写真を提案してもらう"}
                     </button>
                   </div>
+                  <p style={{ margin: "8px 0 0", fontSize: 11, color: "rgba(255,255,255,0.35)", textAlign: "right" }}>
+                    入力内容はOpenAIに送信されます
+                  </p>
                 </div>
                 {aiError && (
                   <div style={{ marginTop: 10, fontSize: 13, color: "rgba(255,255,255,0.60)", textAlign: "center" }}>
@@ -717,6 +734,9 @@ export default function Home() {
                       {aiLoading ? "生成中…" : "写真を提案してもらう"}
                     </button>
                   </div>
+                  <p style={{ margin: "8px 0 0", fontSize: 11, color: muted, textAlign: "right" }}>
+                    入力内容はOpenAIに送信されます
+                  </p>
                 </div>
                 {aiError && (
                   <div
@@ -1095,7 +1115,7 @@ export default function Home() {
 
                       {/* ライセンスバッジ */}
                       {img.license && (
-                        <div style={{ marginBottom: 9 }}>
+                        <div style={{ marginBottom: needsAttribution(img.license) ? 5 : 9 }}>
                           <span
                             style={{
                               fontSize: 10,
@@ -1110,6 +1130,41 @@ export default function Home() {
                           >
                             {img.license}
                           </span>
+                        </div>
+                      )}
+
+                      {/* 帰属表示が必要なライセンスの注意 */}
+                      {needsAttribution(img.license) && (
+                        <div
+                          style={{
+                            marginBottom: 9,
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "space-between",
+                            gap: 6,
+                          }}
+                        >
+                          <span style={{ fontSize: 10, color: sub, lineHeight: 1.4 }}>
+                            クレジット表記が必要です
+                          </span>
+                          <button
+                            onClick={() => handleCopyCredit(img)}
+                            style={{
+                              border: `1px solid ${border}`,
+                              background: "transparent",
+                              color: copiedId === img.id ? sub : muted,
+                              padding: "2px 8px",
+                              borderRadius: 999,
+                              fontSize: 10,
+                              cursor: "pointer",
+                              whiteSpace: "nowrap",
+                              flexShrink: 0,
+                              transition: "color 0.18s ease",
+                              fontWeight: 500,
+                            }}
+                          >
+                            {copiedId === img.id ? "コピー済み ✓" : "クレジット文をコピー"}
+                          </button>
                         </div>
                       )}
 
@@ -1184,6 +1239,21 @@ export default function Home() {
           )}
         </div>
       </main>
+
+      <footer
+        style={{
+          borderTop: `1px solid ${border}`,
+          background: bgCard,
+          padding: "18px 24px",
+          fontFamily: "Arial, Helvetica, sans-serif",
+          textAlign: "center",
+        }}
+      >
+        <p style={{ fontSize: 11, color: muted, margin: 0, lineHeight: 1.8 }}>
+          各画像のライセンスは提供元の条件に従います。本アプリは商用利用の適法性を保証しません。
+          ご利用前に提供元ページで最新のライセンスをご確認ください。
+        </p>
+      </footer>
 
       <style jsx global>{`
         @keyframes spin {
