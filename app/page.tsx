@@ -41,7 +41,144 @@ type DownloadHistoryItem = {
 
 const HISTORY_KEY = "free-image-search-history"
 const DOWNLOAD_HISTORY_KEY = "free-image-search-dl-history"
+const LOCALE_KEY = "free-image-search-locale"
 const FADE_MS = 650
+
+type Translations = {
+  siteTitle: string
+  siteSubtitle: string
+  valuePoints: [string, string, string]
+  modeSearch: string
+  modeAI: string
+  searchPlaceholder: string
+  searchButton: string
+  aiHint: string
+  aiPlaceholderHero: string
+  aiPlaceholderMain: string
+  aiButton: string
+  aiFinding: string
+  aiPrivacyNote: string
+  recentLabel: string
+  clearButton: string
+  tryLabel: string
+  exampleChips: [string, string, string]
+  postSearchHeader: string
+  fromYourDescription: string
+  searchAngles: string
+  aiResultNote: string
+  commercialLabel: string
+  commercialOnHint: string
+  commercialOffHint: string
+  searching: string
+  noImages: string
+  photos: (n: number) => string
+  historyButton: string
+  recentSearches: string
+  noHistory: string
+  loadMore: string
+  unknownAuthor: string
+  attributionRequired: string
+  copyCredit: string
+  copied: string
+  download: string
+  viewOriginal: string
+  footerLicense: string
+  footerStorage: string
+  downloadHistoryTitle: string
+  noDownloadHistory: string
+  clearAll: string
+}
+
+const translations: Record<"en" | "ja", Translations> = {
+  en: {
+    siteTitle: "Free Stock Photos Finder",
+    siteSubtitle: "Search free stock photos from Unsplash, Pexels, Pixabay, and Openverse — all in one place.",
+    valuePoints: ["4 sources in one search", "Commercial-use filter built in", "AI keyword suggestions from plain text"],
+    modeSearch: "Search",
+    modeAI: "AI Recommend",
+    searchPlaceholder: "Search photos (e.g. cat, interior, landscape…)",
+    searchButton: "Search",
+    aiHint: "Describe what you need in plain English — AI Recommend turns it into search keywords.",
+    aiPlaceholderHero: "e.g. A warm, quiet morning scene for a small cafe website",
+    aiPlaceholderMain: "e.g. Warm and quiet morning photos for a small cafe website",
+    aiButton: "Find photos",
+    aiFinding: "Finding…",
+    aiPrivacyNote: "Your description will be sent to OpenAI to generate search keywords.",
+    recentLabel: "Recent",
+    clearButton: "Clear",
+    tryLabel: "Try",
+    exampleChips: ["cozy cafe morning", "minimal workspace", "business meeting"],
+    postSearchHeader: "Free Stock Photos Finder · Unsplash · Pexels · Pixabay · Openverse",
+    fromYourDescription: "From your description",
+    searchAngles: "Search angles",
+    aiResultNote: "AI Recommend interpreted your description and searched all sources using these keywords.",
+    commercialLabel: "Commercial use",
+    commercialOnHint: "Shows images easier to use commercially. Always verify on the source page.",
+    commercialOffHint: "More results shown, including images that may need extra license checks.",
+    searching: "Searching…",
+    noImages: "No images yet",
+    photos: (n) => `${n} photos`,
+    historyButton: "History",
+    recentSearches: "Recent searches",
+    noHistory: "No history yet",
+    loadMore: "Load more",
+    unknownAuthor: "Unknown",
+    attributionRequired: "Attribution required",
+    copyCredit: "Copy credit",
+    copied: "Copied ✓",
+    download: "Download",
+    viewOriginal: "View original",
+    footerLicense: "Images are served under each source's license terms. Verify the license on the original page before use. This app does not guarantee commercial usability.",
+    footerStorage: "Download history is stored locally in your browser only — nothing is sent to our servers.",
+    downloadHistoryTitle: "Download History",
+    noDownloadHistory: "No download history yet",
+    clearAll: "Clear all",
+  },
+  ja: {
+    siteTitle: "無料ストックフォト検索",
+    siteSubtitle: "複数の無料ストックフォトを、まとめて検索。",
+    valuePoints: ["4サービスを一括検索", "商用利用フィルター搭載", "自然文からAIがキーワードを提案"],
+    modeSearch: "通常検索",
+    modeAI: "AI Recommend",
+    searchPlaceholder: "キーワードを入力（例：猫、インテリア、風景…）",
+    searchButton: "検索",
+    aiHint: "欲しい画像のイメージを自然文で入力すると、AIが検索キーワードに変換します。",
+    aiPlaceholderHero: "例：地方の小さなカフェに使う、温かくて静かな朝の写真",
+    aiPlaceholderMain: "例：地方の小さなカフェのWebサイトに使う、温かくて静かな朝の写真がほしい",
+    aiButton: "写真を提案してもらう",
+    aiFinding: "生成中…",
+    aiPrivacyNote: "入力内容は検索キーワード生成のため OpenAI に送信されます。",
+    recentLabel: "最近の検索",
+    clearButton: "クリア",
+    tryLabel: "試してみる",
+    exampleChips: ["cozy cafe morning", "minimal workspace", "business meeting"],
+    postSearchHeader: "無料ストックフォト検索 · Unsplash · Pexels · Pixabay · Openverse",
+    fromYourDescription: "入力内容",
+    searchAngles: "AIが提案した検索キーワード",
+    aiResultNote: "入力内容をもとに、各サービスをこれらのキーワードで検索しました。",
+    commercialLabel: "商用利用フィルター",
+    commercialOnHint: "商用利用しやすい画像を表示します。利用前に提供元ページで最新の条件を確認してください。",
+    commercialOffHint: "表示件数が増えますが、商用利用に追加確認が必要な画像も含まれる場合があります。",
+    searching: "検索中…",
+    noImages: "画像がありません",
+    photos: (n) => `${n} 件`,
+    historyButton: "履歴",
+    recentSearches: "最近の検索",
+    noHistory: "履歴はまだありません",
+    loadMore: "さらに表示",
+    unknownAuthor: "作者不明",
+    attributionRequired: "クレジット表記が必要です",
+    copyCredit: "クレジット文をコピー",
+    copied: "コピー済み ✓",
+    download: "ダウンロード",
+    viewOriginal: "元ページを見る",
+    footerLicense: "各画像のライセンスは提供元の条件に従います。本アプリは商用利用の適法性を保証しません。ご利用前に提供元ページで最新のライセンスをご確認ください。",
+    footerStorage: "ダウンロード履歴はブラウザ内にのみ保存され、サーバーには送信されません。",
+    downloadHistoryTitle: "ダウンロード履歴",
+    noDownloadHistory: "ダウンロード履歴はまだありません",
+    clearAll: "履歴をすべて削除",
+  },
+}
 
 // ── Monochrome palette ──────────────────────────────────────────────────────
 // ヒーロー・Pinterest 画面どちらでも同じ世界観に見えるよう、
@@ -76,6 +213,7 @@ export default function Home() {
   const [aiError, setAiError] = useState("")
   const [aiUsedPrompt, setAiUsedPrompt] = useState("")
   const [copiedId, setCopiedId] = useState<string | null>(null)
+  const [locale, setLocale] = useState<"en" | "ja">("en")
 
   useEffect(() => {
     const saved = localStorage.getItem(HISTORY_KEY)
@@ -83,6 +221,14 @@ export default function Home() {
 
     const savedDl = localStorage.getItem(DOWNLOAD_HISTORY_KEY)
     if (savedDl) setDownloadHistory(JSON.parse(savedDl))
+
+    const savedLocale = localStorage.getItem(LOCALE_KEY)
+    if (savedLocale === "en" || savedLocale === "ja") {
+      setLocale(savedLocale)
+    } else {
+      const lang = navigator.language ?? navigator.languages?.[0] ?? ""
+      if (lang.startsWith("ja")) setLocale("ja")
+    }
 
     const updateColumns = () => {
       const w = window.innerWidth
@@ -246,6 +392,8 @@ export default function Home() {
     }
   }
 
+  const t = translations[locale]
+
   const filteredImages = images.filter((img) => {
     if (commercialOnly && !isCommercialSafe(img.license)) return false
     return true
@@ -254,13 +402,56 @@ export default function Home() {
   const hasMore = filteredImages.length > visibleCount
 
   const resultCountText = useMemo(() => {
-    if (loading) return "Searching..."
-    if (filteredImages.length === 0) return "No images yet"
-    return `${filteredImages.length} photos`
-  }, [loading, filteredImages.length])
+    if (loading) return translations[locale].searching
+    if (filteredImages.length === 0) return translations[locale].noImages
+    return translations[locale].photos(filteredImages.length)
+  }, [loading, filteredImages.length, locale])
 
   return (
     <>
+      {/* ── 言語切り替え（fixed top-right） ── */}
+      <div
+        style={{
+          position: "fixed",
+          top: 14,
+          right: 18,
+          zIndex: 20,
+          display: "flex",
+          background: "rgba(255,255,255,0.92)",
+          border: "1px solid rgba(0,0,0,0.08)",
+          borderRadius: 999,
+          padding: "3px 4px",
+          fontFamily: "Arial, Helvetica, sans-serif",
+          backdropFilter: "blur(8px)",
+          WebkitBackdropFilter: "blur(8px)",
+        }}
+      >
+        {(["ja", "en"] as const).map((lang) => (
+          <button
+            key={lang}
+            onClick={() => {
+              setLocale(lang)
+              localStorage.setItem(LOCALE_KEY, lang)
+            }}
+            style={{
+              border: "none",
+              background: locale === lang ? ink : "transparent",
+              color: locale === lang ? "#ffffff" : muted,
+              borderRadius: 999,
+              padding: "5px 10px",
+              fontSize: 11,
+              fontWeight: 600,
+              cursor: "pointer",
+              letterSpacing: "0.01em",
+              transition: "background 0.15s ease, color 0.15s ease",
+              whiteSpace: "nowrap",
+            }}
+          >
+            {lang === "ja" ? "日本語" : "English"}
+          </button>
+        ))}
+      </div>
+
       {/* ── Hero（visible / fading 中のみ存在） ── */}
       {heroPhase !== "hidden" && (
         <div
@@ -318,10 +509,10 @@ export default function Home() {
                 textAlign: "center",
               }}
             >
-              Free Stock Photos Finder
+              {t.siteTitle}
             </h1>
 
-            {/* ディスクリプション（英語・控えめ） */}
+            {/* ディスクリプション */}
             <p
               style={{
                 fontSize: 13,
@@ -331,16 +522,16 @@ export default function Home() {
                 letterSpacing: "0.01em",
               }}
             >
-              Search free stock photos from Unsplash, Pexels, Pixabay, and Openverse — all in one place.
+              {t.siteSubtitle}
             </p>
 
             {/* Value points */}
             <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: 4, marginBottom: 18 }}>
-              <span style={{ fontSize: 12, color: "rgba(255,255,255,0.45)" }}>4 sources in one search</span>
+              <span style={{ fontSize: 12, color: "rgba(255,255,255,0.45)" }}>{t.valuePoints[0]}</span>
               <span style={{ fontSize: 12, color: "rgba(255,255,255,0.22)", padding: "0 5px" }}>·</span>
-              <span style={{ fontSize: 12, color: "rgba(255,255,255,0.45)" }}>Commercial-use filter built in</span>
+              <span style={{ fontSize: 12, color: "rgba(255,255,255,0.45)" }}>{t.valuePoints[1]}</span>
               <span style={{ fontSize: 12, color: "rgba(255,255,255,0.22)", padding: "0 5px" }}>·</span>
-              <span style={{ fontSize: 12, color: "rgba(255,255,255,0.45)" }}>AI keyword suggestions from plain text</span>
+              <span style={{ fontSize: 12, color: "rgba(255,255,255,0.45)" }}>{t.valuePoints[2]}</span>
             </div>
 
             {/* モード切替トグル（ヒーロー） */}
@@ -375,7 +566,7 @@ export default function Home() {
                     whiteSpace: "nowrap",
                   }}
                 >
-                  {m === "normal" ? "Search" : "AI Recommend"}
+                  {m === "normal" ? t.modeSearch : t.modeAI}
                 </button>
               ))}
             </div>
@@ -408,7 +599,7 @@ export default function Home() {
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   onKeyDown={(e) => { if (e.key === "Enter") search() }}
-                  placeholder="Search photos (e.g. cat, interior, landscape…)"
+                  placeholder={t.searchPlaceholder}
                   style={{
                     flex: 1,
                     border: "none",
@@ -438,7 +629,7 @@ export default function Home() {
                     letterSpacing: "0.01em",
                   }}
                 >
-                  Search
+                  {t.searchButton}
                 </button>
               </div>
             )}
@@ -447,7 +638,7 @@ export default function Home() {
             {mode === "ai" && (
               <div style={{ width: "100%" }}>
                 <p style={{ fontSize: 12, color: "rgba(255,255,255,0.55)", textAlign: "center", marginBottom: 10, lineHeight: 1.6 }}>
-                  Describe what you need in plain English — AI Recommend turns it into search keywords.
+                  {t.aiHint}
                 </p>
                 <div
                   style={{
@@ -465,7 +656,7 @@ export default function Home() {
                     className="hero-textarea"
                     value={aiPrompt}
                     onChange={(e) => setAiPrompt(e.target.value)}
-                    placeholder="e.g. A warm, quiet morning scene for a small cafe website"
+                    placeholder={t.aiPlaceholderHero}
                     rows={3}
                     style={{
                       width: "100%",
@@ -498,11 +689,11 @@ export default function Home() {
                         whiteSpace: "nowrap",
                       }}
                     >
-                      {aiLoading ? "Finding…" : "Find photos"}
+                      {aiLoading ? t.aiFinding : t.aiButton}
                     </button>
                   </div>
                   <p style={{ margin: "8px 0 0", fontSize: 11, color: "rgba(255,255,255,0.35)", textAlign: "right" }}>
-                    Your description will be sent to OpenAI to generate search keywords.
+                    {t.aiPrivacyNote}
                   </p>
                 </div>
                 {aiError && (
@@ -533,7 +724,7 @@ export default function Home() {
                       textTransform: "uppercase",
                     }}
                   >
-                    Recent
+                    {t.recentLabel}
                   </span>
 
                   <button
@@ -547,7 +738,7 @@ export default function Home() {
                       fontWeight: 600,
                     }}
                   >
-                    Clear
+                    {t.clearButton}
                   </button>
                 </div>
 
@@ -588,10 +779,10 @@ export default function Home() {
                     textTransform: "uppercase",
                   }}
                 >
-                  Try
+                  {t.tryLabel}
                 </span>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 7, marginTop: 10 }}>
-                  {["cozy cafe morning", "minimal workspace", "business meeting"].map((chip) => (
+                  {t.exampleChips.map((chip) => (
                     <button
                       key={chip}
                       onClick={() => search(chip)}
@@ -645,7 +836,7 @@ export default function Home() {
                 marginBottom: 14,
               }}
             >
-              Free Stock Photos Finder &nbsp;·&nbsp; Unsplash · Pexels · Pixabay · Openverse
+              {t.postSearchHeader}
             </h1>
 
             {/* モード切替トグル */}
@@ -677,7 +868,7 @@ export default function Home() {
                     transition: "background 0.15s ease, color 0.15s ease",
                   }}
                 >
-                  {m === "normal" ? "Search" : "AI Recommend"}
+                  {m === "normal" ? t.modeSearch : t.modeAI}
                 </button>
               ))}
             </div>
@@ -704,7 +895,7 @@ export default function Home() {
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   onKeyDown={(e) => { if (e.key === "Enter") search() }}
-                  placeholder="Search photos (e.g. cat, interior, landscape…)"
+                  placeholder={t.searchPlaceholder}
                   style={{
                     flex: 1,
                     border: "none",
@@ -731,7 +922,7 @@ export default function Home() {
                     flexShrink: 0,
                   }}
                 >
-                  Search
+                  {t.searchButton}
                 </button>
               </div>
             )}
@@ -751,7 +942,7 @@ export default function Home() {
                   <textarea
                     value={aiPrompt}
                     onChange={(e) => setAiPrompt(e.target.value)}
-                    placeholder="e.g. Warm and quiet morning photos for a small cafe website"
+                    placeholder={t.aiPlaceholderMain}
                     rows={3}
                     style={{
                       width: "100%",
@@ -782,11 +973,11 @@ export default function Home() {
                         transition: "background 0.15s ease",
                       }}
                     >
-                      {aiLoading ? "Finding…" : "Find photos"}
+                      {aiLoading ? t.aiFinding : t.aiButton}
                     </button>
                   </div>
                   <p style={{ margin: "8px 0 0", fontSize: 11, color: muted, textAlign: "right" }}>
-                    Your description will be sent to OpenAI to generate search keywords.
+                    {t.aiPrivacyNote}
                   </p>
                 </div>
                 {aiError && (
@@ -819,7 +1010,7 @@ export default function Home() {
               {aiUsedPrompt && (
                 <div style={{ marginBottom: 12 }}>
                   <span style={{ fontSize: 11, color: muted, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase" }}>
-                    From your description
+                    {t.fromYourDescription}
                   </span>
                   <p style={{ fontSize: 13, color: sub, margin: "4px 0 0", lineHeight: 1.5, fontStyle: "italic" }}>
                     &ldquo;{aiUsedPrompt}&rdquo;
@@ -828,7 +1019,7 @@ export default function Home() {
               )}
               <div>
                 <span style={{ fontSize: 11, color: muted, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase" }}>
-                  Search angles
+                  {t.searchAngles}
                 </span>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 8 }}>
                   {aiQueries.map((q) => (
@@ -848,7 +1039,7 @@ export default function Home() {
                   ))}
                 </div>
                 <p style={{ fontSize: 11, color: muted, margin: "10px 0 0", lineHeight: 1.5 }}>
-                  AI Recommend interpreted your description and searched all sources using these keywords.
+                  {t.aiResultNote}
                 </p>
               </div>
             </div>
@@ -880,7 +1071,7 @@ export default function Home() {
                 }}
               >
                 <span style={{ fontSize: 12, color: sub, fontWeight: 500, whiteSpace: "nowrap" }}>
-                  Commercial use
+                  {t.commercialLabel}
                 </span>
                 <span
                   style={{
@@ -910,9 +1101,7 @@ export default function Home() {
                 </span>
               </button>
               <span style={{ fontSize: 11, color: muted, lineHeight: 1.4 }}>
-                {commercialOnly
-                  ? "Shows images easier to use commercially. Always verify on the source page."
-                  : "More results shown, including images that may need extra license checks."}
+                {commercialOnly ? t.commercialOnHint : t.commercialOffHint}
               </span>
             </div>
 
@@ -937,7 +1126,7 @@ export default function Home() {
                   textUnderlineOffset: 3,
                 }}
               >
-                History {downloadHistory.length > 0 ? `(${downloadHistory.length})` : ""}
+                {t.historyButton}{downloadHistory.length > 0 ? ` (${downloadHistory.length})` : ""}
               </button>
             </div>
           </section>
@@ -972,7 +1161,7 @@ export default function Home() {
                   textTransform: "uppercase",
                 }}
               >
-                Recent searches
+                {t.recentSearches}
               </div>
 
               {history.length > 0 && (
@@ -987,14 +1176,14 @@ export default function Home() {
                     fontWeight: 500,
                   }}
                 >
-                  Clear
+                  {t.clearButton}
                 </button>
               )}
             </div>
 
             <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
               {history.length === 0 ? (
-                <span style={{ color: muted, fontSize: 13 }}>No history yet</span>
+                <span style={{ color: muted, fontSize: 13 }}>{t.noHistory}</span>
               ) : (
                 history.map((item) => (
                   <button
@@ -1048,7 +1237,7 @@ export default function Home() {
                   letterSpacing: "0.02em",
                 }}
               >
-                Searching…
+                {t.searching}
               </div>
             </section>
           )}
@@ -1138,7 +1327,7 @@ export default function Home() {
                             fontWeight: 400,
                           }}
                         >
-                          {img.author || "Unknown"}
+                          {img.author || t.unknownAuthor}
                         </span>
 
                         <span
@@ -1185,7 +1374,7 @@ export default function Home() {
                           }}
                         >
                           <span style={{ fontSize: 10, color: sub, lineHeight: 1.4 }}>
-                            クレジット表記が必要です
+                            {t.attributionRequired}
                           </span>
                           <button
                             onClick={() => handleCopyCredit(img)}
@@ -1203,7 +1392,7 @@ export default function Home() {
                               fontWeight: 500,
                             }}
                           >
-                            {copiedId === img.id ? "コピー済み ✓" : "クレジット文をコピー"}
+                            {copiedId === img.id ? t.copied : t.copyCredit}
                           </button>
                         </div>
                       )}
@@ -1226,7 +1415,7 @@ export default function Home() {
                           transition: "background 0.18s ease, color 0.18s ease",
                         }}
                       >
-                        Download
+                        {t.download}
                       </button>
 
                       {img.pageUrl && (
@@ -1244,7 +1433,7 @@ export default function Home() {
                             letterSpacing: "0.01em",
                           }}
                         >
-                          元ページを見る
+                          {t.viewOriginal}
                         </a>
                       )}
                     </div>
@@ -1271,7 +1460,7 @@ export default function Home() {
                       boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
                     }}
                   >
-                    Load more
+                    {t.loadMore}
                   </button>
                 </div>
               )}
@@ -1290,9 +1479,9 @@ export default function Home() {
         }}
       >
         <p style={{ fontSize: 11, color: muted, margin: 0, lineHeight: 1.8 }}>
-          Images are served under each source&apos;s license terms. Verify the license on the original page before use. This app does not guarantee commercial usability.
+          {t.footerLicense}
           <br />
-          Download history is stored locally in your browser only — nothing is sent to our servers.
+          {t.footerStorage}
         </p>
       </footer>
 
@@ -1355,7 +1544,7 @@ export default function Home() {
               }}
             >
               <div style={{ fontSize: 15, fontWeight: 700, color: text, letterSpacing: "-0.01em" }}>
-                Download History
+                {t.downloadHistoryTitle}
               </div>
               <button
                 onClick={() => setShowHistory(false)}
@@ -1384,7 +1573,7 @@ export default function Home() {
                     fontSize: 14,
                   }}
                 >
-                  ダウンロード履歴はまだありません
+                  {t.noDownloadHistory}
                 </div>
               ) : (
                 (() => {
@@ -1460,7 +1649,7 @@ export default function Home() {
                                     whiteSpace: "nowrap",
                                   }}
                                 >
-                                  {item.author || "Unknown"}
+                                  {item.author || t.unknownAuthor}
                                 </span>
                               </div>
                               {item.pageUrl && (
@@ -1476,7 +1665,7 @@ export default function Home() {
                                     paddingBottom: 1,
                                   }}
                                 >
-                                  元ページを見る
+                                  {t.viewOriginal}
                                 </a>
                               )}
                             </div>
@@ -1523,7 +1712,7 @@ export default function Home() {
                     textUnderlineOffset: 3,
                   }}
                 >
-                  履歴をすべて削除
+                  {t.clearAll}
                 </button>
               </div>
             )}
