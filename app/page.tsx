@@ -865,50 +865,57 @@ export default function Home() {
               marginBottom: 18,
             }}
           >
-            <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+            <div style={{ display: "flex", alignItems: "flex-start", gap: 14 }}>
               {/* 商用利用フィルタトグル */}
-              <button
-                onClick={() => setCommercialOnly((v) => !v)}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 6,
-                  border: "none",
-                  background: "transparent",
-                  cursor: "pointer",
-                  padding: 0,
-                }}
-              >
-                <span
+              <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+                <button
+                  onClick={() => setCommercialOnly((v) => !v)}
                   style={{
-                    display: "inline-block",
-                    width: 30,
-                    height: 17,
-                    borderRadius: 999,
-                    background: commercialOnly ? ink : border,
-                    position: "relative",
-                    transition: "background 0.2s",
-                    flexShrink: 0,
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 6,
+                    border: "none",
+                    background: "transparent",
+                    cursor: "pointer",
+                    padding: 0,
                   }}
                 >
                   <span
                     style={{
-                      position: "absolute",
-                      top: 2,
-                      left: commercialOnly ? 15 : 2,
-                      width: 13,
-                      height: 13,
+                      display: "inline-block",
+                      width: 30,
+                      height: 17,
                       borderRadius: 999,
-                      background: "#ffffff",
-                      transition: "left 0.2s",
-                      boxShadow: "0 1px 3px rgba(0,0,0,0.2)",
+                      background: commercialOnly ? ink : border,
+                      position: "relative",
+                      transition: "background 0.2s",
+                      flexShrink: 0,
                     }}
-                  />
+                  >
+                    <span
+                      style={{
+                        position: "absolute",
+                        top: 2,
+                        left: commercialOnly ? 15 : 2,
+                        width: 13,
+                        height: 13,
+                        borderRadius: 999,
+                        background: "#ffffff",
+                        transition: "left 0.2s",
+                        boxShadow: "0 1px 3px rgba(0,0,0,0.2)",
+                      }}
+                    />
+                  </span>
+                  <span style={{ fontSize: 12, color: sub, fontWeight: 500, whiteSpace: "nowrap" }}>
+                    Commercial use
+                  </span>
+                </button>
+                <span style={{ fontSize: 11, color: muted, lineHeight: 1.4 }}>
+                  {commercialOnly
+                    ? "Shows images easier to use commercially. Always verify on the source page."
+                    : "More results shown, including images that may need extra license checks."}
                 </span>
-                <span style={{ fontSize: 12, color: sub, fontWeight: 500, whiteSpace: "nowrap" }}>
-                  商用利用OKのみ
-                </span>
-              </button>
+              </div>
 
               <div style={{ fontSize: 13, color: muted, fontWeight: 500 }}>
                 {resultCountText}
