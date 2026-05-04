@@ -74,6 +74,7 @@ export default function Home() {
   const [aiQueries, setAiQueries] = useState<string[]>([])
   const [aiLoading, setAiLoading] = useState(false)
   const [aiError, setAiError] = useState("")
+  const [aiUsedPrompt, setAiUsedPrompt] = useState("")
   const [copiedId, setCopiedId] = useState<string | null>(null)
 
   useEffect(() => {
@@ -115,6 +116,8 @@ export default function Home() {
 
     setHeroPhase("fading")
     setLoading(true)
+    setAiQueries([])
+    setAiUsedPrompt("")
     setImages([])
     setVisibleCount(24)
     setTimeout(() => setHeroPhase("hidden"), FADE_MS)
@@ -196,6 +199,7 @@ export default function Home() {
     setAiLoading(true)
     setAiError("")
     setAiQueries([])
+    setAiUsedPrompt(prompt)
     setImages([])
     setVisibleCount(24)
     setTimeout(() => setHeroPhase("hidden"), FADE_MS)
@@ -805,31 +809,48 @@ export default function Home() {
           {aiQueries.length > 0 && (
             <div
               style={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: 6,
-                alignItems: "center",
-                marginBottom: 14,
+                background: bgCard,
+                border: `1px solid ${border}`,
+                borderRadius: 16,
+                padding: "14px 18px 12px",
+                marginBottom: 20,
               }}
             >
-              <span style={{ fontSize: 11, color: muted, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase" }}>
-                AI queries
-              </span>
-              {aiQueries.map((q) => (
-                <span
-                  key={q}
-                  style={{
-                    fontSize: 11,
-                    color: sub,
-                    background: bgCard,
-                    border: `1px solid ${border}`,
-                    borderRadius: 999,
-                    padding: "3px 10px",
-                  }}
-                >
-                  {q}
+              {aiUsedPrompt && (
+                <div style={{ marginBottom: 12 }}>
+                  <span style={{ fontSize: 11, color: muted, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase" }}>
+                    From your description
+                  </span>
+                  <p style={{ fontSize: 13, color: sub, margin: "4px 0 0", lineHeight: 1.5, fontStyle: "italic" }}>
+                    &ldquo;{aiUsedPrompt}&rdquo;
+                  </p>
+                </div>
+              )}
+              <div>
+                <span style={{ fontSize: 11, color: muted, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase" }}>
+                  Search angles
                 </span>
-              ))}
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 8 }}>
+                  {aiQueries.map((q) => (
+                    <span
+                      key={q}
+                      style={{
+                        fontSize: 12,
+                        color: sub,
+                        background: bg,
+                        border: `1px solid ${border}`,
+                        borderRadius: 999,
+                        padding: "4px 12px",
+                      }}
+                    >
+                      {q}
+                    </span>
+                  ))}
+                </div>
+                <p style={{ fontSize: 11, color: muted, margin: "10px 0 0", lineHeight: 1.5 }}>
+                  AI Recommend interpreted your description and searched all sources using these keywords.
+                </p>
+              </div>
             </div>
           )}
 
