@@ -61,9 +61,6 @@ export default function Home() {
   const [images, setImages] = useState<ImageItem[]>([])
   const [loading, setLoading] = useState(false)
   const [history, setHistory] = useState<string[]>([])
-  const [activeTab, setActiveTab] = useState<
-    "all" | "Unsplash" | "Pexels" | "Pixabay" | "Openverse"
-  >("all")
   const [hoveredId, setHoveredId] = useState<string | null>(null)
   const [columnCount, setColumnCount] = useState(4)
   const [visibleCount, setVisibleCount] = useState(24)
@@ -246,7 +243,6 @@ export default function Home() {
   }
 
   const filteredImages = images.filter((img) => {
-    if (activeTab !== "all" && img.source !== activeTab) return false
     if (commercialOnly && !isCommercialSafe(img.license)) return false
     return true
   })
@@ -837,53 +833,17 @@ export default function Home() {
             </div>
           )}
 
-          {/* ── タブ＋件数 ── */}
+          {/* ── フィルター・件数 ── */}
           <section
             style={{
               display: "flex",
-              justifyContent: "space-between",
+              justifyContent: "flex-end",
               alignItems: "center",
               gap: 12,
               flexWrap: "wrap",
               marginBottom: 18,
             }}
           >
-            <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-              {[
-                { key: "all", label: "All" },
-                { key: "Unsplash", label: "Unsplash" },
-                { key: "Pexels", label: "Pexels" },
-                { key: "Pixabay", label: "Pixabay" },
-                { key: "Openverse", label: "Openverse" },
-              ].map((tab) => (
-                <button
-                  key={tab.key}
-                  onClick={() =>
-                    setActiveTab(
-                      tab.key as "all" | "Unsplash" | "Pexels" | "Pixabay" | "Openverse"
-                    )
-                  }
-                  style={{
-                    border:
-                      activeTab === tab.key
-                        ? `1px solid ${ink}`
-                        : `1px solid ${border}`,
-                    background: activeTab === tab.key ? ink : bgCard,
-                    color: activeTab === tab.key ? "#ffffff" : sub,
-                    borderRadius: 999,
-                    padding: "9px 16px",
-                    fontSize: 13,
-                    fontWeight: 600,
-                    cursor: "pointer",
-                    letterSpacing: "0.01em",
-                    boxShadow: "none",
-                  }}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
-
             <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
               {/* 商用利用フィルタトグル */}
               <button
