@@ -87,6 +87,9 @@ type Translations = {
   downloadHistoryTitle: string
   noDownloadHistory: string
   clearAll: string
+  aiErrorFailed: string
+  aiErrorNetwork: string
+  downloadError: string
 }
 
 const translations: Record<"en" | "ja", Translations> = {
@@ -133,6 +136,9 @@ const translations: Record<"en" | "ja", Translations> = {
     downloadHistoryTitle: "Download History",
     noDownloadHistory: "No download history yet",
     clearAll: "Clear all",
+    aiErrorFailed: "AI processing failed. Please try again.",
+    aiErrorNetwork: "A network error occurred. Please check your connection.",
+    downloadError: "Download failed. Please try again.",
   },
   ja: {
     siteTitle: "無料ストックフォト検索",
@@ -177,6 +183,9 @@ const translations: Record<"en" | "ja", Translations> = {
     downloadHistoryTitle: "ダウンロード履歴",
     noDownloadHistory: "ダウンロード履歴はまだありません",
     clearAll: "履歴をすべて削除",
+    aiErrorFailed: "AIの処理に失敗しました。",
+    aiErrorNetwork: "ネットワークエラーが発生しました。",
+    downloadError: "ダウンロードに失敗しました。",
   },
 }
 
@@ -320,7 +329,7 @@ export default function Home() {
       })
     } catch (error) {
       console.error(error)
-      alert("ダウンロードに失敗しました。")
+      alert(t.downloadError)
     }
   }
 
@@ -358,7 +367,7 @@ export default function Home() {
       })
       const aiData = await aiRes.json()
       if (!aiRes.ok || !aiData.queries) {
-        setAiError(aiData.error || "AIの処理に失敗しました。")
+        setAiError(aiData.error || t.aiErrorFailed)
         return
       }
 
@@ -386,7 +395,7 @@ export default function Home() {
       setImages(merged)
     } catch (error) {
       console.error(error)
-      setAiError("ネットワークエラーが発生しました。")
+      setAiError(t.aiErrorNetwork)
     } finally {
       setAiLoading(false)
     }
@@ -1132,6 +1141,7 @@ export default function Home() {
           </section>
 
           {/* ── 検索履歴 ── */}
+          {history.length > 0 && (
           <section
             style={{
               marginBottom: 24,
@@ -1182,30 +1192,27 @@ export default function Home() {
             </div>
 
             <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-              {history.length === 0 ? (
-                <span style={{ color: muted, fontSize: 13 }}>{t.noHistory}</span>
-              ) : (
-                history.map((item) => (
-                  <button
-                    key={item}
-                    onClick={() => search(item)}
-                    style={{
-                      border: `1px solid ${border}`,
-                      background: bg,
-                      borderRadius: 999,
-                      padding: "8px 14px",
-                      fontSize: 13,
-                      cursor: "pointer",
-                      color: sub,
-                      fontWeight: 500,
-                    }}
-                  >
-                    {item}
-                  </button>
-                ))
-              )}
+              {history.map((item) => (
+                <button
+                  key={item}
+                  onClick={() => search(item)}
+                  style={{
+                    border: `1px solid ${border}`,
+                    background: bg,
+                    borderRadius: 999,
+                    padding: "8px 14px",
+                    fontSize: 13,
+                    cursor: "pointer",
+                    color: sub,
+                    fontWeight: 500,
+                  }}
+                >
+                  {item}
+                </button>
+              ))}
             </div>
           </section>
+          )}
 
           {/* ── ローディング ── */}
           {loading && (
