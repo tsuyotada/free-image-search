@@ -318,21 +318,30 @@ export default function Home() {
                 textAlign: "center",
               }}
             >
-              Free Stock Finder
+              Free Stock Photos Finder
             </h1>
 
             {/* ディスクリプション（英語・控えめ） */}
             <p
               style={{
                 fontSize: 13,
-                color: "rgba(255,255,255,0.50)",
-                marginBottom: 18,
+                color: "rgba(255,255,255,0.55)",
+                marginBottom: 10,
                 textAlign: "center",
                 letterSpacing: "0.01em",
               }}
             >
-              Search across Unsplash, Pexels, Pixabay &amp; Openverse
+              Search free stock photos from Unsplash, Pexels, Pixabay, and Openverse — all in one place.
             </p>
+
+            {/* Value points */}
+            <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: 4, marginBottom: 18 }}>
+              <span style={{ fontSize: 12, color: "rgba(255,255,255,0.45)" }}>4 sources in one search</span>
+              <span style={{ fontSize: 12, color: "rgba(255,255,255,0.22)", padding: "0 5px" }}>·</span>
+              <span style={{ fontSize: 12, color: "rgba(255,255,255,0.45)" }}>Commercial-use filter built in</span>
+              <span style={{ fontSize: 12, color: "rgba(255,255,255,0.22)", padding: "0 5px" }}>·</span>
+              <span style={{ fontSize: 12, color: "rgba(255,255,255,0.45)" }}>AI keyword suggestions from plain text</span>
+            </div>
 
             {/* モード切替トグル（ヒーロー） */}
             <div
@@ -437,6 +446,9 @@ export default function Home() {
             {/* AI Recommend 入力（ヒーロー） */}
             {mode === "ai" && (
               <div style={{ width: "100%" }}>
+                <p style={{ fontSize: 12, color: "rgba(255,255,255,0.55)", textAlign: "center", marginBottom: 10, lineHeight: 1.6 }}>
+                  Describe what you need in plain English — AI Recommend turns it into search keywords.
+                </p>
                 <div
                   style={{
                     width: "100%",
@@ -453,7 +465,7 @@ export default function Home() {
                     className="hero-textarea"
                     value={aiPrompt}
                     onChange={(e) => setAiPrompt(e.target.value)}
-                    placeholder="どんな写真がほしいですか？（例：地方の小さなカフェに使う、温かくて静かな朝の写真）"
+                    placeholder="e.g. A warm, quiet morning scene for a small cafe website"
                     rows={3}
                     style={{
                       width: "100%",
@@ -486,7 +498,7 @@ export default function Home() {
                         whiteSpace: "nowrap",
                       }}
                     >
-                      {aiLoading ? "生成中…" : "写真を提案してもらう"}
+                      {aiLoading ? "Finding…" : "Find photos"}
                     </button>
                   </div>
                   <p style={{ margin: "8px 0 0", fontSize: 11, color: "rgba(255,255,255,0.35)", textAlign: "right" }}>
@@ -563,6 +575,45 @@ export default function Home() {
                 </div>
               </div>
             )}
+
+            {/* Example chips — first-time users only */}
+            {history.length === 0 && mode === "normal" && (
+              <div style={{ marginTop: 20, width: "100%" }}>
+                <span
+                  style={{
+                    color: "rgba(255,255,255,0.40)",
+                    fontSize: 11,
+                    fontWeight: 600,
+                    letterSpacing: "0.08em",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  Try
+                </span>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 7, marginTop: 10 }}>
+                  {["cozy cafe morning", "minimal workspace", "business meeting"].map((chip) => (
+                    <button
+                      key={chip}
+                      onClick={() => search(chip)}
+                      style={{
+                        border: "1px solid rgba(255,255,255,0.20)",
+                        background: "rgba(255,255,255,0.10)",
+                        backdropFilter: "blur(8px)",
+                        WebkitBackdropFilter: "blur(8px)",
+                        borderRadius: 999,
+                        padding: "7px 13px",
+                        fontSize: 13,
+                        cursor: "pointer",
+                        color: "rgba(255,255,255,0.82)",
+                        fontWeight: 500,
+                      }}
+                    >
+                      {chip}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       )}
@@ -594,7 +645,7 @@ export default function Home() {
                 marginBottom: 14,
               }}
             >
-              Free Stock Finder &nbsp;·&nbsp; Search across Unsplash, Pexels, Pixabay &amp; Openverse
+              Free Stock Photos Finder &nbsp;·&nbsp; Unsplash · Pexels · Pixabay · Openverse
             </h1>
 
             {/* モード切替トグル */}
@@ -700,7 +751,7 @@ export default function Home() {
                   <textarea
                     value={aiPrompt}
                     onChange={(e) => setAiPrompt(e.target.value)}
-                    placeholder="どんな写真がほしいですか？（例：地方の小さなカフェのWebサイトに使う、温かくて静かな朝の写真がほしい）"
+                    placeholder="e.g. Warm and quiet morning photos for a small cafe website"
                     rows={3}
                     style={{
                       width: "100%",
@@ -731,7 +782,7 @@ export default function Home() {
                         transition: "background 0.15s ease",
                       }}
                     >
-                      {aiLoading ? "生成中…" : "写真を提案してもらう"}
+                      {aiLoading ? "Finding…" : "Find photos"}
                     </button>
                   </div>
                   <p style={{ margin: "8px 0 0", fontSize: 11, color: muted, textAlign: "right" }}>

@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Free Stock Finder",
-  description: "Unsplash・Pexels・Pixabay・Openverse をまとめて検索",
+  title: "Free Stock Photos Finder",
+  description: "Search free stock photos from Unsplash, Pexels, Pixabay, and Openverse — all in one place.",
 }
 
 export default function RootLayout({
