@@ -502,7 +502,7 @@ export default function Home() {
                     </button>
                   </div>
                   <p style={{ margin: "8px 0 0", fontSize: 11, color: "rgba(255,255,255,0.35)", textAlign: "right" }}>
-                    入力内容はOpenAIに送信されます
+                    Your description will be sent to OpenAI to generate search keywords.
                   </p>
                 </div>
                 {aiError && (
@@ -786,7 +786,7 @@ export default function Home() {
                     </button>
                   </div>
                   <p style={{ margin: "8px 0 0", fontSize: 11, color: muted, textAlign: "right" }}>
-                    入力内容はOpenAIに送信されます
+                    Your description will be sent to OpenAI to generate search keywords.
                   </p>
                 </div>
                 {aiError && (
@@ -1282,8 +1282,9 @@ export default function Home() {
         }}
       >
         <p style={{ fontSize: 11, color: muted, margin: 0, lineHeight: 1.8 }}>
-          各画像のライセンスは提供元の条件に従います。本アプリは商用利用の適法性を保証しません。
-          ご利用前に提供元ページで最新のライセンスをご確認ください。
+          Images are served under each source&apos;s license terms. Verify the license on the original page before use. This app does not guarantee commercial usability.
+          <br />
+          Download history is stored locally in your browser only — nothing is sent to our servers.
         </p>
       </footer>
 
