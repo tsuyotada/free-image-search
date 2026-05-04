@@ -47,7 +47,7 @@ export async function GET(req: Request) {
 
       // ===== Openverse =====
       fetch(
-        `https://api.openverse.engineering/v1/images?q=${encoded}&page_size=${perPage}`
+        `https://api.openverse.org/v1/images?q=${encoded}&page_size=${perPage}`
       ).then((r) => r.json()),
     ])
 
