@@ -94,7 +94,7 @@ type Translations = {
 
 const translations: Record<"en" | "ja", Translations> = {
   en: {
-    siteTitle: "Free Stock Photos Finder",
+    siteTitle: "Free Stock Finder",
     siteSubtitle: "Search free stock photos from Unsplash, Pexels, Pixabay, and Openverse — all in one place.",
     valuePoints: ["4 sources in one search", "Commercial-use filter built in", "AI keyword suggestions from plain text"],
     modeSearch: "Search",
@@ -111,7 +111,7 @@ const translations: Record<"en" | "ja", Translations> = {
     clearButton: "Clear",
     tryLabel: "Try",
     exampleChips: ["cozy cafe morning", "minimal workspace", "business meeting"],
-    postSearchHeader: "Free Stock Photos Finder · Unsplash · Pexels · Pixabay · Openverse",
+    postSearchHeader: "Free Stock Finder · Unsplash · Pexels · Pixabay · Openverse",
     fromYourDescription: "From your description",
     searchAngles: "Search angles",
     aiResultNote: "AI Recommend interpreted your description and searched all sources using these keywords.",
@@ -506,10 +506,9 @@ export default function Home() {
               padding: "0 18px",
             }}
           >
-            {/* ── サイト名（ヒーロー）：post-search と同じ 28px に揃える ── */}
             <h1
               style={{
-                fontSize: 28,
+                fontSize: 34,
                 fontWeight: 700,
                 color: "#ffffff",
                 letterSpacing: "-0.02em",
