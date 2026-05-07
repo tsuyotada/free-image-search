@@ -513,7 +513,7 @@ export default function Home() {
                 fontWeight: 700,
                 color: "#ffffff",
                 letterSpacing: "-0.02em",
-                marginBottom: 6,
+                marginBottom: 12,
                 textShadow: "0 1px 12px rgba(0,0,0,0.45)",
                 textAlign: "center",
               }}
@@ -524,9 +524,9 @@ export default function Home() {
             {/* ディスクリプション */}
             <p
               style={{
-                fontSize: 13,
-                color: "rgba(255,255,255,0.55)",
-                marginBottom: 10,
+                fontSize: 12,
+                color: "rgba(255,255,255,0.42)",
+                marginBottom: 14,
                 textAlign: "center",
                 letterSpacing: "0.01em",
               }}
@@ -535,7 +535,7 @@ export default function Home() {
             </p>
 
             {/* Value points */}
-            <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: 4, marginBottom: 18 }}>
+            <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: 4, marginBottom: 28 }}>
               <span style={{ fontSize: 12, color: "rgba(255,255,255,0.45)" }}>{t.valuePoints[0]}</span>
               <span style={{ fontSize: 12, color: "rgba(255,255,255,0.22)", padding: "0 5px" }}>·</span>
               <span style={{ fontSize: 12, color: "rgba(255,255,255,0.45)" }}>{t.valuePoints[1]}</span>
@@ -553,8 +553,8 @@ export default function Home() {
                 border: "1px solid rgba(255,255,255,0.22)",
                 borderRadius: 999,
                 padding: 3,
-                marginBottom: 16,
                 gap: 2,
+                marginBottom: 22,
               }}
             >
               {(["normal", "ai"] as const).map((m) => (
