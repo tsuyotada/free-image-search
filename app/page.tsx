@@ -526,7 +526,7 @@ export default function Home() {
               style={{
                 fontSize: 12,
                 color: "rgba(255,255,255,0.42)",
-                marginBottom: 14,
+                marginBottom: 8,
                 textAlign: "center",
                 letterSpacing: "0.01em",
               }}
