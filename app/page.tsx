@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useMemo, useState } from "react"
+import { trackEvent } from "@/lib/gtag"
 
 type ImageItem = {
   id: string
@@ -283,6 +284,7 @@ export default function Home() {
       setImages(data)
       setQuery(q)
       saveHistory(q)
+      trackEvent('search', { search_term: q, source_filter: commercialOnly ? 'commercial' : 'all' })
     } catch (error) {
       console.error(error)
       setImages([])
@@ -298,7 +300,7 @@ export default function Home() {
 
   const sanitizeFileName = (name: string) => name.replace(/[\\/:*?"<>|]/g, "_")
 
-  const handleDownload = (img: ImageItem) => {
+  const handleDownload = (img: ImageItem, position?: number) => {
     try {
       const extension = img.downloadUrl.includes(".png")
         ? "png"
@@ -312,6 +314,12 @@ export default function Home() {
       document.body.appendChild(a)
       a.click()
       a.remove()
+
+      trackEvent('download_click', {
+        source: img.source,
+        license: img.license ?? '',
+        position: position ?? -1,
+      })
 
       const entry: DownloadHistoryItem = {
         historyId: `${Date.now()}-${Math.random().toString(36).slice(2)}`,
@@ -373,6 +381,7 @@ export default function Home() {
 
       const queries: string[] = aiData.queries
       setAiQueries(queries)
+      trackEvent('ai_recommend', { query_count: queries.length, prompt_length: prompt.length })
 
       const results = await Promise.all(
         queries.map((q) =>
@@ -507,7 +516,18 @@ export default function Home() {
             }}
           >
             <h1
-              style={{
+              style={locale === "en" ? {
+                fontFamily: "var(--font-playfair), 'Times New Roman', serif",
+                fontSize: "clamp(56px, 10vw, 96px)",
+                fontWeight: 900,
+                fontStyle: "italic",
+                color: "#ffffff",
+                letterSpacing: "-0.02em",
+                lineHeight: 0.9,
+                marginBottom: 18,
+                textShadow: "0 2px 24px rgba(0,0,0,0.55)",
+                textAlign: "center",
+              } : {
                 fontSize: 34,
                 fontWeight: 700,
                 color: "#ffffff",
@@ -1252,7 +1272,7 @@ export default function Home() {
           {!loading && (
             <>
               <section style={{ columnCount, columnGap: "16px" }}>
-                {visibleImages.map((img) => (
+                {visibleImages.map((img, index) => (
                   <article
                     key={img.id}
                     style={{
@@ -1405,7 +1425,7 @@ export default function Home() {
 
                       {/* Download：黒CTAではなく「上品な操作ボタン」として軽く見せる */}
                       <button
-                        onClick={() => handleDownload(img)}
+                        onClick={() => handleDownload(img, index)}
                         style={{
                           width: "100%",
                           border: "1px solid #e4e4e4",
@@ -1429,6 +1449,7 @@ export default function Home() {
                           href={img.pageUrl}
                           target="_blank"
                           rel="noopener noreferrer"
+                          onClick={() => trackEvent('external_photo_open', { source: img.source, license: img.license ?? '' })}
                           style={{
                             display: "block",
                             textAlign: "center",
