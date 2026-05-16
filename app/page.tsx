@@ -295,7 +295,7 @@ export default function Home() {
       setImages(data)
       setQuery(q)
       saveHistory(q)
-      trackEvent('search', { search_term: q, source_filter: commercialOnly ? 'commercial' : 'all' })
+      trackEvent('search', { search_term: q, source_filter: commercialOnly ? 'commercial' : 'all', result_count: data.length })
     } catch (error) {
       console.error(error)
       setImages([])
