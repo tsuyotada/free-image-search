@@ -32,23 +32,23 @@ export async function GET(req: Request) {
       fetch(
         `https://api.unsplash.com/search/photos?query=${encoded}&per_page=${perPage}`,
         { headers: { Authorization: `Client-ID ${process.env.UNSPLASH_KEY}` } }
-      ).then((r) => r.json()),
+      ).then((r) => r.json()).catch(() => ({})),
 
       // ===== Pexels =====
       fetch(
         `https://api.pexels.com/v1/search?query=${encoded}&per_page=${perPage}`,
         { headers: { Authorization: process.env.PEXELS_KEY! } }
-      ).then((r) => r.json()),
+      ).then((r) => r.json()).catch(() => ({})),
 
       // ===== Pixabay =====
       fetch(
         `https://pixabay.com/api/?key=${process.env.PIXABAY_KEY}&q=${encoded}&image_type=photo&per_page=${perPage}`
-      ).then((r) => r.json()),
+      ).then((r) => r.json()).catch(() => ({})),
 
       // ===== Openverse =====
       fetch(
         `https://api.openverse.org/v1/images?q=${encoded}&page_size=${perPage}`
-      ).then((r) => r.json()),
+      ).then((r) => r.json()).catch(() => ({})),
     ])
 
   // ===== 整形 =====

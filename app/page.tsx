@@ -292,10 +292,11 @@ export default function Home() {
     try {
       const res = await fetch(`/api/search?q=${encodeURIComponent(q)}`)
       const data = await res.json()
-      setImages(data)
+      const images = Array.isArray(data) ? data : []
+      setImages(images)
       setQuery(q)
       saveHistory(q)
-      trackEvent('search', { search_term: q, source_filter: commercialOnly ? 'commercial' : 'all', result_count: data.length })
+      trackEvent('search', { search_term: q, source_filter: commercialOnly ? 'commercial' : 'all', result_count: images.length })
     } catch (error) {
       console.error(error)
       setImages([])
