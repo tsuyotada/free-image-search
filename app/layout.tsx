@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
+import { Geist, Geist_Mono, Playfair_Display, Cormorant_Garamond, Bodoni_Moda, DM_Serif_Display, Lora } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { GA_MEASUREMENT_ID } from "@/lib/gtag";
@@ -21,6 +21,34 @@ const playfair = Playfair_Display({
   style: ["normal", "italic"],
 });
 
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
+  subsets: ["latin"],
+  weight: ["700"],
+  style: ["italic"],
+});
+
+const bodoni = Bodoni_Moda({
+  variable: "--font-bodoni",
+  subsets: ["latin"],
+  weight: ["900"],
+  style: ["italic"],
+});
+
+const dmSerif = DM_Serif_Display({
+  variable: "--font-dm-serif",
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["italic"],
+});
+
+const lora = Lora({
+  variable: "--font-lora",
+  subsets: ["latin"],
+  weight: ["700"],
+  style: ["italic"],
+});
+
 export const metadata = {
   title: "Free Stock Photos Finder",
   description: "Search free stock photos from Unsplash, Pexels, Pixabay, and Openverse — all in one place.",
@@ -33,7 +61,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={playfair.variable}>
+      <body className={`${playfair.variable} ${cormorant.variable} ${bodoni.variable} ${dmSerif.variable} ${lora.variable}`}>
         {children}
         {GA_MEASUREMENT_ID && (
           <>

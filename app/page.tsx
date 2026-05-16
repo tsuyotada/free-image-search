@@ -3,6 +3,14 @@
 import { useEffect, useMemo, useState } from "react"
 import { trackEvent } from "@/lib/gtag"
 
+const MAGAZINE_FONTS = [
+  { family: "var(--font-playfair), 'Times New Roman', serif",  style: "italic" as const, weight: 900 },
+  { family: "var(--font-cormorant), Georgia, serif",           style: "italic" as const, weight: 700 },
+  { family: "var(--font-bodoni), Georgia, serif",              style: "italic" as const, weight: 900 },
+  { family: "var(--font-dm-serif), Georgia, serif",            style: "italic" as const, weight: 400 },
+  { family: "var(--font-lora), Georgia, serif",                style: "italic" as const, weight: 700 },
+]
+
 type ImageItem = {
   id: string
   url: string
@@ -224,8 +232,11 @@ export default function Home() {
   const [aiUsedPrompt, setAiUsedPrompt] = useState("")
   const [copiedId, setCopiedId] = useState<string | null>(null)
   const [locale, setLocale] = useState<"en" | "ja">("en")
+  const [titleFont, setTitleFont] = useState(MAGAZINE_FONTS[0])
 
   useEffect(() => {
+    setTitleFont(MAGAZINE_FONTS[Math.floor(Math.random() * MAGAZINE_FONTS.length)])
+
     const saved = localStorage.getItem(HISTORY_KEY)
     if (saved) setHistory(JSON.parse(saved))
 
@@ -517,10 +528,10 @@ export default function Home() {
           >
             <h1
               style={locale === "en" ? {
-                fontFamily: "var(--font-playfair), 'Times New Roman', serif",
+                fontFamily: titleFont.family,
                 fontSize: "clamp(40px, 7vw, 68px)",
-                fontWeight: 900,
-                fontStyle: "italic",
+                fontWeight: titleFont.weight,
+                fontStyle: titleFont.style,
                 color: "#ffffff",
                 letterSpacing: "-0.02em",
                 lineHeight: 0.9,
