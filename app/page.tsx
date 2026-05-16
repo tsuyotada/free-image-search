@@ -518,7 +518,7 @@ export default function Home() {
             <h1
               style={locale === "en" ? {
                 fontFamily: "var(--font-playfair), 'Times New Roman', serif",
-                fontSize: "clamp(56px, 10vw, 96px)",
+                fontSize: "clamp(40px, 7vw, 68px)",
                 fontWeight: 900,
                 fontStyle: "italic",
                 color: "#ffffff",
