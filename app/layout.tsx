@@ -53,9 +53,12 @@ const lora = Lora({
   style: ["italic"],
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Free Stock Photos Finder",
   description: "Search free stock photos from Unsplash, Pexels, Pixabay, and Openverse — all in one place.",
+  // Emits <meta name="google-adsense-account" content="ca-pub-..."> into <head>
+  // Required for AdSense site verification (Meta tag method).
+  ...(ADSENSE_CLIENT_ID ? { other: { "google-adsense-account": ADSENSE_CLIENT_ID } } : {}),
 }
 
 export default function RootLayout({
