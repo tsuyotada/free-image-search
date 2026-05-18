@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react"
 import { trackEvent } from "@/lib/gtag"
+import PRCard from "./PRCard"
 
 const MAGAZINE_FONTS = [
   { family: "var(--font-playfair), 'Times New Roman', serif",  style: "italic" as const, weight: 900 },
@@ -210,6 +211,26 @@ const ink      = "#313131"
 
 // Fallback gradient shown while hero image is loading or unavailable
 const HERO_FALLBACK = "linear-gradient(160deg, #1c1c28 0%, #111116 60%, #0d0d12 100%)"
+
+// ── PR card injection ────────────────────────────────────────────────────────
+// Photos and ads are mixed only at render time; the photo data arrays are
+// never mutated. Swap out PRCard or adjust AD_POSITION / MIN_RESULTS_FOR_AD
+// to change ad placement without touching search logic.
+
+type GridItem =
+  | { type: "photo"; data: ImageItem }
+  | { type: "ad"; id: string }
+
+const AD_POSITION = 6        // Insert after N-th photo (0-indexed splice point)
+const MIN_RESULTS_FOR_AD = 10 // Skip ad when results are sparse
+
+function buildGridItems(photos: ImageItem[]): GridItem[] {
+  const items: GridItem[] = photos.map((p) => ({ type: "photo", data: p }))
+  if (photos.length >= MIN_RESULTS_FOR_AD) {
+    items.splice(AD_POSITION, 0, { type: "ad", id: "pr-1" })
+  }
+  return items
+}
 
 export default function HomeClient({ initialHeroImage }: { initialHeroImage: string | null }) {
   const [query, setQuery] = useState("")
@@ -1302,7 +1323,14 @@ export default function HomeClient({ initialHeroImage }: { initialHeroImage: str
           {!loading && (
             <>
               <section style={{ columnCount, columnGap: "16px" }}>
-                {visibleImages.map((img, index) => (
+                {buildGridItems(visibleImages).map((item, gridIndex) => {
+                  // Ad slot — swap PRCard with your real ad unit here
+                  if (item.type === "ad") {
+                    return <PRCard key={item.id} />
+                  }
+
+                  const img = item.data
+                  return (
                   <article
                     key={img.id}
                     style={{
@@ -1454,7 +1482,7 @@ export default function HomeClient({ initialHeroImage }: { initialHeroImage: str
                       )}
 
                       <button
-                        onClick={() => handleDownload(img, index)}
+                        onClick={() => handleDownload(img, gridIndex)}
                         style={{
                           width: "100%",
                           border: "1px solid #e4e4e4",
@@ -1494,7 +1522,8 @@ export default function HomeClient({ initialHeroImage }: { initialHeroImage: str
                       )}
                     </div>
                   </article>
-                ))}
+                  )
+                })}
               </section>
 
               {hasMore && (
