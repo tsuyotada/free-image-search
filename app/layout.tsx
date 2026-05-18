@@ -4,6 +4,10 @@ import Script from "next/script";
 import "./globals.css";
 import { GA_MEASUREMENT_ID } from "@/lib/gtag";
 
+// AdSense publisher ID — set in .env.local or Vercel environment variables.
+// Must be prefixed with "ca-pub-". Leave unset to disable AdSense globally.
+const ADSENSE_CLIENT_ID = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -76,6 +80,15 @@ export default function RootLayout({
               gtag('config', '${GA_MEASUREMENT_ID}');
             `}</Script>
           </>
+        )}
+        {ADSENSE_CLIENT_ID && (
+          <Script
+            id="adsense-init"
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}`}
+            strategy="afterInteractive"
+            crossOrigin="anonymous"
+          />
         )}
       </body>
     </html>
