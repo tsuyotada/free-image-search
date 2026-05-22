@@ -57,7 +57,6 @@ const FADE_MS = 650
 type Translations = {
   siteTitle: string
   siteSubtitle: string
-  valuePoints: [string, string, string]
   modeSearch: string
   modeAI: string
   searchPlaceholder: string
@@ -106,7 +105,6 @@ const translations: Record<"en" | "ja", Translations> = {
   en: {
     siteTitle: "Free Stock Finder",
     siteSubtitle: "Search free stock photos from Unsplash, Pexels, Pixabay, and Openverse — all in one place.",
-    valuePoints: ["4 sources in one search", "Commercial-use filter built in", "AI keyword suggestions from plain text"],
     modeSearch: "Search",
     modeAI: "AI Recommend",
     searchPlaceholder: "Search photos (e.g. cat, interior, landscape…)",
@@ -153,7 +151,6 @@ const translations: Record<"en" | "ja", Translations> = {
   ja: {
     siteTitle: "無料ストックフォト検索",
     siteSubtitle: "複数の無料ストックフォトを、まとめて検索。",
-    valuePoints: ["4サービスを一括検索", "商用利用フィルター搭載", "自然文からAIがキーワードを提案"],
     modeSearch: "通常検索",
     modeAI: "AI Recommend",
     searchPlaceholder: "キーワードを入力（例：猫、インテリア、風景…）",
@@ -604,13 +601,41 @@ export default function HomeClient({ initialHeroImage }: { initialHeroImage: str
               {t.siteSubtitle}
             </p>
 
-            {/* Value points */}
-            <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: 4, marginBottom: 28 }}>
-              <span style={{ fontSize: 12, color: "rgba(255,255,255,0.45)" }}>{t.valuePoints[0]}</span>
-              <span style={{ fontSize: 12, color: "rgba(255,255,255,0.22)", padding: "0 5px" }}>·</span>
-              <span style={{ fontSize: 12, color: "rgba(255,255,255,0.45)" }}>{t.valuePoints[1]}</span>
-              <span style={{ fontSize: 12, color: "rgba(255,255,255,0.22)", padding: "0 5px" }}>·</span>
-              <span style={{ fontSize: 12, color: "rgba(255,255,255,0.45)" }}>{t.valuePoints[2]}</span>
+            {/* Source logos */}
+            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 20, marginBottom: 28, flexWrap: "wrap" }}>
+              {/* Unsplash */}
+              <div style={{ display: "flex", alignItems: "center", gap: 6, opacity: 0.68 }}>
+                <svg width="15" height="15" viewBox="0 0 16 16" fill="white" aria-hidden="true">
+                  <rect x="0" y="0" width="16" height="7" rx="1"/>
+                  <rect x="0" y="11" width="5.5" height="5" rx="1"/>
+                  <rect x="10.5" y="11" width="5.5" height="5" rx="1"/>
+                </svg>
+                <span style={{ fontSize: 12, fontWeight: 700, color: "white", letterSpacing: "-0.01em" }}>Unsplash</span>
+              </div>
+              {/* Pexels */}
+              <div style={{ display: "flex", alignItems: "center", gap: 6, opacity: 0.68 }}>
+                <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true">
+                  <rect x="1" y="5" width="14" height="10" rx="1.5" fill="white"/>
+                  <rect x="5.5" y="3" width="5" height="3" rx="1" fill="white"/>
+                  <circle cx="8" cy="10" r="2.8" fill="rgba(0,0,0,0.5)"/>
+                  <circle cx="8" cy="10" r="1.6" fill="white"/>
+                </svg>
+                <span style={{ fontSize: 12, fontWeight: 700, color: "white", letterSpacing: "-0.01em" }}>Pexels</span>
+              </div>
+              {/* Pixabay */}
+              <div style={{ display: "flex", alignItems: "center", gap: 6, opacity: 0.68 }}>
+                <svg width="15" height="15" viewBox="0 0 16 16" fill="white" aria-hidden="true">
+                  <polygon points="8,1 14.2,4.5 14.2,11.5 8,15 1.8,11.5 1.8,4.5"/>
+                </svg>
+                <span style={{ fontSize: 12, fontWeight: 700, color: "white", letterSpacing: "-0.01em" }}>Pixabay</span>
+              </div>
+              {/* Openverse */}
+              <div style={{ display: "flex", alignItems: "center", gap: 6, opacity: 0.68 }}>
+                <svg width="15" height="15" viewBox="0 0 16 16" fill="white" aria-hidden="true">
+                  <path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zm0 2a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9z"/>
+                </svg>
+                <span style={{ fontSize: 12, fontWeight: 700, color: "white", letterSpacing: "-0.01em" }}>Openverse</span>
+              </div>
             </div>
 
             {/* モード切替トグル（ヒーロー） */}
