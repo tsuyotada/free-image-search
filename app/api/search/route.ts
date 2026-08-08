@@ -59,7 +59,9 @@ export async function GET(req: Request) {
       thumb: img.urls.small,
       source: "Unsplash",
       author: img.user?.name || "",
-      downloadUrl: img.links.download,
+      // download_location is the API-hosted endpoint Unsplash requires us to
+      // hit on every download; /api/download resolves it to the CDN url.
+      downloadUrl: img.links.download_location || img.links.download,
       pageUrl: img.links.html,
       width: img.width,
       height: img.height,
