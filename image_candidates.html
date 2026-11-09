@@ -1,0 +1,860 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>note転載記事 画像候補</title>
+<style>
+:root{--bg:#f7f7f4;--card:#fff;--ink:#1c1c1a;--mut:#6c6c66;--line:#e4e4df;--accent:#8a6a3b}
+*{box-sizing:border-box}
+body{margin:0;padding:34px 16px 70px;background:var(--bg);color:var(--ink);
+ font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+ line-height:1.75;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto}
+h1{font-size:25px;margin:0 0 5px;letter-spacing:.02em}
+.lede{color:var(--mut);font-size:13.5px;margin:0 0 12px}
+.how{background:var(--card);border:1px solid var(--line);border-radius:10px;
+ padding:14px 18px;font-size:12.5px;color:var(--mut);margin:0 0 36px}
+.how b{color:var(--ink)}
+.how ul{margin:7px 0 0;padding-left:1.15em}
+.how li{margin:2px 0}
+.post{margin:0 0 48px}
+.post>h2{font-size:18.5px;margin:0 0 4px;padding-bottom:9px;border-bottom:2px solid var(--ink)}
+.pmeta{font-size:12.5px;color:var(--mut);margin:0 0 22px;word-break:break-all}
+.pmeta a{color:var(--accent)}
+.pl{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin:0 0 20px}
+.plid{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.09em;
+ background:var(--ink);color:#fff;border-radius:4px;padding:2px 10px;margin-bottom:11px}
+.after{border-left:3px solid var(--accent);background:#faf7f1;padding:9px 14px;
+ margin:0 0 11px;border-radius:0 6px 6px 0}
+.after .lab{font-size:10.5px;color:var(--mut);letter-spacing:.07em;display:block;margin-bottom:1px}
+.after .txt{font-size:14.5px}
+.intent{font-size:13px;color:#45453f;margin:0 0 7px}
+.lab{font-size:10.5px;color:var(--mut);letter-spacing:.07em;margin-right:7px}
+.qs{font-size:12px;color:var(--mut);margin:0 0 16px}
+code{background:#efefe9;border-radius:3px;padding:1px 5px;font-size:11.5px}
+.note{font-size:12px;color:#8a5a2b;background:#fdf6ec;border:1px solid #f0e2cc;
+ border-radius:6px;padding:7px 11px;margin:0 0 15px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:15px}
+.c{border:1px solid var(--line);border-radius:9px;overflow:hidden;background:#fff;
+ display:flex;flex-direction:column}
+.ph{position:relative;display:block;background:#ececea;aspect-ratio:3/2}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.rank{position:absolute;top:7px;left:7px;background:rgba(0,0,0,.76);color:#fff;
+ font-size:10.5px;border-radius:4px;padding:1px 7px;letter-spacing:.05em}
+.src{position:absolute;top:7px;right:7px;color:#fff;font-size:10px;border-radius:4px;
+ padding:1px 7px;font-weight:700}
+.meta{padding:10px 12px 12px;font-size:11.5px;color:var(--mut);flex:1;
+ display:flex;flex-direction:column;gap:3px}
+.meta .why{color:#2f2f2b;font-size:12px;margin-bottom:4px;line-height:1.65}
+.meta .row span{color:var(--ink)}
+.meta a{color:var(--accent);text-decoration:none}
+.meta a:hover{text-decoration:underline}
+.lic{font-size:10.5px;color:#7b7b74;border-top:1px dashed var(--line);padding-top:5px;margin-top:4px;line-height:1.6}
+.pick{margin-top:9px;width:100%;padding:8px 10px;font-size:12.5px;font-weight:700;cursor:pointer;
+ border:1px solid var(--ink);background:var(--card);color:var(--ink);border-radius:6px;font-family:inherit}
+.pick:hover:not(:disabled){background:var(--ink);color:#fff}
+.pick:disabled{opacity:.55;cursor:default}
+.c.picked{outline:3px solid var(--accent);outline-offset:-1px}
+.c.picked .pick{background:var(--accent);border-color:var(--accent);color:#fff}
+.pickmsg{font-size:11px;margin-top:4px;min-height:1.3em;color:var(--mut)}
+.pickmsg.err{color:#b5523a}
+.pickmsg.ok{color:#2f7d4f}
+#srvbar{position:sticky;top:0;z-index:20;margin:0 0 18px;padding:10px 14px;border-radius:8px;
+ font-size:12.5px;display:none}
+#srvbar.off{display:block;background:#fdf0e8;border:1px solid #e8c5b2;color:#8a3a1c}
+#srvbar.on{display:block;background:#edf7f0;border:1px solid #c3e2cd;color:#2f6b45}
+#srvbar code{background:rgba(0,0,0,.06)}
+footer{color:var(--mut);font-size:11.5px;text-align:center;border-top:1px solid var(--line);padding-top:16px}
+@media(prefers-color-scheme:dark){
+ :root{--bg:#17171a;--card:#1f1f23;--ink:#ececea;--mut:#9a9a94;--line:#32323a;--accent:#c9a46a}
+ .after{background:#24221d}
+ .note{background:#2a2218;border-color:#443a28;color:#d8b483}
+ code{background:#2a2a30}
+}
+</style></head><body><div class="wrap">
+<div id="srvbar"></div>
+<h1>note転載記事 画像候補</h1>
+<p class="lede">note_image_plan_pilot.json の全9placement、各4枚（計36枚）。</p>
+<div class="how"><b>集め方</b>
+<ul>
+<li>Unsplash / Pexels / Pixabay … <code>https://free-image-search.vercel.app/api/search</code> 経由（デプロイ済みサイト。APIキーはサーバ側にあるためローカルのキーは不要）</li>
+<li>Openverse … <code>api.openverse.org</code> に直接（キー不要）</li>
+<li>絞り込み … 横長のみ（縦横比1.25〜2.1）・幅640px以上。そのうえで全候補を<b>目視</b>し、style_rulesとintentに照らして4枚を選定</li>
+<li>style_rules … 人の顔がはっきり写る写真は避ける（手元、後ろ姿、遠景はよい） ／ 落ち着いた色調。強い彩度や広告っぽい演出は避ける ／ 横長（3:2〜16:9）を優先 ／ 文字やロゴが目立つ写真は避ける（品書き・掛け軸の文字は例外）</li>
+<li>ライセンスは各カード下部に記載。採用時は元ページで最新の表記を確認してください</li>
+</ul></div>
+<section class="post"><h2>10. 自分で登る、指示する、抱えて登る——マネジャーになるときに起きる、揺れの話</h2>
+<p class="pmeta">11/19 ・ <a href="https://note.com/arti_llc/n/n84969d05f768" target="_blank" rel="noopener">https://note.com/arti_llc/n/n84969d05f768</a></p>
+<div class="pl"><span class="plid">10-1</span>
+<div class="after"><span class="lab">この一文の直後に入れる</span><span class="txt">と声をかけている状態です。</span></div>
+<p class="intent"><span class="lab">INTENT</span>ふもとから指示を出す比喩。登る人が遠く小さく見える、下から見上げた構図</p>
+<p class="qs"><span class="lab">QUERY</span><code>climber on mountain slope from below</code> ／ alt: <code>hiker on steep slope distant</code> <code>mountain climber small figure</code><br><span class="lab">目視した候補</span>Unsplash 32 ・ Pexels 12 ・ Pixabay 8 ・ Openverse 20（計72枚から4枚）</p><p class="note">追加検索（lone hiker vast landscape ほか）で第3候補を入れ替えました。Openverseは20件返りましたが、19件が人の写っていない風景で、残り1件も1024pxと小さく、採用しませんでした。</p><div class="grid"><div class="c">
+<a class="ph" href="https://unsplash.com/photos/a-person-sitting-on-top-of-a-grass-covered-hill-AOb2hGBPm9o" target="_blank" rel="noopener">
+<img src="https://images.unsplash.com/photo-1691655152913-b949db70142f?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwxfHxjbGltYmVyJTIwb24lMjBtb3VudGFpbiUyMHNsb3BlJTIwZnJvbSUyMGJlbG93fGVufDB8fHx8MTc5NDIwMTkwMnww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=400" alt="climber on mountain slope from below" loading="lazy">
+<span class="rank">第1候補</span>
+<span class="src" style="background:#1f2933">Unsplash</span></a>
+<div class="meta">
+<div class="why">草の斜面を下から見上げる構図。登る人が豆粒ほどに小さく、ふもととの距離がそのまま出る。</div>
+<div class="row">撮影者: <span>Luba Ertel</span></div>
+<div class="row">サイズ: <span>6000×3376</span>（1.78:1）</div>
+<div class="row">ヒット語: <code>climber on mountain slope from below</code></div>
+<div class="row"><a href="https://unsplash.com/photos/a-person-sitting-on-top-of-a-grass-covered-hill-AOb2hGBPm9o" target="_blank" rel="noopener">元ページ ↗</a>　<a href="https://images.unsplash.com/photo-1691655152913-b949db70142f?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwxfHxjbGltYmVyJTIwb24lMjBtb3VudGFpbiUyMHNsb3BlJTIwZnJvbSUyMGJlbG93fGVufDB8fHx8MTc5NDIwMTkwMnww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" target="_blank" rel="noopener">画像 ↗</a></div>
+<div class="lic"><b>Unsplash License</b> <a href="https://unsplash.com/license" target="_blank" rel="noopener">条文 ↗</a><br>クレジット推奨（例: Photo by 〈撮影者〉 on Unsplash）。商用利用可・許諾不要。</div>
+<button class="pick" type="button"
+ data-pl="10-1" data-source="Unsplash" data-author="Luba Ertel"
+ data-license="Unsplash License" data-page="https://unsplash.com/photos/a-person-sitting-on-top-of-a-grass-covered-hill-AOb2hGBPm9o" data-img="https://images.unsplash.com/photo-1691655152913-b949db70142f?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwxfHxjbGltYmVyJTIwb24lMjBtb3VudGFpbiUyMHNsb3BlJTIwZnJvbSUyMGJlbG93fGVufDB8fHx8MTc5NDIwMTkwMnww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+ data-rank="1">これにする</button>
+<div class="pickmsg"></div>
+</div></div>
+<div class="c">
+<a class="ph" href="https://unsplash.com/photos/a-lone-person-walks-across-a-vast-snowy-mountain-landscape-S7TdS_anppM" target="_blank" rel="noopener">
+<img src="https://images.unsplash.com/photo-1785970902123-0fdcc7dda402?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHw1fHxjbGltYmVyJTIwb24lMjBtb3VudGFpbiUyMHNsb3BlJTIwZnJvbSUyMGJlbG93fGVufDB8fHx8MTc5NDIwMTkwMnww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=400" alt="climber on mountain slope from below" loading="lazy">
+<span class="rank">第2候補</span>
+<span class="src" style="background:#1f2933">Unsplash</span></a>
+<div class="meta">
+<div class="why">黒い岩壁の下にひとつぶの人影。スケール差がいちばん大きい一枚。</div>
+<div class="row">撮影者: <span>Matthew Stephenson</span></div>
+<div class="row">サイズ: <span>7008×4672</span>（1.5:1）</div>
+<div class="row">ヒット語: <code>climber on mountain slope from below</code></div>
+<div class="row"><a href="https://unsplash.com/photos/a-lone-person-walks-across-a-vast-snowy-mountain-landscape-S7TdS_anppM" target="_blank" rel="noopener">元ページ ↗</a>　<a href="https://images.unsplash.com/photo-1785970902123-0fdcc7dda402?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHw1fHxjbGltYmVyJTIwb24lMjBtb3VudGFpbiUyMHNsb3BlJTIwZnJvbSUyMGJlbG93fGVufDB8fHx8MTc5NDIwMTkwMnww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" target="_blank" rel="noopener">画像 ↗</a></div>
+<div class="lic"><b>Unsplash License</b> <a href="https://unsplash.com/license" target="_blank" rel="noopener">条文 ↗</a><br>クレジット推奨（例: Photo by 〈撮影者〉 on Unsplash）。商用利用可・許諾不要。</div>
+<button class="pick" type="button"
+ data-pl="10-1" data-source="Unsplash" data-author="Matthew Stephenson"
+ data-license="Unsplash License" data-page="https://unsplash.com/photos/a-lone-person-walks-across-a-vast-snowy-mountain-landscape-S7TdS_anppM" data-img="https://images.unsplash.com/photo-1785970902123-0fdcc7dda402?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHw1fHxjbGltYmVyJTIwb24lMjBtb3VudGFpbiUyMHNsb3BlJTIwZnJvbSUyMGJlbG93fGVufDB8fHx8MTc5NDIwMTkwMnww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+ data-rank="2">これにする</button>
+<div class="pickmsg"></div>
+</div></div>
+<div class="c">
+<a class="ph" href="https://www.pexels.com/photo/scenic-view-of-expansive-green-hill-landscape-34853194/" target="_blank" rel="noopener">
+<img src="https://images.pexels.com/photos/34853194/pexels-photo-34853194.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=350" alt="lone hiker vast landscape" loading="lazy">
+<span class="rank">第3候補</span>
+<span class="src" style="background:#05a081">Pexels</span></a>
+<div class="meta">
+<div class="why">広い荒野に人影が点ほどの大きさで入る。距離感がいちばん大きい。</div>
+<div class="row">撮影者: <span>ANA TINCA</span></div>
+<div class="row">サイズ: <span>6000×4000</span>（1.5:1）</div>
+<div class="row">ヒット語: <code>lone hiker vast landscape</code></div>
+<div class="row"><a href="https://www.pexels.com/photo/scenic-view-of-expansive-green-hill-landscape-34853194/" target="_blank" rel="noopener">元ページ ↗</a>　<a href="https://images.pexels.com/photos/34853194/pexels-photo-34853194.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940" target="_blank" rel="noopener">画像 ↗</a></div>
+<div class="lic"><b>Pexels License</b> <a href="https://www.pexels.com/license/" target="_blank" rel="noopener">条文 ↗</a><br>クレジット任意（推奨）。商用利用可・許諾不要。</div>
+<button class="pick" type="button"
+ data-pl="10-1" data-source="Pexels" data-author="ANA TINCA"
+ data-license="Pexels License" data-page="https://www.pexels.com/photo/scenic-view-of-expansive-green-hill-landscape-34853194/" data-img="https://images.pexels.com/photos/34853194/pexels-photo-34853194.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940"
+ data-rank="3">これにする</button>
+<div class="pickmsg"></div>
+</div></div>
+<div class="c">
+<a class="ph" href="https://pixabay.com/photos/kawa-karpo-snow-mountain-glacier-9836966/" target="_blank" rel="noopener">
+<img src="https://pixabay.com/get/g0a00cd7f15649a8c9145e1cadaa91fc570148ac3ed923a8fb9cb1a344ea0d1cedbd6ebbe9e6381efa7011a1c853a0342069de8dc5cf0c0d54af70a82c101971a_640.jpg" alt="climber on mountain slope from below" loading="lazy">
+<span class="rank">第4候補</span>
+<span class="src" style="background:#2a9d5c">Pixabay</span></a>
+<div class="meta">
+<div class="why">遠景の山肌に小さく散る人影。引きの距離感。</div>
+<div class="row">撮影者: <span>Tsebho</span></div>
+<div class="row">サイズ: <span>7360×4912</span>（1.5:1）</div>
+<div class="row">ヒット語: <code>climber on mountain slope from below</code></div>
+<div class="row"><a href="https://pixabay.com/photos/kawa-karpo-snow-mountain-glacier-9836966/" target="_blank" rel="noopener">元ページ ↗</a>　<a href="https://pixabay.com/get/g087891663a12eb264a631ef2a5522ab4f4185501f0ae20fdc0f1278aefe1921197a9e472c094875a33ea806706faa8f6f3374fa80d2de6ed70ad4905c77f499d_1280.jpg" target="_blank" rel="noopener">画像 ↗</a></div>
+<div class="lic"><b>Pixabay License</b> <a href="https://pixabay.com/service/license-summary/" target="_blank" rel="noopener">条文 ↗</a><br>クレジット任意。商用利用可。人物が写る場合の被写体の権利は別途確認。</div>
+<button class="pick" type="button"
+ data-pl="10-1" data-source="Pixabay" data-author="Tsebho"
+ data-license="Pixabay License" data-page="https://pixabay.com/photos/kawa-karpo-snow-mountain-glacier-9836966/" data-img="https://pixabay.com/get/g087891663a12eb264a631ef2a5522ab4f4185501f0ae20fdc0f1278aefe1921197a9e472c094875a33ea806706faa8f6f3374fa80d2de6ed70ad4905c77f499d_1280.jpg"
+ data-rank="4">これにする</button>
+<div class="pickmsg"></div>
+</div></div>
+</div></div>
+<div class="pl"><span class="plid">10-2</span>
+<div class="after"><span class="lab">この一文の直後に入れる</span><span class="txt">それでも一緒に登り続ける。</span></div>
+<p class="intent"><span class="lab">INTENT</span>抱えて登る。同じ斜面を並んで登る二人の後ろ姿。10-1との距離感の差が出るもの</p>
+<p class="qs"><span class="lab">QUERY</span><code>two hikers walking together trail</code> ／ alt: <code>two people climbing mountain path back view</code> <code>helping hand hiking</code><br><span class="lab">目視した候補</span>Unsplash 8 ・ Pexels 8 ・ Pixabay 8 ・ Openverse 2（計26枚から4枚）</p><div class="grid"><div class="c">
+<a class="ph" href="https://unsplash.com/photos/2-people-walking-on-green-grass-field-during-daytime-TlaOWHxtpEU" target="_blank" rel="noopener">
+<img src="https://images.unsplash.com/photo-1615287772366-b32da541d7cd?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwxNnx8dHdvJTIwaGlrZXJzJTIwd2Fsa2luZyUyMHRvZ2V0aGVyJTIwdHJhaWx8ZW58MHx8fHwxNzk0MjAxOTA4fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=400" alt="two hikers walking together trail" loading="lazy">
+<span class="rank">第1候補</span>
+<span class="src" style="background:#1f2933">Unsplash</span></a>
+<div class="meta">
+<div class="why">同じ斜面を並んで登る二人の後ろ姿。10-1の「遠さ」と対になる距離。</div>
+<div class="row">撮影者: <span>Sébastien Goldberg</span></div>
+<div class="row">サイズ: <span>6000×4000</span>（1.5:1）</div>
+<div class="row">ヒット語: <code>two hikers walking together trail</code></div>
+<div class="row"><a href="https://unsplash.com/photos/2-people-walking-on-green-grass-field-during-daytime-TlaOWHxtpEU" target="_blank" rel="noopener">元ページ ↗</a>　<a href="https://images.unsplash.com/photo-1615287772366-b32da541d7cd?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwxNnx8dHdvJTIwaGlrZXJzJTIwd2Fsa2luZyUyMHRvZ2V0aGVyJTIwdHJhaWx8ZW58MHx8fHwxNzk0MjAxOTA4fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" target="_blank" rel="noopener">画像 ↗</a></div>
+<div class="lic"><b>Unsplash License</b> <a href="https://unsplash.com/license" target="_blank" rel="noopener">条文 ↗</a><br>クレジット推奨（例: Photo by 〈撮影者〉 on Unsplash）。商用利用可・許諾不要。</div>
+<button class="pick" type="button"
+ data-pl="10-2" data-source="Unsplash" data-author="Sébastien Goldberg"
+ data-license="Unsplash License" data-page="https://unsplash.com/photos/2-people-walking-on-green-grass-field-during-daytime-TlaOWHxtpEU" data-img="https://images.unsplash.com/photo-1615287772366-b32da541d7cd?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwxNnx8dHdvJTIwaGlrZXJzJTIwd2Fsa2luZyUyMHRvZ2V0aGVyJTIwdHJhaWx8ZW58MHx8fHwxNzk0MjAxOTA4fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+ data-rank="1">これにする</button>
+<div class="pickmsg"></div>
+</div></div>
+<div class="c">
+<a class="ph" href="https://www.pexels.com/photo/people-walking-on-snow-6395039/" target="_blank" rel="noopener">
+<img src="https://images.pexels.com/photos/6395039/pexels-photo-6395039.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=350" alt="two hikers walking together trail" loading="lazy">
+<span class="rank">第2候補</span>
+<span class="src" style="background:#05a081">Pexels</span></a>
+<div class="meta">
+<div class="why">肩を並べて歩く二人の後ろ姿。距離が近く「一緒に」が強く出る。</div>
+<div class="row">撮影者: <span>Maël  BALLAND</span></div>
+<div class="row">サイズ: <span>5472×3648</span>（1.5:1）</div>
+<div class="row">ヒット語: <code>two hikers walking together trail</code></div>
+<div class="row"><a href="https://www.pexels.com/photo/people-walking-on-snow-6395039/" target="_blank" rel="noopener">元ページ ↗</a>　<a href="https://images.pexels.com/photos/6395039/pexels-photo-6395039.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940" target="_blank" rel="noopener">画像 ↗</a></div>
+<div class="lic"><b>Pexels License</b> <a href="https://www.pexels.com/license/" target="_blank" rel="noopener">条文 ↗</a><br>クレジット任意（推奨）。商用利用可・許諾不要。</div>
+<button class="pick" type="button"
+ data-pl="10-2" data-source="Pexels" data-author="Maël  BALLAND"
+ data-license="Pexels License" data-page="https://www.pexels.com/photo/people-walking-on-snow-6395039/" data-img="https://images.pexels.com/photos/6395039/pexels-photo-6395039.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940"
+ data-rank="2">これにする</button>
+<div class="pickmsg"></div>
+</div></div>
+<div class="c">
+<a class="ph" href="https://www.pexels.com/photo/hikers-explore-snowy-mountain-trail-in-spring-31822655/" target="_blank" rel="noopener">
+<img src="https://images.pexels.com/photos/31822655/pexels-photo-31822655.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=350" alt="two hikers walking together trail" loading="lazy">
+<span class="rank">第3候補</span>
+<span class="src" style="background:#05a081">Pexels</span></a>
+<div class="meta">
+<div class="why">道の先の山へ向かう二人の後ろ姿。10-1と10-2の中間の距離感。</div>
+<div class="row">撮影者: <span>Deimantas Viburys</span></div>
+<div class="row">サイズ: <span>5305×3537</span>（1.5:1）</div>
+<div class="row">ヒット語: <code>two hikers walking together trail</code></div>
+<div class="row"><a href="https://www.pexels.com/photo/hikers-explore-snowy-mountain-trail-in-spring-31822655/" target="_blank" rel="noopener">元ページ ↗</a>　<a href="https://images.pexels.com/photos/31822655/pexels-photo-31822655.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940" target="_blank" rel="noopener">画像 ↗</a></div>
+<div class="lic"><b>Pexels License</b> <a href="https://www.pexels.com/license/" target="_blank" rel="noopener">条文 ↗</a><br>クレジット任意（推奨）。商用利用可・許諾不要。</div>
+<button class="pick" type="button"
+ data-pl="10-2" data-source="Pexels" data-author="Deimantas Viburys"
+ data-license="Pexels License" data-page="https://www.pexels.com/photo/hikers-explore-snowy-mountain-trail-in-spring-31822655/" data-img="https://images.pexels.com/photos/31822655/pexels-photo-31822655.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940"
+ data-rank="3">これにする</button>
+<div class="pickmsg"></div>
+</div></div>
+<div class="c">
+<a class="ph" href="https://unsplash.com/photos/two-hikers-with-backpacks-on-a-dirt-trail-BgSVqmuSEts" target="_blank" rel="noopener">
+<img src="https://images.unsplash.com/photo-1755554159963-ecac4e3e2291?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHw0fHx0d28lMjBoaWtlcnMlMjB3YWxraW5nJTIwdG9nZXRoZXIlMjB0cmFpbHxlbnwwfHx8fDE3OTQyMDE5MDh8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=400" alt="two hikers walking together trail" loading="lazy">
+<span class="rank">第4候補</span>
+<span class="src" style="background:#1f2933">Unsplash</span></a>
+<div class="meta">
+<div class="why">林道を行く二人の後ろ姿。背負った荷物の重さが見える。</div>
+<div class="row">撮影者: <span>Alex Moliski</span></div>
+<div class="row">サイズ: <span>9504×6336</span>（1.5:1）</div>
+<div class="row">ヒット語: <code>two hikers walking together trail</code></div>
+<div class="row"><a href="https://unsplash.com/photos/two-hikers-with-backpacks-on-a-dirt-trail-BgSVqmuSEts" target="_blank" rel="noopener">元ページ ↗</a>　<a href="https://images.unsplash.com/photo-1755554159963-ecac4e3e2291?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHw0fHx0d28lMjBoaWtlcnMlMjB3YWxraW5nJTIwdG9nZXRoZXIlMjB0cmFpbHxlbnwwfHx8fDE3OTQyMDE5MDh8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" target="_blank" rel="noopener">画像 ↗</a></div>
+<div class="lic"><b>Unsplash License</b> <a href="https://unsplash.com/license" target="_blank" rel="noopener">条文 ↗</a><br>クレジット推奨（例: Photo by 〈撮影者〉 on Unsplash）。商用利用可・許諾不要。</div>
+<button class="pick" type="button"
+ data-pl="10-2" data-source="Unsplash" data-author="Alex Moliski"
+ data-license="Unsplash License" data-page="https://unsplash.com/photos/two-hikers-with-backpacks-on-a-dirt-trail-BgSVqmuSEts" data-img="https://images.unsplash.com/photo-1755554159963-ecac4e3e2291?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHw0fHx0d28lMjBoaWtlcnMlMjB3YWxraW5nJTIwdG9nZXRoZXIlMjB0cmFpbHxlbnwwfHx8fDE3OTQyMDE5MDh8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+ data-rank="4">これにする</button>
+<div class="pickmsg"></div>
+</div></div>
+</div></div>
+</section>
+<section class="post"><h2>11. 値段の書いていない店が教えてくれるUXの話</h2>
+<p class="pmeta">11/20 ・ <a href="https://note.com/arti_llc/n/n43d0551c6fc7" target="_blank" rel="noopener">https://note.com/arti_llc/n/n43d0551c6fc7</a></p>
+<div class="pl"><span class="plid">11-1</span>
+<div class="after"><span class="lab">この一文の直後に入れる</span><span class="txt">お品書きに値段のない「おまかせ」の店に足を運ぶと、小さな緊張が走ります。</span></div>
+<p class="intent"><span class="lab">INTENT</span>おまかせの店のカウンター。板前の手元か、白木のカウンター。静かで少し緊張感のある空気</p>
+<p class="qs"><span class="lab">QUERY</span><code>sushi chef counter hands</code> ／ alt: <code>omakase counter</code> <code>japanese restaurant counter wood</code><br><span class="lab">目視した候補</span>Unsplash 8 ・ Pexels 8 ・ Pixabay 8（計24枚から4枚）</p><div class="grid"><div class="c">
+<a class="ph" href="https://unsplash.com/photos/a-person-cutting-up-a-piece-of-meat-on-a-cutting-board-qLBlMw35508" target="_blank" rel="noopener">
+<img src="https://images.unsplash.com/photo-1711991022613-63df8929f311?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHw0fHxzdXNoaSUyMGNoZWYlMjBjb3VudGVyJTIwaGFuZHN8ZW58MHx8fHwxNzk0MjAxOTE0fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=400" alt="sushi chef counter hands" loading="lazy">
+<span class="rank">第1候補</span>
+<span class="src" style="background:#1f2933">Unsplash</span></a>
+<div class="meta">
+<div class="why">包丁が魚に入る手元。暗い木肌と相まって、静かな緊張がある。</div>
+<div class="row">撮影者: <span>blackieshoot</span></div>
+<div class="row">サイズ: <span>6000×4000</span>（1.5:1）</div>
+<div class="row">ヒット語: <code>sushi chef counter hands</code></div>
+<div class="row"><a href="https://unsplash.com/photos/a-person-cutting-up-a-piece-of-meat-on-a-cutting-board-qLBlMw35508" target="_blank" rel="noopener">元ページ ↗</a>　<a href="https://images.unsplash.com/photo-1711991022613-63df8929f311?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHw0fHxzdXNoaSUyMGNoZWYlMjBjb3VudGVyJTIwaGFuZHN8ZW58MHx8fHwxNzk0MjAxOTE0fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" target="_blank" rel="noopener">画像 ↗</a></div>
+<div class="lic"><b>Unsplash License</b> <a href="https://unsplash.com/license" target="_blank" rel="noopener">条文 ↗</a><br>クレジット推奨（例: Photo by 〈撮影者〉 on Unsplash）。商用利用可・許諾不要。</div>
+<button class="pick" type="button"
+ data-pl="11-1" data-source="Unsplash" data-author="blackieshoot"
+ data-license="Unsplash License" data-page="https://unsplash.com/photos/a-person-cutting-up-a-piece-of-meat-on-a-cutting-board-qLBlMw35508" data-img="https://images.unsplash.com/photo-1711991022613-63df8929f311?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHw0fHxzdXNoaSUyMGNoZWYlMjBjb3VudGVyJTIwaGFuZHN8ZW58MHx8fHwxNzk0MjAxOTE0fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+ data-rank="1">これにする</button>
+<div class="pickmsg"></div>
+</div></div>
+<div class="c">
+<a class="ph" href="https://unsplash.com/photos/left-hand-picking-vegetable-on-plate-PW8K-W-Kni0" target="_blank" rel="noopener">
+<img src="https://images.unsplash.com/photo-1512132411229-c30391241dd8?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwzfHxzdXNoaSUyMGNoZWYlMjBjb3VudGVyJTIwaGFuZHN8ZW58MHx8fHwxNzk0MjAxOTE0fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=400" alt="sushi chef counter hands" loading="lazy">
+<span class="rank">第2候補</span>
+<span class="src" style="background:#1f2933">Unsplash</span></a>
+<div class="meta">
+<div class="why">黒い皿に握りを置く手元。所作だけが写り、顔は入らない。</div>
+<div class="row">撮影者: <span>Kyle Head</span></div>
+<div class="row">サイズ: <span>2500×1667</span>（1.5:1）</div>
+<div class="row">ヒット語: <code>sushi chef counter hands</code></div>
+<div class="row"><a href="https://unsplash.com/photos/left-hand-picking-vegetable-on-plate-PW8K-W-Kni0" target="_blank" rel="noopener">元ページ ↗</a>　<a href="https://images.unsplash.com/photo-1512132411229-c30391241dd8?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwzfHxzdXNoaSUyMGNoZWYlMjBjb3VudGVyJTIwaGFuZHN8ZW58MHx8fHwxNzk0MjAxOTE0fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" target="_blank" rel="noopener">画像 ↗</a></div>
+<div class="lic"><b>Unsplash License</b> <a href="https://unsplash.com/license" target="_blank" rel="noopener">条文 ↗</a><br>クレジット推奨（例: Photo by 〈撮影者〉 on Unsplash）。商用利用可・許諾不要。</div>
+<button class="pick" type="button"
+ data-pl="11-1" data-source="Unsplash" data-author="Kyle Head"
+ data-license="Unsplash License" data-page="https://unsplash.com/photos/left-hand-picking-vegetable-on-plate-PW8K-W-Kni0" data-img="https://images.unsplash.com/photo-1512132411229-c30391241dd8?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwzfHxzdXNoaSUyMGNoZWYlMjBjb3VudGVyJTIwaGFuZHN8ZW58MHx8fHwxNzk0MjAxOTE0fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+ data-rank="2">これにする</button>
+<div class="pickmsg"></div>
+</div></div>
+<div class="c">
+<a class="ph" href="https://www.pexels.com/photo/man-preparing-sushi-24960122/" target="_blank" rel="noopener">
+<img src="https://images.pexels.com/photos/24960122/pexels-photo-24960122.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=350" alt="sushi chef counter hands" loading="lazy">
+<span class="rank">第3候補</span>
+<span class="src" style="background:#05a081">Pexels</span></a>
+<div class="meta">
+<div class="why">海苔と酢飯に伸びる手。温度の低い光で落ち着いている。</div>
+<div class="row">撮影者: <span>Th2city Santana</span></div>
+<div class="row">サイズ: <span>6720×4480</span>（1.5:1）</div>
+<div class="row">ヒット語: <code>sushi chef counter hands</code></div>
+<div class="row"><a href="https://www.pexels.com/photo/man-preparing-sushi-24960122/" target="_blank" rel="noopener">元ページ ↗</a>　<a href="https://images.pexels.com/photos/24960122/pexels-photo-24960122.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940" target="_blank" rel="noopener">画像 ↗</a></div>
+<div class="lic"><b>Pexels License</b> <a href="https://www.pexels.com/license/" target="_blank" rel="noopener">条文 ↗</a><br>クレジット任意（推奨）。商用利用可・許諾不要。</div>
+<button class="pick" type="button"
+ data-pl="11-1" data-source="Pexels" data-author="Th2city Santana"
+ data-license="Pexels License" data-page="https://www.pexels.com/photo/man-preparing-sushi-24960122/" data-img="https://images.pexels.com/photos/24960122/pexels-photo-24960122.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940"
+ data-rank="3">これにする</button>
+<div class="pickmsg"></div>
+</div></div>
+<div class="c">
+<a class="ph" href="https://pixabay.com/photos/japanese-japan-restaurant-culture-3723059/" target="_blank" rel="noopener">
+<img src="https://pixabay.com/get/g09bce3ce89d5751ee344a6bb77011fa670e8e8e651de55f8db1763552bc27fe3271a10de8661d5db3629ee49c4d2662a6f018e68baa192c70edf4e2eff5ced61_640.jpg" alt="sushi chef counter hands" loading="lazy">
+<span class="rank">第4候補</span>
+<span class="src" style="background:#2a9d5c">Pixabay</span></a>
+<div class="meta">
+<div class="why">まな板と包丁の手元。白木に近い清潔さが出ている。</div>
+<div class="row">撮影者: <span>kantnews1</span></div>
+<div class="row">サイズ: <span>6192×4128</span>（1.5:1）</div>
+<div class="row">ヒット語: <code>sushi chef counter hands</code></div>
+<div class="row"><a href="https://pixabay.com/photos/japanese-japan-restaurant-culture-3723059/" target="_blank" rel="noopener">元ページ ↗</a>　<a href="https://pixabay.com/get/g777f420b168d94d18e3d07e2efe33730c9911ea706daa632838051d6f57bd8308be3cebcf9940db38fcfb13b38376569ee0c4232db0c65b34228fd94a3e1bbaa_1280.jpg" target="_blank" rel="noopener">画像 ↗</a></div>
+<div class="lic"><b>Pixabay License</b> <a href="https://pixabay.com/service/license-summary/" target="_blank" rel="noopener">条文 ↗</a><br>クレジット任意。商用利用可。人物が写る場合の被写体の権利は別途確認。</div>
+<button class="pick" type="button"
+ data-pl="11-1" data-source="Pixabay" data-author="kantnews1"
+ data-license="Pixabay License" data-page="https://pixabay.com/photos/japanese-japan-restaurant-culture-3723059/" data-img="https://pixabay.com/get/g777f420b168d94d18e3d07e2efe33730c9911ea706daa632838051d6f57bd8308be3cebcf9940db38fcfb13b38376569ee0c4232db0c65b34228fd94a3e1bbaa_1280.jpg"
+ data-rank="4">これにする</button>
+<div class="pickmsg"></div>
+</div></div>
+</div></div>
+<div class="pl"><span class="plid">11-2</span>
+<div class="after"><span class="lab">この一文の直後に入れる</span><span class="txt">UXの観点から見れば、これは極めて教科書的な構図です。</span></div>
+<p class="intent"><span class="lab">INTENT</span>読める人にしか読めない。筆書きの品書きや掛け軸。次の見出し『読める人のためのUX』の直前に置く</p>
+<p class="qs"><span class="lab">QUERY</span><code>japanese calligraphy menu</code> ／ alt: <code>hanging scroll calligraphy</code> <code>japanese handwritten menu board</code><br><span class="lab">目視した候補</span>Unsplash 8 ・ Pexels 8 ・ Pixabay 8 ・ Openverse 1（計25枚から4枚）</p><div class="grid"><div class="c">
+<a class="ph" href="https://www.pexels.com/photo/kanji-printed-tags-hanged-on-brown-wooden-board-lighted-by-pendant-lamp-941193/" target="_blank" rel="noopener">
+<img src="https://images.pexels.com/photos/941193/pexels-photo-941193.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=350" alt="japanese calligraphy menu" loading="lazy">
+<span class="rank">第1候補</span>
+<span class="src" style="background:#05a081">Pexels</span></a>
+<div class="meta">
+<div class="why">「本日のさかな」の木札が下がる品書き。読める人のための情報設計そのもの。</div>
+<div class="row">撮影者: <span>Min An</span></div>
+<div class="row">サイズ: <span>3753×2788</span>（1.35:1）</div>
+<div class="row">ヒット語: <code>japanese calligraphy menu</code></div>
+<div class="row"><a href="https://www.pexels.com/photo/kanji-printed-tags-hanged-on-brown-wooden-board-lighted-by-pendant-lamp-941193/" target="_blank" rel="noopener">元ページ ↗</a>　<a href="https://images.pexels.com/photos/941193/pexels-photo-941193.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940" target="_blank" rel="noopener">画像 ↗</a></div>
+<div class="lic"><b>Pexels License</b> <a href="https://www.pexels.com/license/" target="_blank" rel="noopener">条文 ↗</a><br>クレジット任意（推奨）。商用利用可・許諾不要。</div>
+<button class="pick" type="button"
+ data-pl="11-2" data-source="Pexels" data-author="Min An"
+ data-license="Pexels License" data-page="https://www.pexels.com/photo/kanji-printed-tags-hanged-on-brown-wooden-board-lighted-by-pendant-lamp-941193/" data-img="https://images.pexels.com/photos/941193/pexels-photo-941193.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940"
+ data-rank="1">これにする</button>
+<div class="pickmsg"></div>
+</div></div>
+<div class="c">
+<a class="ph" href="https://unsplash.com/photos/ancient-chinese-calligraphy-on-aged-paper-axm7m_45_zk" target="_blank" rel="noopener">
+<img src="https://images.unsplash.com/photo-1720702214705-2695d9f96953?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwxMnx8amFwYW5lc2UlMjBjYWxsaWdyYXBoeSUyMG1lbnV8ZW58MHx8fHwxNzk0MjAxOTE4fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=400" alt="japanese calligraphy menu" loading="lazy">
+<span class="rank">第2候補</span>
+<span class="src" style="background:#1f2933">Unsplash</span></a>
+<div class="meta">
+<div class="why">びっしりと崩し字の古文書。「読めない側」の視点がいちばん強い。</div>
+<div class="row">撮影者: <span>The Cleveland Museum of Art</span></div>
+<div class="row">サイズ: <span>6197×4146</span>（1.49:1）</div>
+<div class="row">ヒット語: <code>japanese calligraphy menu</code></div>
+<div class="row"><a href="https://unsplash.com/photos/ancient-chinese-calligraphy-on-aged-paper-axm7m_45_zk" target="_blank" rel="noopener">元ページ ↗</a>　<a href="https://images.unsplash.com/photo-1720702214705-2695d9f96953?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwxMnx8amFwYW5lc2UlMjBjYWxsaWdyYXBoeSUyMG1lbnV8ZW58MHx8fHwxNzk0MjAxOTE4fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" target="_blank" rel="noopener">画像 ↗</a></div>
+<div class="lic"><b>Unsplash License</b> <a href="https://unsplash.com/license" target="_blank" rel="noopener">条文 ↗</a><br>クレジット推奨（例: Photo by 〈撮影者〉 on Unsplash）。商用利用可・許諾不要。</div>
+<button class="pick" type="button"
+ data-pl="11-2" data-source="Unsplash" data-author="The Cleveland Museum of Art"
+ data-license="Unsplash License" data-page="https://unsplash.com/photos/ancient-chinese-calligraphy-on-aged-paper-axm7m_45_zk" data-img="https://images.unsplash.com/photo-1720702214705-2695d9f96953?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwxMnx8amFwYW5lc2UlMjBjYWxsaWdyYXBoeSUyMG1lbnV8ZW58MHx8fHwxNzk0MjAxOTE4fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+ data-rank="2">これにする</button>
+<div class="pickmsg"></div>
+</div></div>
+<div class="c">
+<a class="ph" href="https://pixabay.com/photos/japanese-style-tatami-effect-picture-2667883/" target="_blank" rel="noopener">
+<img src="https://pixabay.com/get/g38fbce8499a97e6b27985400e12daf33a90593efc057c435ff101c6888a5331deffa6b478aca3d0000a332e61ce096cf70480da2bbee63549d5f14453bbc4696_640.jpg" alt="japanese calligraphy menu" loading="lazy">
+<span class="rank">第3候補</span>
+<span class="src" style="background:#2a9d5c">Pixabay</span></a>
+<div class="meta">
+<div class="why">和室の床の間と掛け軸。静かで、文字は遠くにある。</div>
+<div class="row">撮影者: <span>chxfly9527</span></div>
+<div class="row">サイズ: <span>2048×1256</span>（1.63:1）</div>
+<div class="row">ヒット語: <code>japanese calligraphy menu</code></div>
+<div class="row"><a href="https://pixabay.com/photos/japanese-style-tatami-effect-picture-2667883/" target="_blank" rel="noopener">元ページ ↗</a>　<a href="https://pixabay.com/get/g628c58de5cfa9f7c90c7d8805f5a3daab253e85243983179cc1ce728268ae15283c566e2f2d431e87b1c0dc27ac5080ae72860e1a16c5cc8062ff3e2b542abc9_1280.jpg" target="_blank" rel="noopener">画像 ↗</a></div>
+<div class="lic"><b>Pixabay License</b> <a href="https://pixabay.com/service/license-summary/" target="_blank" rel="noopener">条文 ↗</a><br>クレジット任意。商用利用可。人物が写る場合の被写体の権利は別途確認。</div>
+<button class="pick" type="button"
+ data-pl="11-2" data-source="Pixabay" data-author="chxfly9527"
+ data-license="Pixabay License" data-page="https://pixabay.com/photos/japanese-style-tatami-effect-picture-2667883/" data-img="https://pixabay.com/get/g628c58de5cfa9f7c90c7d8805f5a3daab253e85243983179cc1ce728268ae15283c566e2f2d431e87b1c0dc27ac5080ae72860e1a16c5cc8062ff3e2b542abc9_1280.jpg"
+ data-rank="3">これにする</button>
+<div class="pickmsg"></div>
+</div></div>
+<div class="c">
+<a class="ph" href="https://www.rawpixel.com/image/7638025/image-art-vintage-public-domain" target="_blank" rel="noopener">
+<img src="https://api.openverse.org/v1/images/2a7d029f-a643-4e6a-be70-3c2e4e9d7768/thumb/" alt="Head shoulders bald man heavy" loading="lazy">
+<span class="rank">第4候補</span>
+<span class="src" style="background:#b5523a">Openverse</span></a>
+<div class="meta">
+<div class="why">賛の入った水墨画。掛け軸の形式そのもの。CC0で扱いやすい。</div>
+<div class="row">撮影者: <span>(表記なし)</span></div>
+<div class="row">サイズ: <span>6695×4142</span>（1.62:1）</div>
+<div class="row">ヒット語: <code>hanging scroll calligraphy</code></div>
+<div class="row"><a href="https://www.rawpixel.com/image/7638025/image-art-vintage-public-domain" target="_blank" rel="noopener">元ページ ↗</a>　<a href="https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA4L2xyL21pYTYwMjE5LWltYWdlLmpwZw.jpg" target="_blank" rel="noopener">画像 ↗</a></div>
+<div class="lic"><b>CC0 1.0</b> <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">条文 ↗</a><br>CCライセンス。表示(BY)義務や改変・商用の可否がライセンスごとに異なるため、採用前に条文を確認。</div>
+<button class="pick" type="button"
+ data-pl="11-2" data-source="Openverse" data-author="(表記なし)"
+ data-license="CC0 1.0" data-page="https://www.rawpixel.com/image/7638025/image-art-vintage-public-domain" data-img="https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA4L2xyL21pYTYwMjE5LWltYWdlLmpwZw.jpg"
+ data-rank="4">これにする</button>
+<div class="pickmsg"></div>
+</div></div>
+</div></div>
+</section>
+<section class="post"><h2>13. 量から密度へ──機械協働時代の若手育成</h2>
+<p class="pmeta">11/24 ・ <a href="https://note.com/arti_llc/n/n215bd8dce2c1" target="_blank" rel="noopener">https://note.com/arti_llc/n/n215bd8dce2c1</a></p>
+<div class="pl"><span class="plid">13-1</span>
+<div class="after"><span class="lab">この一文の直後に入れる</span><span class="txt">何度も突き返されました。</span></div>
+<p class="intent"><span class="lab">INTENT</span>何度も突き返された資料。赤ペンがびっしり入った紙の資料</p>
+<p class="qs"><span class="lab">QUERY</span><code>red pen corrections paper</code> ／ alt: <code>editing document red pen</code> <code>marked up printed draft</code><br><span class="lab">目視した候補</span>Unsplash 8 ・ Pexels 8 ・ Pixabay 8 ・ Openverse 1（計25枚から4枚）</p><p class="note">第1候補は中国語の原稿用紙です。赤入れの密度は狙いどおりですが、文字が読まれると文脈がずれる場合は第2候補以降を推奨します。</p><div class="grid"><div class="c">
+<a class="ph" href="https://unsplash.com/photos/red-chinese-calligraphy-on-paper-with-a-fountain-pen-NWzm2IBOkLA" target="_blank" rel="noopener">
+<img src="https://images.unsplash.com/photo-1785323536297-b946d4f5b51e?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHw4fHxyZWQlMjBwZW4lMjBjb3JyZWN0aW9ucyUyMHBhcGVyfGVufDB8fHx8MTc5NDIwMTkyMnww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=400" alt="red pen corrections paper" loading="lazy">
+<span class="rank">第1候補</span>
+<span class="src" style="background:#1f2933">Unsplash</span></a>
+<div class="meta">
+<div class="why">升目の原稿に赤が隙間なく入っている。突き返された量が一目でわかる。</div>
+<div class="row">撮影者: <span>jason hu</span></div>
+<div class="row">サイズ: <span>6240×4160</span>（1.5:1）</div>
+<div class="row">ヒット語: <code>red pen corrections paper</code></div>
+<div class="row"><a href="https://unsplash.com/photos/red-chinese-calligraphy-on-paper-with-a-fountain-pen-NWzm2IBOkLA" target="_blank" rel="noopener">元ページ ↗</a>　<a href="https://images.unsplash.com/photo-1785323536297-b946d4f5b51e?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHw4fHxyZWQlMjBwZW4lMjBjb3JyZWN0aW9ucyUyMHBhcGVyfGVufDB8fHx8MTc5NDIwMTkyMnww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" target="_blank" rel="noopener">画像 ↗</a></div>
+<div class="lic"><b>Unsplash License</b> <a href="https://unsplash.com/license" target="_blank" rel="noopener">条文 ↗</a><br>クレジット推奨（例: Photo by 〈撮影者〉 on Unsplash）。商用利用可・許諾不要。</div>
+<button class="pick" type="button"
+ data-pl="13-1" data-source="Unsplash" data-author="jason hu"
+ data-license="Unsplash License" data-page="https://unsplash.com/photos/red-chinese-calligraphy-on-paper-with-a-fountain-pen-NWzm2IBOkLA" data-img="https://images.unsplash.com/photo-1785323536297-b946d4f5b51e?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHw4fHxyZWQlMjBwZW4lMjBjb3JyZWN0aW9ucyUyMHBhcGVyfGVufDB8fHx8MTc5NDIwMTkyMnww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+ data-rank="1">これにする</button>
+<div class="pickmsg"></div>
+</div></div>
+<div class="c">
+<a class="ph" href="https://pixabay.com/photos/mistakes-editing-school-red-ink-1756958/" target="_blank" rel="noopener">
+<img src="https://pixabay.com/get/g9b4f5358315115b99988cfe3301a9536febf4e7641b3b9eaee80fd4024a593677aba036613948878f58c0d3ec2319456945f8d18c555e13480bd685815c3da21_640.jpg" alt="red pen corrections paper" loading="lazy">
+<span class="rank">第2候補</span>
+<span class="src" style="background:#2a9d5c">Pixabay</span></a>
+<div class="meta">
+<div class="why">印刷資料への赤入れ。日本の実務資料に近い見え方。</div>
+<div class="row">撮影者: <span>annekarakash</span></div>
+<div class="row">サイズ: <span>2818×2113</span>（1.33:1）</div>
+<div class="row">ヒット語: <code>red pen corrections paper</code></div>
+<div class="row"><a href="https://pixabay.com/photos/mistakes-editing-school-red-ink-1756958/" target="_blank" rel="noopener">元ページ ↗</a>　<a href="https://pixabay.com/get/ga1d510a753541920e308f262e2cafc917033004411ece810793a7e7d20e9fbf586bfd79ec37d7e5701559b417ba742b2b23fffe4b07da763d83e0466c356dab6_1280.jpg" target="_blank" rel="noopener">画像 ↗</a></div>
+<div class="lic"><b>Pixabay License</b> <a href="https://pixabay.com/service/license-summary/" target="_blank" rel="noopener">条文 ↗</a><br>クレジット任意。商用利用可。人物が写る場合の被写体の権利は別途確認。</div>
+<button class="pick" type="button"
+ data-pl="13-1" data-source="Pixabay" data-author="annekarakash"
+ data-license="Pixabay License" data-page="https://pixabay.com/photos/mistakes-editing-school-red-ink-1756958/" data-img="https://pixabay.com/get/ga1d510a753541920e308f262e2cafc917033004411ece810793a7e7d20e9fbf586bfd79ec37d7e5701559b417ba742b2b23fffe4b07da763d83e0466c356dab6_1280.jpg"
+ data-rank="2">これにする</button>
+<div class="pickmsg"></div>
+</div></div>
+<div class="c">
+<a class="ph" href="https://www.pexels.com/photo/a-person-marking-a-test-paper-6684373/" target="_blank" rel="noopener">
+<img src="https://images.pexels.com/photos/6684373/pexels-photo-6684373.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=350" alt="red pen corrections paper" loading="lazy">
+<span class="rank">第3候補</span>
+<span class="src" style="background:#05a081">Pexels</span></a>
+<div class="meta">
+<div class="why">赤ペンで×を書き込む手元。差し戻しの瞬間が写る。</div>
+<div class="row">撮影者: <span>Andy Barbour</span></div>
+<div class="row">サイズ: <span>6720×4480</span>（1.5:1）</div>
+<div class="row">ヒット語: <code>red pen corrections paper</code></div>
+<div class="row"><a href="https://www.pexels.com/photo/a-person-marking-a-test-paper-6684373/" target="_blank" rel="noopener">元ページ ↗</a>　<a href="https://images.pexels.com/photos/6684373/pexels-photo-6684373.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940" target="_blank" rel="noopener">画像 ↗</a></div>
+<div class="lic"><b>Pexels License</b> <a href="https://www.pexels.com/license/" target="_blank" rel="noopener">条文 ↗</a><br>クレジット任意（推奨）。商用利用可・許諾不要。</div>
+<button class="pick" type="button"
+ data-pl="13-1" data-source="Pexels" data-author="Andy Barbour"
+ data-license="Pexels License" data-page="https://www.pexels.com/photo/a-person-marking-a-test-paper-6684373/" data-img="https://images.pexels.com/photos/6684373/pexels-photo-6684373.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940"
+ data-rank="3">これにする</button>
+<div class="pickmsg"></div>
+</div></div>
+<div class="c">
+<a class="ph" href="https://www.rawpixel.com/image/5961489/free-public-domain-cc0-photo" target="_blank" rel="noopener">
+<img src="https://api.openverse.org/v1/images/6ef7ccbd-cef6-4e29-b3d5-6c40ce58a841/thumb/" alt="editing document red pen" loading="lazy">
+<span class="rank">第4候補</span>
+<span class="src" style="background:#b5523a">Openverse</span></a>
+<div class="meta">
+<div class="why">書類に手を入れる手元。静かな校正の画。CC0。</div>
+<div class="row">撮影者: <span>(表記なし)</span></div>
+<div class="row">サイズ: <span>2100×1397</span>（1.5:1）</div>
+<div class="row">ヒット語: <code>editing document red pen</code></div>
+<div class="row"><a href="https://www.rawpixel.com/image/5961489/free-public-domain-cc0-photo" target="_blank" rel="noopener">元ページ ↗</a>　<a href="https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcHgxMTI4Njg3LWltYWdlLWt3eXI1ZWl4LmpwZw.jpg" target="_blank" rel="noopener">画像 ↗</a></div>
+<div class="lic"><b>CC0 1.0</b> <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">条文 ↗</a><br>CCライセンス。表示(BY)義務や改変・商用の可否がライセンスごとに異なるため、採用前に条文を確認。</div>
+<button class="pick" type="button"
+ data-pl="13-1" data-source="Openverse" data-author="(表記なし)"
+ data-license="CC0 1.0" data-page="https://www.rawpixel.com/image/5961489/free-public-domain-cc0-photo" data-img="https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcHgxMTI4Njg3LWltYWdlLWt3eXI1ZWl4LmpwZw.jpg"
+ data-rank="4">これにする</button>
+<div class="pickmsg"></div>
+</div></div>
+</div></div>
+</section>
+<section class="post"><h2>15. ペインを、でっち上げない</h2>
+<p class="pmeta">11/27 ・ <a href="https://note.com/arti_llc/n/n6cf020d0cfa9" target="_blank" rel="noopener">https://note.com/arti_llc/n/n6cf020d0cfa9</a></p>
+<div class="pl"><span class="plid">15-1</span>
+<div class="after"><span class="lab">この一文の直後に入れる</span><span class="txt">葉の色が変わったとき、それが危険信号なのかどうかもわからない。</span></div>
+<p class="intent"><span class="lab">INTENT</span>本文の例そのもの。ベランダに並ぶ鉢植え。生活感のある、ふつうのベランダ</p>
+<p class="qs"><span class="lab">QUERY</span><code>balcony potted plants</code> ／ alt: <code>apartment balcony garden</code> <code>potted plants on balcony railing</code><br><span class="lab">目視した候補</span>Unsplash 8 ・ Pexels 8 ・ Pixabay 8 ・ Openverse 7（計31枚から4枚）</p><div class="grid"><div class="c">
+<a class="ph" href="https://www.pexels.com/photo/colorful-potted-plants-behind-iron-railing-40825880/" target="_blank" rel="noopener">
+<img src="https://images.pexels.com/photos/40825880/pexels-photo-40825880.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=350" alt="balcony potted plants" loading="lazy">
+<span class="rank">第1候補</span>
+<span class="src" style="background:#05a081">Pexels</span></a>
+<div class="meta">
+<div class="why">柵に沿って鉢が並ぶ。本文の情景にほぼそのまま重なる。</div>
+<div class="row">撮影者: <span>Spain Buddy</span></div>
+<div class="row">サイズ: <span>6000×4000</span>（1.5:1）</div>
+<div class="row">ヒット語: <code>balcony potted plants</code></div>
+<div class="row"><a href="https://www.pexels.com/photo/colorful-potted-plants-behind-iron-railing-40825880/" target="_blank" rel="noopener">元ページ ↗</a>　<a href="https://images.pexels.com/photos/40825880/pexels-photo-40825880.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940" target="_blank" rel="noopener">画像 ↗</a></div>
+<div class="lic"><b>Pexels License</b> <a href="https://www.pexels.com/license/" target="_blank" rel="noopener">条文 ↗</a><br>クレジット任意（推奨）。商用利用可・許諾不要。</div>
+<button class="pick" type="button"
+ data-pl="15-1" data-source="Pexels" data-author="Spain Buddy"
+ data-license="Pexels License" data-page="https://www.pexels.com/photo/colorful-potted-plants-behind-iron-railing-40825880/" data-img="https://images.pexels.com/photos/40825880/pexels-photo-40825880.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940"
+ data-rank="1">これにする</button>
+<div class="pickmsg"></div>
+</div></div>
+<div class="c">
+<a class="ph" href="https://unsplash.com/photos/green-plant-on-white-ceramic-pot-hyXD0-carj8" target="_blank" rel="noopener">
+<img src="https://images.unsplash.com/photo-1618483474128-991a146dc60b?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwzfHxiYWxjb255JTIwcG90dGVkJTIwcGxhbnRzfGVufDB8fHx8MTc5NDIwMTkyNnww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=400" alt="balcony potted plants" loading="lazy">
+<span class="rank">第2候補</span>
+<span class="src" style="background:#1f2933">Unsplash</span></a>
+<div class="meta">
+<div class="why">窓とベランダと鉢。暮らしの気配が濃い。</div>
+<div class="row">撮影者: <span>Aleksey Cherenkevich</span></div>
+<div class="row">サイズ: <span>4288×2848</span>（1.51:1）</div>
+<div class="row">ヒット語: <code>balcony potted plants</code></div>
+<div class="row"><a href="https://unsplash.com/photos/green-plant-on-white-ceramic-pot-hyXD0-carj8" target="_blank" rel="noopener">元ページ ↗</a>　<a href="https://images.unsplash.com/photo-1618483474128-991a146dc60b?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwzfHxiYWxjb255JTIwcG90dGVkJTIwcGxhbnRzfGVufDB8fHx8MTc5NDIwMTkyNnww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" target="_blank" rel="noopener">画像 ↗</a></div>
+<div class="lic"><b>Unsplash License</b> <a href="https://unsplash.com/license" target="_blank" rel="noopener">条文 ↗</a><br>クレジット推奨（例: Photo by 〈撮影者〉 on Unsplash）。商用利用可・許諾不要。</div>
+<button class="pick" type="button"
+ data-pl="15-1" data-source="Unsplash" data-author="Aleksey Cherenkevich"
+ data-license="Unsplash License" data-page="https://unsplash.com/photos/green-plant-on-white-ceramic-pot-hyXD0-carj8" data-img="https://images.unsplash.com/photo-1618483474128-991a146dc60b?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwzfHxiYWxjb255JTIwcG90dGVkJTIwcGxhbnRzfGVufDB8fHx8MTc5NDIwMTkyNnww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+ data-rank="2">これにする</button>
+<div class="pickmsg"></div>
+</div></div>
+<div class="c">
+<a class="ph" href="https://www.rawpixel.com/image/3292350/free-photo-image-balcony-indoor-plant-table" target="_blank" rel="noopener">
+<img src="https://api.openverse.org/v1/images/f2a28a58-c13d-47cd-8043-ca7dec9caa5c/thumb/" alt="Balcony Kyiv" loading="lazy">
+<span class="rank">第3候補</span>
+<span class="src" style="background:#b5523a">Openverse</span></a>
+<div class="meta">
+<div class="why">小さなベランダに椅子と鉢。ふつうの生活の密度。CC0。</div>
+<div class="row">撮影者: <span>(表記なし)</span></div>
+<div class="row">サイズ: <span>5616×3608</span>（1.56:1）</div>
+<div class="row">ヒット語: <code>balcony potted plants</code></div>
+<div class="row"><a href="https://www.rawpixel.com/image/3292350/free-photo-image-balcony-indoor-plant-table" target="_blank" rel="noopener">元ページ ↗</a>　<a href="https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdXB3azYxODIzMjIwLXdpa2ltZWRpYS1pbWFnZS1rb3drdTE5ai5qcGc.jpg" target="_blank" rel="noopener">画像 ↗</a></div>
+<div class="lic"><b>CC0 1.0</b> <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">条文 ↗</a><br>CCライセンス。表示(BY)義務や改変・商用の可否がライセンスごとに異なるため、採用前に条文を確認。</div>
+<button class="pick" type="button"
+ data-pl="15-1" data-source="Openverse" data-author="(表記なし)"
+ data-license="CC0 1.0" data-page="https://www.rawpixel.com/image/3292350/free-photo-image-balcony-indoor-plant-table" data-img="https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdXB3azYxODIzMjIwLXdpa2ltZWRpYS1pbWFnZS1rb3drdTE5ai5qcGc.jpg"
+ data-rank="3">これにする</button>
+<div class="pickmsg"></div>
+</div></div>
+<div class="c">
+<a class="ph" href="https://pixabay.com/photos/tree-rock-lotus-lotus-plant-flower-7391504/" target="_blank" rel="noopener">
+<img src="https://pixabay.com/get/g7bf74a586e82cace936cd805446b5741612ce1216918de2c712c52e070e3d66db3748999c5d742ef405f6b0e5e08e4e4bf84c49e4ad1879c60921089e1fcfd8d_640.jpg" alt="balcony potted plants" loading="lazy">
+<span class="rank">第4候補</span>
+<span class="src" style="background:#2a9d5c">Pixabay</span></a>
+<div class="meta">
+<div class="why">縁に並ぶ多肉の鉢。葉の色の変化が見やすい。</div>
+<div class="row">撮影者: <span>AnhNguyenPhotography</span></div>
+<div class="row">サイズ: <span>3120×2080</span>（1.5:1）</div>
+<div class="row">ヒット語: <code>balcony potted plants</code></div>
+<div class="row"><a href="https://pixabay.com/photos/tree-rock-lotus-lotus-plant-flower-7391504/" target="_blank" rel="noopener">元ページ ↗</a>　<a href="https://pixabay.com/get/g0bd567d2c9ba65dc9578a6ad412261b811a22b0c35b48729b249d567a7a1df5dc906bf212e63955e4bdbe11d5011ccbb5e45618a3897de0ae3740d55ed0f207c_1280.jpg" target="_blank" rel="noopener">画像 ↗</a></div>
+<div class="lic"><b>Pixabay License</b> <a href="https://pixabay.com/service/license-summary/" target="_blank" rel="noopener">条文 ↗</a><br>クレジット任意。商用利用可。人物が写る場合の被写体の権利は別途確認。</div>
+<button class="pick" type="button"
+ data-pl="15-1" data-source="Pixabay" data-author="AnhNguyenPhotography"
+ data-license="Pixabay License" data-page="https://pixabay.com/photos/tree-rock-lotus-lotus-plant-flower-7391504/" data-img="https://pixabay.com/get/g0bd567d2c9ba65dc9578a6ad412261b811a22b0c35b48729b249d567a7a1df5dc906bf212e63955e4bdbe11d5011ccbb5e45618a3897de0ae3740d55ed0f207c_1280.jpg"
+ data-rank="4">これにする</button>
+<div class="pickmsg"></div>
+</div></div>
+</div></div>
+<div class="pl"><span class="plid">15-2</span>
+<div class="after"><span class="lab">この一文の直後に入れる</span><span class="txt">気づいても、何をすればいいかわからない。</span></div>
+<p class="intent"><span class="lab">INTENT</span>水やりという具体的な行動。じょうろで鉢に水をやる手元</p>
+<p class="qs"><span class="lab">QUERY</span><code>watering can plant hands</code> ／ alt: <code>watering potted plant</code> <code>hand watering houseplant</code><br><span class="lab">目視した候補</span>Unsplash 16 ・ Pexels 12 ・ Pixabay 24 ・ Openverse 21（計73枚から4枚）</p><p class="note">追加検索（hand watering flower pot ほか）で第1・第2候補を入れ替えました。Openverseは20件返りましたが、じょうろの静物か人物の顔が写るものばかりで、「鉢に水をやる手元」に合うものがありませんでした。</p><div class="grid"><div class="c">
+<a class="ph" href="https://unsplash.com/photos/a-hand-holding-a-potted-plant-THSZSdzROQQ" target="_blank" rel="noopener">
+<img src="https://images.unsplash.com/photo-1657019942370-a22a8eb5967d?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwxNHx8aGFuZCUyMHdhdGVyaW5nJTIwZmxvd2VyJTIwcG90fGVufDB8fHx8MTc5NDIwNDY1MXww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=400" alt="hand watering flower pot" loading="lazy">
+<span class="rank">第1候補</span>
+<span class="src" style="background:#1f2933">Unsplash</span></a>
+<div class="meta">
+<div class="why">ベランダの鉢にじょうろで水をやる手元。15-1のベランダからそのまま地続きになる。</div>
+<div class="row">撮影者: <span>Árpád Czapp</span></div>
+<div class="row">サイズ: <span>5184×3456</span>（1.5:1）</div>
+<div class="row">ヒット語: <code>hand watering flower pot</code></div>
+<div class="row"><a href="https://unsplash.com/photos/a-hand-holding-a-potted-plant-THSZSdzROQQ" target="_blank" rel="noopener">元ページ ↗</a>　<a href="https://images.unsplash.com/photo-1657019942370-a22a8eb5967d?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwxNHx8aGFuZCUyMHdhdGVyaW5nJTIwZmxvd2VyJTIwcG90fGVufDB8fHx8MTc5NDIwNDY1MXww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" target="_blank" rel="noopener">画像 ↗</a></div>
+<div class="lic"><b>Unsplash License</b> <a href="https://unsplash.com/license" target="_blank" rel="noopener">条文 ↗</a><br>クレジット推奨（例: Photo by 〈撮影者〉 on Unsplash）。商用利用可・許諾不要。</div>
+<button class="pick" type="button"
+ data-pl="15-2" data-source="Unsplash" data-author="Árpád Czapp"
+ data-license="Unsplash License" data-page="https://unsplash.com/photos/a-hand-holding-a-potted-plant-THSZSdzROQQ" data-img="https://images.unsplash.com/photo-1657019942370-a22a8eb5967d?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwxNHx8aGFuZCUyMHdhdGVyaW5nJTIwZmxvd2VyJTIwcG90fGVufDB8fHx8MTc5NDIwNDY1MXww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+ data-rank="1">これにする</button>
+<div class="pickmsg"></div>
+</div></div>
+<div class="c">
+<a class="ph" href="https://www.pexels.com/photo/a-person-watering-a-plant-7659467/" target="_blank" rel="noopener">
+<img src="https://images.pexels.com/photos/7659467/pexels-photo-7659467.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=350" alt="hand watering flower pot" loading="lazy">
+<span class="rank">第2候補</span>
+<span class="src" style="background:#05a081">Pexels</span></a>
+<div class="meta">
+<div class="why">素焼きの鉢に水を注ぐ手元。鉢がはっきり写り、温度のある色。</div>
+<div class="row">撮影者: <span>Thirdman</span></div>
+<div class="row">サイズ: <span>6687×4458</span>（1.5:1）</div>
+<div class="row">ヒット語: <code>hand watering flower pot</code></div>
+<div class="row"><a href="https://www.pexels.com/photo/a-person-watering-a-plant-7659467/" target="_blank" rel="noopener">元ページ ↗</a>　<a href="https://images.pexels.com/photos/7659467/pexels-photo-7659467.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940" target="_blank" rel="noopener">画像 ↗</a></div>
+<div class="lic"><b>Pexels License</b> <a href="https://www.pexels.com/license/" target="_blank" rel="noopener">条文 ↗</a><br>クレジット任意（推奨）。商用利用可・許諾不要。</div>
+<button class="pick" type="button"
+ data-pl="15-2" data-source="Pexels" data-author="Thirdman"
+ data-license="Pexels License" data-page="https://www.pexels.com/photo/a-person-watering-a-plant-7659467/" data-img="https://images.pexels.com/photos/7659467/pexels-photo-7659467.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940"
+ data-rank="2">これにする</button>
+<div class="pickmsg"></div>
+</div></div>
+<div class="c">
+<a class="ph" href="https://www.pexels.com/photo/person-watering-a-potted-plant-4503268/" target="_blank" rel="noopener">
+<img src="https://images.pexels.com/photos/4503268/pexels-photo-4503268.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=350" alt="watering can plant hands" loading="lazy">
+<span class="rank">第3候補</span>
+<span class="src" style="background:#05a081">Pexels</span></a>
+<div class="meta">
+<div class="why">銅のじょうろから鉢へ。手元だけが写り、色調も落ち着いている。</div>
+<div class="row">撮影者: <span>cottonbro studio</span></div>
+<div class="row">サイズ: <span>5927×3951</span>（1.5:1）</div>
+<div class="row">ヒット語: <code>watering can plant hands</code></div>
+<div class="row"><a href="https://www.pexels.com/photo/person-watering-a-potted-plant-4503268/" target="_blank" rel="noopener">元ページ ↗</a>　<a href="https://images.pexels.com/photos/4503268/pexels-photo-4503268.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940" target="_blank" rel="noopener">画像 ↗</a></div>
+<div class="lic"><b>Pexels License</b> <a href="https://www.pexels.com/license/" target="_blank" rel="noopener">条文 ↗</a><br>クレジット任意（推奨）。商用利用可・許諾不要。</div>
+<button class="pick" type="button"
+ data-pl="15-2" data-source="Pexels" data-author="cottonbro studio"
+ data-license="Pexels License" data-page="https://www.pexels.com/photo/person-watering-a-potted-plant-4503268/" data-img="https://images.pexels.com/photos/4503268/pexels-photo-4503268.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940"
+ data-rank="3">これにする</button>
+<div class="pickmsg"></div>
+</div></div>
+<div class="c">
+<a class="ph" href="https://pixabay.com/photos/in-the-garden-gardener-watering-can-5333126/" target="_blank" rel="noopener">
+<img src="https://pixabay.com/get/gbdf90c0db06c1e160dfc3102d706d605341afb12d3726ccdaabea26cdde1e611b010730dc4404b78c273070b7b0152a3a7505cab1163ccd6b3d65286624583d4_640.jpg" alt="watering can plant hands" loading="lazy">
+<span class="rank">第4候補</span>
+<span class="src" style="background:#2a9d5c">Pixabay</span></a>
+<div class="meta">
+<div class="why">じょうろで水をやる後ろ姿。行動として引き気味に見せる。</div>
+<div class="row">撮影者: <span>pasja1000</span></div>
+<div class="row">サイズ: <span>5701×3725</span>（1.53:1）</div>
+<div class="row">ヒット語: <code>watering can plant hands</code></div>
+<div class="row"><a href="https://pixabay.com/photos/in-the-garden-gardener-watering-can-5333126/" target="_blank" rel="noopener">元ページ ↗</a>　<a href="https://pixabay.com/get/gc944243bdb10852de40fffef9ed116f4154eb451c5bc2b2dc674782439e7e8479ef93fefbc6cdf32b3463f11df04017899167a6fec049130d1270f173a4ab5eb_1280.jpg" target="_blank" rel="noopener">画像 ↗</a></div>
+<div class="lic"><b>Pixabay License</b> <a href="https://pixabay.com/service/license-summary/" target="_blank" rel="noopener">条文 ↗</a><br>クレジット任意。商用利用可。人物が写る場合の被写体の権利は別途確認。</div>
+<button class="pick" type="button"
+ data-pl="15-2" data-source="Pixabay" data-author="pasja1000"
+ data-license="Pixabay License" data-page="https://pixabay.com/photos/in-the-garden-gardener-watering-can-5333126/" data-img="https://pixabay.com/get/gc944243bdb10852de40fffef9ed116f4154eb451c5bc2b2dc674782439e7e8479ef93fefbc6cdf32b3463f11df04017899167a6fec049130d1270f173a4ab5eb_1280.jpg"
+ data-rank="4">これにする</button>
+<div class="pickmsg"></div>
+</div></div>
+</div></div>
+</section>
+<section class="post"><h2>17. マネージャーは、無理に部下の欠点を探さなくてよい</h2>
+<p class="pmeta">12/1 ・ <a href="https://note.com/arti_llc/n/n8e4ebbc68c3b" target="_blank" rel="noopener">https://note.com/arti_llc/n/n8e4ebbc68c3b</a></p>
+<div class="pl"><span class="plid">17-1</span>
+<div class="after"><span class="lab">この一文の直後に入れる</span><span class="txt">その一つひとつが、「マネージャーらしさ」として受け継がれていきます。</span></div>
+<p class="intent"><span class="lab">INTENT</span>評価の面談。テーブルを挟んだ二人の手元。顔は写さない</p>
+<p class="qs"><span class="lab">QUERY</span><code>one on one meeting table hands</code> ／ alt: <code>two people talking across table coffee</code> <code>meeting notebook table two people</code><br><span class="lab">目視した候補</span>Unsplash 12 ・ Pexels 8 ・ Pixabay 36 ・ Openverse 1（計57枚から4枚）</p><p class="note">計画の長いクエリ（one on one meeting table hands）ではPixabayが風景・動物などを返したため、短いタグ的なクエリ（business meeting ほか）で追加検索しました。第1候補はその追加分です。Openverseはこのplacementでは該当なし。</p><div class="grid"><div class="c">
+<a class="ph" href="https://pixabay.com/photos/laptop-office-hand-writing-3196481/" target="_blank" rel="noopener">
+<img src="https://pixabay.com/get/g9c332bb2c1b14a0e67ee1f5af031eea466bf8f72d2096f473eea9ba4797efddec65b49dbd7c4196751d660d694dd2a23002b67a77087ca54a0f0965c743f3fed_640.jpg" alt="business meeting" loading="lazy">
+<span class="rank">第1候補</span>
+<span class="src" style="background:#2a9d5c">Pixabay</span></a>
+<div class="meta">
+<div class="why">テーブル越しに書類を差し出す手と受け取る手。顔が入らず、intentにいちばん近い。</div>
+<div class="row">撮影者: <span>AymaneJed</span></div>
+<div class="row">サイズ: <span>8736×5824</span>（1.5:1）</div>
+<div class="row">ヒット語: <code>business meeting</code></div>
+<div class="row"><a href="https://pixabay.com/photos/laptop-office-hand-writing-3196481/" target="_blank" rel="noopener">元ページ ↗</a>　<a href="https://pixabay.com/get/gfcde75a76167b798c3ca2c25f8a7c41e505f2981ee4769684422820790d12f5aa881a1c9872773e091b1663c88995f81cd47e67a7808ca44cfff99f432d69ad4_1280.jpg" target="_blank" rel="noopener">画像 ↗</a></div>
+<div class="lic"><b>Pixabay License</b> <a href="https://pixabay.com/service/license-summary/" target="_blank" rel="noopener">条文 ↗</a><br>クレジット任意。商用利用可。人物が写る場合の被写体の権利は別途確認。</div>
+<button class="pick" type="button"
+ data-pl="17-1" data-source="Pixabay" data-author="AymaneJed"
+ data-license="Pixabay License" data-page="https://pixabay.com/photos/laptop-office-hand-writing-3196481/" data-img="https://pixabay.com/get/gfcde75a76167b798c3ca2c25f8a7c41e505f2981ee4769684422820790d12f5aa881a1c9872773e091b1663c88995f81cd47e67a7808ca44cfff99f432d69ad4_1280.jpg"
+ data-rank="1">これにする</button>
+<div class="pickmsg"></div>
+</div></div>
+<div class="c">
+<a class="ph" href="https://www.pexels.com/photo/person-in-gray-long-sleeve-shirt-sitting-beside-brown-wooden-table-7222869/" target="_blank" rel="noopener">
+<img src="https://images.pexels.com/photos/7222869/pexels-photo-7222869.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=350" alt="one on one meeting table hands" loading="lazy">
+<span class="rank">第2候補</span>
+<span class="src" style="background:#05a081">Pexels</span></a>
+<div class="meta">
+<div class="why">テーブルを挟んだ二人の手元と書類。顔が入らない。</div>
+<div class="row">撮影者: <span>MART  PRODUCTION</span></div>
+<div class="row">サイズ: <span>6000×4000</span>（1.5:1）</div>
+<div class="row">ヒット語: <code>one on one meeting table hands</code></div>
+<div class="row"><a href="https://www.pexels.com/photo/person-in-gray-long-sleeve-shirt-sitting-beside-brown-wooden-table-7222869/" target="_blank" rel="noopener">元ページ ↗</a>　<a href="https://images.pexels.com/photos/7222869/pexels-photo-7222869.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940" target="_blank" rel="noopener">画像 ↗</a></div>
+<div class="lic"><b>Pexels License</b> <a href="https://www.pexels.com/license/" target="_blank" rel="noopener">条文 ↗</a><br>クレジット任意（推奨）。商用利用可・許諾不要。</div>
+<button class="pick" type="button"
+ data-pl="17-1" data-source="Pexels" data-author="MART  PRODUCTION"
+ data-license="Pexels License" data-page="https://www.pexels.com/photo/person-in-gray-long-sleeve-shirt-sitting-beside-brown-wooden-table-7222869/" data-img="https://images.pexels.com/photos/7222869/pexels-photo-7222869.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940"
+ data-rank="2">これにする</button>
+<div class="pickmsg"></div>
+</div></div>
+<div class="c">
+<a class="ph" href="https://unsplash.com/photos/woman-signing-on-white-printer-paper-beside-woman-about-to-touch-the-documents-HJckKnwCXxQ" target="_blank" rel="noopener">
+<img src="https://images.unsplash.com/photo-1562564055-71e051d33c19?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwzfHxvbmUlMjBvbiUyMG9uZSUyMG1lZXRpbmclMjB0YWJsZSUyMGhhbmRzfGVufDB8fHx8MTc5NDIwMTkzMHww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=400" alt="one on one meeting table hands" loading="lazy">
+<span class="rank">第3候補</span>
+<span class="src" style="background:#1f2933">Unsplash</span></a>
+<div class="meta">
+<div class="why">書類に向かう二人の手。面談の実務感が出ている。</div>
+<div class="row">撮影者: <span>Gabrielle Henderson</span></div>
+<div class="row">サイズ: <span>6000×4000</span>（1.5:1）</div>
+<div class="row">ヒット語: <code>one on one meeting table hands</code></div>
+<div class="row"><a href="https://unsplash.com/photos/woman-signing-on-white-printer-paper-beside-woman-about-to-touch-the-documents-HJckKnwCXxQ" target="_blank" rel="noopener">元ページ ↗</a>　<a href="https://images.unsplash.com/photo-1562564055-71e051d33c19?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwzfHxvbmUlMjBvbiUyMG9uZSUyMG1lZXRpbmclMjB0YWJsZSUyMGhhbmRzfGVufDB8fHx8MTc5NDIwMTkzMHww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" target="_blank" rel="noopener">画像 ↗</a></div>
+<div class="lic"><b>Unsplash License</b> <a href="https://unsplash.com/license" target="_blank" rel="noopener">条文 ↗</a><br>クレジット推奨（例: Photo by 〈撮影者〉 on Unsplash）。商用利用可・許諾不要。</div>
+<button class="pick" type="button"
+ data-pl="17-1" data-source="Unsplash" data-author="Gabrielle Henderson"
+ data-license="Unsplash License" data-page="https://unsplash.com/photos/woman-signing-on-white-printer-paper-beside-woman-about-to-touch-the-documents-HJckKnwCXxQ" data-img="https://images.unsplash.com/photo-1562564055-71e051d33c19?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwzfHxvbmUlMjBvbiUyMG9uZSUyMG1lZXRpbmclMjB0YWJsZSUyMGhhbmRzfGVufDB8fHx8MTc5NDIwMTkzMHww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+ data-rank="3">これにする</button>
+<div class="pickmsg"></div>
+</div></div>
+<div class="c">
+<a class="ph" href="https://www.pexels.com/photo/people-resting-their-hands-on-the-white-table-5900785/" target="_blank" rel="noopener">
+<img src="https://images.pexels.com/photos/5900785/pexels-photo-5900785.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=350" alt="one on one meeting table hands" loading="lazy">
+<span class="rank">第4候補</span>
+<span class="src" style="background:#05a081">Pexels</span></a>
+<div class="meta">
+<div class="why">白いテーブルの上の手元。落ち着いたトーン。</div>
+<div class="row">撮影者: <span>cottonbro studio</span></div>
+<div class="row">サイズ: <span>3765×2510</span>（1.5:1）</div>
+<div class="row">ヒット語: <code>one on one meeting table hands</code></div>
+<div class="row"><a href="https://www.pexels.com/photo/people-resting-their-hands-on-the-white-table-5900785/" target="_blank" rel="noopener">元ページ ↗</a>　<a href="https://images.pexels.com/photos/5900785/pexels-photo-5900785.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940" target="_blank" rel="noopener">画像 ↗</a></div>
+<div class="lic"><b>Pexels License</b> <a href="https://www.pexels.com/license/" target="_blank" rel="noopener">条文 ↗</a><br>クレジット任意（推奨）。商用利用可・許諾不要。</div>
+<button class="pick" type="button"
+ data-pl="17-1" data-source="Pexels" data-author="cottonbro studio"
+ data-license="Pexels License" data-page="https://www.pexels.com/photo/people-resting-their-hands-on-the-white-table-5900785/" data-img="https://images.pexels.com/photos/5900785/pexels-photo-5900785.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940"
+ data-rank="4">これにする</button>
+<div class="pickmsg"></div>
+</div></div>
+</div></div>
+<div class="pl"><span class="plid">17-2</span>
+<div class="after"><span class="lab">この一文の直後に入れる</span><span class="txt">けれど同時に、心のほうが歪んでしまうことがある。</span></div>
+<p class="intent"><span class="lab">INTENT</span>本文の『ギプス』の言い換え。支柱に結ばれて形を矯正される若木</p>
+<p class="qs"><span class="lab">QUERY</span><code>young tree tied to stake</code> ／ alt: <code>sapling support stake</code> <code>tree staked garden</code><br><span class="lab">目視した候補</span>Unsplash 8 ・ Pexels 8 ・ Pixabay 8 ・ Openverse 1（計25枚から4枚）</p><div class="grid"><div class="c">
+<a class="ph" href="https://unsplash.com/photos/white-feather-on-gray-metal-fence-KitfQ4JijrY" target="_blank" rel="noopener">
+<img src="https://images.unsplash.com/photo-1606525738609-d5301ea9fb78?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwxNXx8eW91bmclMjB0cmVlJTIwdGllZCUyMHRvJTIwc3Rha2V8ZW58MHx8fHwxNzk0MjAxOTM1fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=400" alt="young tree tied to stake" loading="lazy">
+<span class="rank">第1候補</span>
+<span class="src" style="background:#1f2933">Unsplash</span></a>
+<div class="meta">
+<div class="why">支柱に紐で固く結ばれた若木。ギプスの比喩がそのまま写る。</div>
+<div class="row">撮影者: <span>Nicolas Brulois</span></div>
+<div class="row">サイズ: <span>6000×4000</span>（1.5:1）</div>
+<div class="row">ヒット語: <code>young tree tied to stake</code></div>
+<div class="row"><a href="https://unsplash.com/photos/white-feather-on-gray-metal-fence-KitfQ4JijrY" target="_blank" rel="noopener">元ページ ↗</a>　<a href="https://images.unsplash.com/photo-1606525738609-d5301ea9fb78?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwxNXx8eW91bmclMjB0cmVlJTIwdGllZCUyMHRvJTIwc3Rha2V8ZW58MHx8fHwxNzk0MjAxOTM1fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" target="_blank" rel="noopener">画像 ↗</a></div>
+<div class="lic"><b>Unsplash License</b> <a href="https://unsplash.com/license" target="_blank" rel="noopener">条文 ↗</a><br>クレジット推奨（例: Photo by 〈撮影者〉 on Unsplash）。商用利用可・許諾不要。</div>
+<button class="pick" type="button"
+ data-pl="17-2" data-source="Unsplash" data-author="Nicolas Brulois"
+ data-license="Unsplash License" data-page="https://unsplash.com/photos/white-feather-on-gray-metal-fence-KitfQ4JijrY" data-img="https://images.unsplash.com/photo-1606525738609-d5301ea9fb78?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwxNXx8eW91bmclMjB0cmVlJTIwdGllZCUyMHRvJTIwc3Rha2V8ZW58MHx8fHwxNzk0MjAxOTM1fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+ data-rank="1">これにする</button>
+<div class="pickmsg"></div>
+</div></div>
+<div class="c">
+<a class="ph" href="https://pixabay.com/photos/fastening-dew-rope-twisted-rope-1315777/" target="_blank" rel="noopener">
+<img src="https://pixabay.com/get/g2d495e8b3f039e616b4081b8e1bfe7c85e7615385eadb65c40fd99674e7afaac3f4d576403d466b7f22e762b24bb921bc14d2bc317fb276f4b1b9536c0ef25ca_640.jpg" alt="young tree tied to stake" loading="lazy">
+<span class="rank">第2候補</span>
+<span class="src" style="background:#2a9d5c">Pixabay</span></a>
+<div class="meta">
+<div class="why">太い縄で支柱に留められた幹。矯正の強さが出る。</div>
+<div class="row">撮影者: <span>Antranias</span></div>
+<div class="row">サイズ: <span>5170×3388</span>（1.53:1）</div>
+<div class="row">ヒット語: <code>young tree tied to stake</code></div>
+<div class="row"><a href="https://pixabay.com/photos/fastening-dew-rope-twisted-rope-1315777/" target="_blank" rel="noopener">元ページ ↗</a>　<a href="https://pixabay.com/get/gb455730fbffe5271e1fd9094a8e63007ae10c8a3b66185eb9a5fb787093d085fd82c718dad5f55135cb05010f9aba4c3ff9437041efd25d08e8fe008e301d406_1280.jpg" target="_blank" rel="noopener">画像 ↗</a></div>
+<div class="lic"><b>Pixabay License</b> <a href="https://pixabay.com/service/license-summary/" target="_blank" rel="noopener">条文 ↗</a><br>クレジット任意。商用利用可。人物が写る場合の被写体の権利は別途確認。</div>
+<button class="pick" type="button"
+ data-pl="17-2" data-source="Pixabay" data-author="Antranias"
+ data-license="Pixabay License" data-page="https://pixabay.com/photos/fastening-dew-rope-twisted-rope-1315777/" data-img="https://pixabay.com/get/gb455730fbffe5271e1fd9094a8e63007ae10c8a3b66185eb9a5fb787093d085fd82c718dad5f55135cb05010f9aba4c3ff9437041efd25d08e8fe008e301d406_1280.jpg"
+ data-rank="2">これにする</button>
+<div class="pickmsg"></div>
+</div></div>
+<div class="c">
+<a class="ph" href="https://www.pexels.com/photo/autumn-landscape-in-rural-poland-31853828/" target="_blank" rel="noopener">
+<img src="https://images.pexels.com/photos/31853828/pexels-photo-31853828.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=350" alt="young tree tied to stake" loading="lazy">
+<span class="rank">第3候補</span>
+<span class="src" style="background:#05a081">Pexels</span></a>
+<div class="meta">
+<div class="why">支柱つきの若木が整然と並ぶ。「そろえられる」側面。</div>
+<div class="row">撮影者: <span>Daniel Żabiński</span></div>
+<div class="row">サイズ: <span>7499×4999</span>（1.5:1）</div>
+<div class="row">ヒット語: <code>young tree tied to stake</code></div>
+<div class="row"><a href="https://www.pexels.com/photo/autumn-landscape-in-rural-poland-31853828/" target="_blank" rel="noopener">元ページ ↗</a>　<a href="https://images.pexels.com/photos/31853828/pexels-photo-31853828.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940" target="_blank" rel="noopener">画像 ↗</a></div>
+<div class="lic"><b>Pexels License</b> <a href="https://www.pexels.com/license/" target="_blank" rel="noopener">条文 ↗</a><br>クレジット任意（推奨）。商用利用可・許諾不要。</div>
+<button class="pick" type="button"
+ data-pl="17-2" data-source="Pexels" data-author="Daniel Żabiński"
+ data-license="Pexels License" data-page="https://www.pexels.com/photo/autumn-landscape-in-rural-poland-31853828/" data-img="https://images.pexels.com/photos/31853828/pexels-photo-31853828.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940"
+ data-rank="3">これにする</button>
+<div class="pickmsg"></div>
+</div></div>
+<div class="c">
+<a class="ph" href="https://unsplash.com/photos/brown-wooden-stick-on-green-grass-during-daytime-ah9Df48axMs" target="_blank" rel="noopener">
+<img src="https://images.unsplash.com/photo-1588949282846-9fd534836d7c?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwyfHx5b3VuZyUyMHRyZWUlMjB0aWVkJTIwdG8lMjBzdGFrZXxlbnwwfHx8fDE3OTQyMDE5MzV8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=400" alt="young tree tied to stake" loading="lazy">
+<span class="rank">第4候補</span>
+<span class="src" style="background:#1f2933">Unsplash</span></a>
+<div class="meta">
+<div class="why">幹と支柱の結び目のクローズアップ。</div>
+<div class="row">撮影者: <span>Meg</span></div>
+<div class="row">サイズ: <span>5568×3712</span>（1.5:1）</div>
+<div class="row">ヒット語: <code>young tree tied to stake</code></div>
+<div class="row"><a href="https://unsplash.com/photos/brown-wooden-stick-on-green-grass-during-daytime-ah9Df48axMs" target="_blank" rel="noopener">元ページ ↗</a>　<a href="https://images.unsplash.com/photo-1588949282846-9fd534836d7c?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwyfHx5b3VuZyUyMHRyZWUlMjB0aWVkJTIwdG8lMjBzdGFrZXxlbnwwfHx8fDE3OTQyMDE5MzV8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" target="_blank" rel="noopener">画像 ↗</a></div>
+<div class="lic"><b>Unsplash License</b> <a href="https://unsplash.com/license" target="_blank" rel="noopener">条文 ↗</a><br>クレジット推奨（例: Photo by 〈撮影者〉 on Unsplash）。商用利用可・許諾不要。</div>
+<button class="pick" type="button"
+ data-pl="17-2" data-source="Unsplash" data-author="Meg"
+ data-license="Unsplash License" data-page="https://unsplash.com/photos/brown-wooden-stick-on-green-grass-during-daytime-ah9Df48axMs" data-img="https://images.unsplash.com/photo-1588949282846-9fd534836d7c?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwyfHx5b3VuZyUyMHRyZWUlMjB0aWVkJTIwdG8lMjBzdGFrZXxlbnwwfHx8fDE3OTQyMDE5MzV8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+ data-rank="4">これにする</button>
+<div class="pickmsg"></div>
+</div></div>
+</div></div>
+</section>
+<footer>生成 2026-11-09T06:37:35.717Z ／ 同じ内容を image_candidates.json にも出力しています</footer>
+</div>
+<script>
+(function () {
+  var bar = document.getElementById("srvbar");
+  // The picker needs the local server: a page opened straight from the file
+  // system cannot write into picked/.
+  var API = (location.protocol === "http:" || location.protocol === "https:")
+    ? location.origin : null;
+
+  function offline(extra) {
+    bar.className = "off";
+    bar.innerHTML = "保存サーバーが動いていないため「これにする」は使えません。" +
+      "プロジェクトのフォルダで <code>node pick-server.mjs</code> を実行し、" +
+      "表示される <code>http://localhost:4321</code> をブラウザで開いてください。" + (extra || "");
+    document.querySelectorAll(".pick").forEach(function (b) { b.disabled = true; });
+  }
+  function online(n) {
+    bar.className = "on";
+    bar.textContent = "保存サーバーに接続しました。選んだ写真は picked/ に保存されます" +
+      (n ? "（選択済み " + n + " 件）" : "") + "。";
+  }
+
+  function mark(pl, page) {
+    document.querySelectorAll('.pick[data-pl="' + CSS.escape(pl) + '"]').forEach(function (b) {
+      var card = b.closest(".c");
+      var isIt = b.dataset.page === page;
+      card.classList.toggle("picked", isIt);
+      b.textContent = isIt ? "✓ これにした" : "これにする";
+    });
+  }
+
+  if (!API) { offline(); return; }
+
+  fetch(API + "/picked").then(function (r) { return r.json(); }).then(function (d) {
+    online(Object.keys(d.picks || {}).length);
+    Object.keys(d.picks || {}).forEach(function (pl) { mark(pl, d.picks[pl].page_url); });
+  }).catch(function () { offline(); });
+
+  document.addEventListener("click", function (ev) {
+    var b = ev.target.closest(".pick");
+    if (!b || b.disabled) return;
+    var msg = b.parentNode.querySelector(".pickmsg");
+    var old = b.textContent;
+    b.disabled = true;
+    msg.className = "pickmsg";
+    msg.textContent = "保存中…";
+    fetch(API + "/pick", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        placement_id: b.dataset.pl, source: b.dataset.source, author: b.dataset.author,
+        license: b.dataset.license, page_url: b.dataset.page, image_url: b.dataset.img,
+        rank: b.dataset.rank,
+      }),
+    }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (res) {
+        b.disabled = false;
+        if (!res.ok || !res.j.ok) {
+          b.textContent = old;
+          msg.className = "pickmsg err";
+          msg.textContent = "保存できませんでした: " + (res.j && res.j.error ? res.j.error : "不明なエラー");
+          return;
+        }
+        mark(b.dataset.pl, b.dataset.page);
+        msg.className = "pickmsg ok";
+        msg.textContent = "保存しました → " + res.j.file + "（" + res.j.width + "×" + res.j.height + "）";
+      })
+      .catch(function (e) {
+        b.disabled = false; b.textContent = old;
+        msg.className = "pickmsg err";
+        msg.textContent = "保存サーバーに接続できません: " + e.message;
+      });
+  });
+})();
+</script>
+</body></html>

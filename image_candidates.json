@@ -1,0 +1,883 @@
+{
+  "generated": "2026-11-09T06:37:35.717Z",
+  "source_plan": "note_image_plan_pilot.json",
+  "how": {
+    "sources": [
+      "Unsplash",
+      "Pexels",
+      "Pixabay",
+      "Openverse"
+    ],
+    "unsplash_pexels_pixabay_via": "https://free-image-search.vercel.app/api/search （デプロイ済みサイト経由。APIキーはサーバ側）",
+    "openverse_via": "https://api.openverse.org/v1/images （キー不要・直接）",
+    "filters": "横長のみ（縦横比1.25〜2.1）・幅640px以上。そのうえで全候補を目視し、style_rulesとintentで選定。",
+    "style_rules": [
+      "人の顔がはっきり写る写真は避ける（手元、後ろ姿、遠景はよい）",
+      "落ち着いた色調。強い彩度や広告っぽい演出は避ける",
+      "横長（3:2〜16:9）を優先",
+      "文字やロゴが目立つ写真は避ける（品書き・掛け軸の文字は例外）"
+    ]
+  },
+  "posts": [
+    {
+      "no": 10,
+      "date": "11/19",
+      "title": "自分で登る、指示する、抱えて登る——マネジャーになるときに起きる、揺れの話",
+      "note_url": "https://note.com/arti_llc/n/n84969d05f768",
+      "placements": [
+        {
+          "id": "10-1",
+          "after_text": "と声をかけている状態です。",
+          "intent": "ふもとから指示を出す比喩。登る人が遠く小さく見える、下から見上げた構図",
+          "query": "climber on mountain slope from below",
+          "alt_queries": [
+            "hiker on steep slope distant",
+            "mountain climber small figure"
+          ],
+          "queries_used": [
+            "climber on mountain slope from below (+24)",
+            "hiker on steep slope distant (+0)",
+            "mountain climber small figure (+0)"
+          ],
+          "pool_reviewed": {
+            "Unsplash": 32,
+            "Pexels": 12,
+            "Pixabay": 8,
+            "Openverse": 20
+          },
+          "note": "追加検索（lone hiker vast landscape ほか）で第3候補を入れ替えました。Openverseは20件返りましたが、19件が人の写っていない風景で、残り1件も1024pxと小さく、採用しませんでした。",
+          "candidates": [
+            {
+              "rank": 1,
+              "source": "Unsplash",
+              "author": "Luba Ertel",
+              "license": "Unsplash License",
+              "license_url": "https://unsplash.com/license",
+              "attribution_note": "クレジット推奨（例: Photo by 〈撮影者〉 on Unsplash）。商用利用可・許諾不要。",
+              "page_url": "https://unsplash.com/photos/a-person-sitting-on-top-of-a-grass-covered-hill-AOb2hGBPm9o",
+              "image_url": "https://images.unsplash.com/photo-1691655152913-b949db70142f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwxfHxjbGltYmVyJTIwb24lMjBtb3VudGFpbiUyMHNsb3BlJTIwZnJvbSUyMGJlbG93fGVufDB8fHx8MTc5NDIwMTkwMnww&ixlib=rb-4.1.0&q=80&w=1080",
+              "thumb_url": "https://images.unsplash.com/photo-1691655152913-b949db70142f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwxfHxjbGltYmVyJTIwb24lMjBtb3VudGFpbiUyMHNsb3BlJTIwZnJvbSUyMGJlbG93fGVufDB8fHx8MTc5NDIwMTkwMnww&ixlib=rb-4.1.0&q=80&w=400",
+              "width": 6000,
+              "height": 3376,
+              "aspect_ratio": 1.78,
+              "matched_query": "climber on mountain slope from below",
+              "title": "",
+              "why": "草の斜面を下から見上げる構図。登る人が豆粒ほどに小さく、ふもととの距離がそのまま出る。"
+            },
+            {
+              "rank": 2,
+              "source": "Unsplash",
+              "author": "Matthew Stephenson",
+              "license": "Unsplash License",
+              "license_url": "https://unsplash.com/license",
+              "attribution_note": "クレジット推奨（例: Photo by 〈撮影者〉 on Unsplash）。商用利用可・許諾不要。",
+              "page_url": "https://unsplash.com/photos/a-lone-person-walks-across-a-vast-snowy-mountain-landscape-S7TdS_anppM",
+              "image_url": "https://images.unsplash.com/photo-1785970902123-0fdcc7dda402?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHw1fHxjbGltYmVyJTIwb24lMjBtb3VudGFpbiUyMHNsb3BlJTIwZnJvbSUyMGJlbG93fGVufDB8fHx8MTc5NDIwMTkwMnww&ixlib=rb-4.1.0&q=80&w=1080",
+              "thumb_url": "https://images.unsplash.com/photo-1785970902123-0fdcc7dda402?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHw1fHxjbGltYmVyJTIwb24lMjBtb3VudGFpbiUyMHNsb3BlJTIwZnJvbSUyMGJlbG93fGVufDB8fHx8MTc5NDIwMTkwMnww&ixlib=rb-4.1.0&q=80&w=400",
+              "width": 7008,
+              "height": 4672,
+              "aspect_ratio": 1.5,
+              "matched_query": "climber on mountain slope from below",
+              "title": "",
+              "why": "黒い岩壁の下にひとつぶの人影。スケール差がいちばん大きい一枚。"
+            },
+            {
+              "rank": 3,
+              "source": "Pexels",
+              "author": "ANA TINCA",
+              "license": "Pexels License",
+              "license_url": "https://www.pexels.com/license/",
+              "attribution_note": "クレジット任意（推奨）。商用利用可・許諾不要。",
+              "page_url": "https://www.pexels.com/photo/scenic-view-of-expansive-green-hill-landscape-34853194/",
+              "image_url": "https://images.pexels.com/photos/34853194/pexels-photo-34853194.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+              "thumb_url": "https://images.pexels.com/photos/34853194/pexels-photo-34853194.jpeg?auto=compress&cs=tinysrgb&h=350",
+              "width": 6000,
+              "height": 4000,
+              "aspect_ratio": 1.5,
+              "matched_query": "lone hiker vast landscape",
+              "title": "",
+              "why": "広い荒野に人影が点ほどの大きさで入る。距離感がいちばん大きい。"
+            },
+            {
+              "rank": 4,
+              "source": "Pixabay",
+              "author": "Tsebho",
+              "license": "Pixabay License",
+              "license_url": "https://pixabay.com/service/license-summary/",
+              "attribution_note": "クレジット任意。商用利用可。人物が写る場合の被写体の権利は別途確認。",
+              "page_url": "https://pixabay.com/photos/kawa-karpo-snow-mountain-glacier-9836966/",
+              "image_url": "https://pixabay.com/get/g087891663a12eb264a631ef2a5522ab4f4185501f0ae20fdc0f1278aefe1921197a9e472c094875a33ea806706faa8f6f3374fa80d2de6ed70ad4905c77f499d_1280.jpg",
+              "thumb_url": "https://pixabay.com/get/g0a00cd7f15649a8c9145e1cadaa91fc570148ac3ed923a8fb9cb1a344ea0d1cedbd6ebbe9e6381efa7011a1c853a0342069de8dc5cf0c0d54af70a82c101971a_640.jpg",
+              "width": 7360,
+              "height": 4912,
+              "aspect_ratio": 1.5,
+              "matched_query": "climber on mountain slope from below",
+              "title": "",
+              "why": "遠景の山肌に小さく散る人影。引きの距離感。"
+            }
+          ]
+        },
+        {
+          "id": "10-2",
+          "after_text": "それでも一緒に登り続ける。",
+          "intent": "抱えて登る。同じ斜面を並んで登る二人の後ろ姿。10-1との距離感の差が出るもの",
+          "query": "two hikers walking together trail",
+          "alt_queries": [
+            "two people climbing mountain path back view",
+            "helping hand hiking"
+          ],
+          "queries_used": [
+            "two hikers walking together trail (+24)",
+            "two people climbing mountain path back view (+0)",
+            "helping hand hiking (+8)"
+          ],
+          "pool_reviewed": {
+            "Unsplash": 8,
+            "Pexels": 8,
+            "Pixabay": 8,
+            "Openverse": 2
+          },
+          "note": "",
+          "candidates": [
+            {
+              "rank": 1,
+              "source": "Unsplash",
+              "author": "Sébastien Goldberg",
+              "license": "Unsplash License",
+              "license_url": "https://unsplash.com/license",
+              "attribution_note": "クレジット推奨（例: Photo by 〈撮影者〉 on Unsplash）。商用利用可・許諾不要。",
+              "page_url": "https://unsplash.com/photos/2-people-walking-on-green-grass-field-during-daytime-TlaOWHxtpEU",
+              "image_url": "https://images.unsplash.com/photo-1615287772366-b32da541d7cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwxNnx8dHdvJTIwaGlrZXJzJTIwd2Fsa2luZyUyMHRvZ2V0aGVyJTIwdHJhaWx8ZW58MHx8fHwxNzk0MjAxOTA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+              "thumb_url": "https://images.unsplash.com/photo-1615287772366-b32da541d7cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwxNnx8dHdvJTIwaGlrZXJzJTIwd2Fsa2luZyUyMHRvZ2V0aGVyJTIwdHJhaWx8ZW58MHx8fHwxNzk0MjAxOTA4fDA&ixlib=rb-4.1.0&q=80&w=400",
+              "width": 6000,
+              "height": 4000,
+              "aspect_ratio": 1.5,
+              "matched_query": "two hikers walking together trail",
+              "title": "",
+              "why": "同じ斜面を並んで登る二人の後ろ姿。10-1の「遠さ」と対になる距離。"
+            },
+            {
+              "rank": 2,
+              "source": "Pexels",
+              "author": "Maël  BALLAND",
+              "license": "Pexels License",
+              "license_url": "https://www.pexels.com/license/",
+              "attribution_note": "クレジット任意（推奨）。商用利用可・許諾不要。",
+              "page_url": "https://www.pexels.com/photo/people-walking-on-snow-6395039/",
+              "image_url": "https://images.pexels.com/photos/6395039/pexels-photo-6395039.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+              "thumb_url": "https://images.pexels.com/photos/6395039/pexels-photo-6395039.jpeg?auto=compress&cs=tinysrgb&h=350",
+              "width": 5472,
+              "height": 3648,
+              "aspect_ratio": 1.5,
+              "matched_query": "two hikers walking together trail",
+              "title": "",
+              "why": "肩を並べて歩く二人の後ろ姿。距離が近く「一緒に」が強く出る。"
+            },
+            {
+              "rank": 3,
+              "source": "Pexels",
+              "author": "Deimantas Viburys",
+              "license": "Pexels License",
+              "license_url": "https://www.pexels.com/license/",
+              "attribution_note": "クレジット任意（推奨）。商用利用可・許諾不要。",
+              "page_url": "https://www.pexels.com/photo/hikers-explore-snowy-mountain-trail-in-spring-31822655/",
+              "image_url": "https://images.pexels.com/photos/31822655/pexels-photo-31822655.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+              "thumb_url": "https://images.pexels.com/photos/31822655/pexels-photo-31822655.jpeg?auto=compress&cs=tinysrgb&h=350",
+              "width": 5305,
+              "height": 3537,
+              "aspect_ratio": 1.5,
+              "matched_query": "two hikers walking together trail",
+              "title": "",
+              "why": "道の先の山へ向かう二人の後ろ姿。10-1と10-2の中間の距離感。"
+            },
+            {
+              "rank": 4,
+              "source": "Unsplash",
+              "author": "Alex Moliski",
+              "license": "Unsplash License",
+              "license_url": "https://unsplash.com/license",
+              "attribution_note": "クレジット推奨（例: Photo by 〈撮影者〉 on Unsplash）。商用利用可・許諾不要。",
+              "page_url": "https://unsplash.com/photos/two-hikers-with-backpacks-on-a-dirt-trail-BgSVqmuSEts",
+              "image_url": "https://images.unsplash.com/photo-1755554159963-ecac4e3e2291?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHw0fHx0d28lMjBoaWtlcnMlMjB3YWxraW5nJTIwdG9nZXRoZXIlMjB0cmFpbHxlbnwwfHx8fDE3OTQyMDE5MDh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+              "thumb_url": "https://images.unsplash.com/photo-1755554159963-ecac4e3e2291?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHw0fHx0d28lMjBoaWtlcnMlMjB3YWxraW5nJTIwdG9nZXRoZXIlMjB0cmFpbHxlbnwwfHx8fDE3OTQyMDE5MDh8MA&ixlib=rb-4.1.0&q=80&w=400",
+              "width": 9504,
+              "height": 6336,
+              "aspect_ratio": 1.5,
+              "matched_query": "two hikers walking together trail",
+              "title": "",
+              "why": "林道を行く二人の後ろ姿。背負った荷物の重さが見える。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "no": 11,
+      "date": "11/20",
+      "title": "値段の書いていない店が教えてくれるUXの話",
+      "note_url": "https://note.com/arti_llc/n/n43d0551c6fc7",
+      "placements": [
+        {
+          "id": "11-1",
+          "after_text": "お品書きに値段のない「おまかせ」の店に足を運ぶと、小さな緊張が走ります。",
+          "intent": "おまかせの店のカウンター。板前の手元か、白木のカウンター。静かで少し緊張感のある空気",
+          "query": "sushi chef counter hands",
+          "alt_queries": [
+            "omakase counter",
+            "japanese restaurant counter wood"
+          ],
+          "queries_used": [
+            "sushi chef counter hands (+24)",
+            "omakase counter (+8)"
+          ],
+          "pool_reviewed": {
+            "Unsplash": 8,
+            "Pexels": 8,
+            "Pixabay": 8
+          },
+          "note": "",
+          "candidates": [
+            {
+              "rank": 1,
+              "source": "Unsplash",
+              "author": "blackieshoot",
+              "license": "Unsplash License",
+              "license_url": "https://unsplash.com/license",
+              "attribution_note": "クレジット推奨（例: Photo by 〈撮影者〉 on Unsplash）。商用利用可・許諾不要。",
+              "page_url": "https://unsplash.com/photos/a-person-cutting-up-a-piece-of-meat-on-a-cutting-board-qLBlMw35508",
+              "image_url": "https://images.unsplash.com/photo-1711991022613-63df8929f311?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHw0fHxzdXNoaSUyMGNoZWYlMjBjb3VudGVyJTIwaGFuZHN8ZW58MHx8fHwxNzk0MjAxOTE0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+              "thumb_url": "https://images.unsplash.com/photo-1711991022613-63df8929f311?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHw0fHxzdXNoaSUyMGNoZWYlMjBjb3VudGVyJTIwaGFuZHN8ZW58MHx8fHwxNzk0MjAxOTE0fDA&ixlib=rb-4.1.0&q=80&w=400",
+              "width": 6000,
+              "height": 4000,
+              "aspect_ratio": 1.5,
+              "matched_query": "sushi chef counter hands",
+              "title": "",
+              "why": "包丁が魚に入る手元。暗い木肌と相まって、静かな緊張がある。"
+            },
+            {
+              "rank": 2,
+              "source": "Unsplash",
+              "author": "Kyle Head",
+              "license": "Unsplash License",
+              "license_url": "https://unsplash.com/license",
+              "attribution_note": "クレジット推奨（例: Photo by 〈撮影者〉 on Unsplash）。商用利用可・許諾不要。",
+              "page_url": "https://unsplash.com/photos/left-hand-picking-vegetable-on-plate-PW8K-W-Kni0",
+              "image_url": "https://images.unsplash.com/photo-1512132411229-c30391241dd8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwzfHxzdXNoaSUyMGNoZWYlMjBjb3VudGVyJTIwaGFuZHN8ZW58MHx8fHwxNzk0MjAxOTE0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+              "thumb_url": "https://images.unsplash.com/photo-1512132411229-c30391241dd8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwzfHxzdXNoaSUyMGNoZWYlMjBjb3VudGVyJTIwaGFuZHN8ZW58MHx8fHwxNzk0MjAxOTE0fDA&ixlib=rb-4.1.0&q=80&w=400",
+              "width": 2500,
+              "height": 1667,
+              "aspect_ratio": 1.5,
+              "matched_query": "sushi chef counter hands",
+              "title": "",
+              "why": "黒い皿に握りを置く手元。所作だけが写り、顔は入らない。"
+            },
+            {
+              "rank": 3,
+              "source": "Pexels",
+              "author": "Th2city Santana",
+              "license": "Pexels License",
+              "license_url": "https://www.pexels.com/license/",
+              "attribution_note": "クレジット任意（推奨）。商用利用可・許諾不要。",
+              "page_url": "https://www.pexels.com/photo/man-preparing-sushi-24960122/",
+              "image_url": "https://images.pexels.com/photos/24960122/pexels-photo-24960122.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+              "thumb_url": "https://images.pexels.com/photos/24960122/pexels-photo-24960122.jpeg?auto=compress&cs=tinysrgb&h=350",
+              "width": 6720,
+              "height": 4480,
+              "aspect_ratio": 1.5,
+              "matched_query": "sushi chef counter hands",
+              "title": "",
+              "why": "海苔と酢飯に伸びる手。温度の低い光で落ち着いている。"
+            },
+            {
+              "rank": 4,
+              "source": "Pixabay",
+              "author": "kantnews1",
+              "license": "Pixabay License",
+              "license_url": "https://pixabay.com/service/license-summary/",
+              "attribution_note": "クレジット任意。商用利用可。人物が写る場合の被写体の権利は別途確認。",
+              "page_url": "https://pixabay.com/photos/japanese-japan-restaurant-culture-3723059/",
+              "image_url": "https://pixabay.com/get/g777f420b168d94d18e3d07e2efe33730c9911ea706daa632838051d6f57bd8308be3cebcf9940db38fcfb13b38376569ee0c4232db0c65b34228fd94a3e1bbaa_1280.jpg",
+              "thumb_url": "https://pixabay.com/get/g09bce3ce89d5751ee344a6bb77011fa670e8e8e651de55f8db1763552bc27fe3271a10de8661d5db3629ee49c4d2662a6f018e68baa192c70edf4e2eff5ced61_640.jpg",
+              "width": 6192,
+              "height": 4128,
+              "aspect_ratio": 1.5,
+              "matched_query": "sushi chef counter hands",
+              "title": "",
+              "why": "まな板と包丁の手元。白木に近い清潔さが出ている。"
+            }
+          ]
+        },
+        {
+          "id": "11-2",
+          "after_text": "UXの観点から見れば、これは極めて教科書的な構図です。",
+          "intent": "読める人にしか読めない。筆書きの品書きや掛け軸。次の見出し『読める人のためのUX』の直前に置く",
+          "query": "japanese calligraphy menu",
+          "alt_queries": [
+            "hanging scroll calligraphy",
+            "japanese handwritten menu board"
+          ],
+          "queries_used": [
+            "japanese calligraphy menu (+24)",
+            "hanging scroll calligraphy (+8)"
+          ],
+          "pool_reviewed": {
+            "Unsplash": 8,
+            "Pexels": 8,
+            "Pixabay": 8,
+            "Openverse": 1
+          },
+          "note": "",
+          "candidates": [
+            {
+              "rank": 1,
+              "source": "Pexels",
+              "author": "Min An",
+              "license": "Pexels License",
+              "license_url": "https://www.pexels.com/license/",
+              "attribution_note": "クレジット任意（推奨）。商用利用可・許諾不要。",
+              "page_url": "https://www.pexels.com/photo/kanji-printed-tags-hanged-on-brown-wooden-board-lighted-by-pendant-lamp-941193/",
+              "image_url": "https://images.pexels.com/photos/941193/pexels-photo-941193.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+              "thumb_url": "https://images.pexels.com/photos/941193/pexels-photo-941193.jpeg?auto=compress&cs=tinysrgb&h=350",
+              "width": 3753,
+              "height": 2788,
+              "aspect_ratio": 1.35,
+              "matched_query": "japanese calligraphy menu",
+              "title": "",
+              "why": "「本日のさかな」の木札が下がる品書き。読める人のための情報設計そのもの。"
+            },
+            {
+              "rank": 2,
+              "source": "Unsplash",
+              "author": "The Cleveland Museum of Art",
+              "license": "Unsplash License",
+              "license_url": "https://unsplash.com/license",
+              "attribution_note": "クレジット推奨（例: Photo by 〈撮影者〉 on Unsplash）。商用利用可・許諾不要。",
+              "page_url": "https://unsplash.com/photos/ancient-chinese-calligraphy-on-aged-paper-axm7m_45_zk",
+              "image_url": "https://images.unsplash.com/photo-1720702214705-2695d9f96953?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwxMnx8amFwYW5lc2UlMjBjYWxsaWdyYXBoeSUyMG1lbnV8ZW58MHx8fHwxNzk0MjAxOTE4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+              "thumb_url": "https://images.unsplash.com/photo-1720702214705-2695d9f96953?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwxMnx8amFwYW5lc2UlMjBjYWxsaWdyYXBoeSUyMG1lbnV8ZW58MHx8fHwxNzk0MjAxOTE4fDA&ixlib=rb-4.1.0&q=80&w=400",
+              "width": 6197,
+              "height": 4146,
+              "aspect_ratio": 1.49,
+              "matched_query": "japanese calligraphy menu",
+              "title": "",
+              "why": "びっしりと崩し字の古文書。「読めない側」の視点がいちばん強い。"
+            },
+            {
+              "rank": 3,
+              "source": "Pixabay",
+              "author": "chxfly9527",
+              "license": "Pixabay License",
+              "license_url": "https://pixabay.com/service/license-summary/",
+              "attribution_note": "クレジット任意。商用利用可。人物が写る場合の被写体の権利は別途確認。",
+              "page_url": "https://pixabay.com/photos/japanese-style-tatami-effect-picture-2667883/",
+              "image_url": "https://pixabay.com/get/g628c58de5cfa9f7c90c7d8805f5a3daab253e85243983179cc1ce728268ae15283c566e2f2d431e87b1c0dc27ac5080ae72860e1a16c5cc8062ff3e2b542abc9_1280.jpg",
+              "thumb_url": "https://pixabay.com/get/g38fbce8499a97e6b27985400e12daf33a90593efc057c435ff101c6888a5331deffa6b478aca3d0000a332e61ce096cf70480da2bbee63549d5f14453bbc4696_640.jpg",
+              "width": 2048,
+              "height": 1256,
+              "aspect_ratio": 1.63,
+              "matched_query": "japanese calligraphy menu",
+              "title": "",
+              "why": "和室の床の間と掛け軸。静かで、文字は遠くにある。"
+            },
+            {
+              "rank": 4,
+              "source": "Openverse",
+              "author": "(表記なし)",
+              "license": "CC0 1.0",
+              "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+              "attribution_note": "CCライセンス。表示(BY)義務や改変・商用の可否がライセンスごとに異なるため、採用前に条文を確認。",
+              "page_url": "https://www.rawpixel.com/image/7638025/image-art-vintage-public-domain",
+              "image_url": "https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA4L2xyL21pYTYwMjE5LWltYWdlLmpwZw.jpg",
+              "thumb_url": "https://api.openverse.org/v1/images/2a7d029f-a643-4e6a-be70-3c2e4e9d7768/thumb/",
+              "width": 6695,
+              "height": 4142,
+              "aspect_ratio": 1.62,
+              "matched_query": "hanging scroll calligraphy",
+              "title": "Head shoulders bald man heavy",
+              "why": "賛の入った水墨画。掛け軸の形式そのもの。CC0で扱いやすい。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "no": 13,
+      "date": "11/24",
+      "title": "量から密度へ──機械協働時代の若手育成",
+      "note_url": "https://note.com/arti_llc/n/n215bd8dce2c1",
+      "placements": [
+        {
+          "id": "13-1",
+          "after_text": "何度も突き返されました。",
+          "intent": "何度も突き返された資料。赤ペンがびっしり入った紙の資料",
+          "query": "red pen corrections paper",
+          "alt_queries": [
+            "editing document red pen",
+            "marked up printed draft"
+          ],
+          "queries_used": [
+            "red pen corrections paper (+24)",
+            "editing document red pen (+4)"
+          ],
+          "pool_reviewed": {
+            "Unsplash": 8,
+            "Pexels": 8,
+            "Pixabay": 8,
+            "Openverse": 1
+          },
+          "note": "第1候補は中国語の原稿用紙です。赤入れの密度は狙いどおりですが、文字が読まれると文脈がずれる場合は第2候補以降を推奨します。",
+          "candidates": [
+            {
+              "rank": 1,
+              "source": "Unsplash",
+              "author": "jason hu",
+              "license": "Unsplash License",
+              "license_url": "https://unsplash.com/license",
+              "attribution_note": "クレジット推奨（例: Photo by 〈撮影者〉 on Unsplash）。商用利用可・許諾不要。",
+              "page_url": "https://unsplash.com/photos/red-chinese-calligraphy-on-paper-with-a-fountain-pen-NWzm2IBOkLA",
+              "image_url": "https://images.unsplash.com/photo-1785323536297-b946d4f5b51e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHw4fHxyZWQlMjBwZW4lMjBjb3JyZWN0aW9ucyUyMHBhcGVyfGVufDB8fHx8MTc5NDIwMTkyMnww&ixlib=rb-4.1.0&q=80&w=1080",
+              "thumb_url": "https://images.unsplash.com/photo-1785323536297-b946d4f5b51e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHw4fHxyZWQlMjBwZW4lMjBjb3JyZWN0aW9ucyUyMHBhcGVyfGVufDB8fHx8MTc5NDIwMTkyMnww&ixlib=rb-4.1.0&q=80&w=400",
+              "width": 6240,
+              "height": 4160,
+              "aspect_ratio": 1.5,
+              "matched_query": "red pen corrections paper",
+              "title": "",
+              "why": "升目の原稿に赤が隙間なく入っている。突き返された量が一目でわかる。"
+            },
+            {
+              "rank": 2,
+              "source": "Pixabay",
+              "author": "annekarakash",
+              "license": "Pixabay License",
+              "license_url": "https://pixabay.com/service/license-summary/",
+              "attribution_note": "クレジット任意。商用利用可。人物が写る場合の被写体の権利は別途確認。",
+              "page_url": "https://pixabay.com/photos/mistakes-editing-school-red-ink-1756958/",
+              "image_url": "https://pixabay.com/get/ga1d510a753541920e308f262e2cafc917033004411ece810793a7e7d20e9fbf586bfd79ec37d7e5701559b417ba742b2b23fffe4b07da763d83e0466c356dab6_1280.jpg",
+              "thumb_url": "https://pixabay.com/get/g9b4f5358315115b99988cfe3301a9536febf4e7641b3b9eaee80fd4024a593677aba036613948878f58c0d3ec2319456945f8d18c555e13480bd685815c3da21_640.jpg",
+              "width": 2818,
+              "height": 2113,
+              "aspect_ratio": 1.33,
+              "matched_query": "red pen corrections paper",
+              "title": "",
+              "why": "印刷資料への赤入れ。日本の実務資料に近い見え方。"
+            },
+            {
+              "rank": 3,
+              "source": "Pexels",
+              "author": "Andy Barbour",
+              "license": "Pexels License",
+              "license_url": "https://www.pexels.com/license/",
+              "attribution_note": "クレジット任意（推奨）。商用利用可・許諾不要。",
+              "page_url": "https://www.pexels.com/photo/a-person-marking-a-test-paper-6684373/",
+              "image_url": "https://images.pexels.com/photos/6684373/pexels-photo-6684373.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+              "thumb_url": "https://images.pexels.com/photos/6684373/pexels-photo-6684373.jpeg?auto=compress&cs=tinysrgb&h=350",
+              "width": 6720,
+              "height": 4480,
+              "aspect_ratio": 1.5,
+              "matched_query": "red pen corrections paper",
+              "title": "",
+              "why": "赤ペンで×を書き込む手元。差し戻しの瞬間が写る。"
+            },
+            {
+              "rank": 4,
+              "source": "Openverse",
+              "author": "(表記なし)",
+              "license": "CC0 1.0",
+              "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+              "attribution_note": "CCライセンス。表示(BY)義務や改変・商用の可否がライセンスごとに異なるため、採用前に条文を確認。",
+              "page_url": "https://www.rawpixel.com/image/5961489/free-public-domain-cc0-photo",
+              "image_url": "https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcHgxMTI4Njg3LWltYWdlLWt3eXI1ZWl4LmpwZw.jpg",
+              "thumb_url": "https://api.openverse.org/v1/images/6ef7ccbd-cef6-4e29-b3d5-6c40ce58a841/thumb/",
+              "width": 2100,
+              "height": 1397,
+              "aspect_ratio": 1.5,
+              "matched_query": "editing document red pen",
+              "title": "",
+              "why": "書類に手を入れる手元。静かな校正の画。CC0。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "no": 15,
+      "date": "11/27",
+      "title": "ペインを、でっち上げない",
+      "note_url": "https://note.com/arti_llc/n/n6cf020d0cfa9",
+      "placements": [
+        {
+          "id": "15-1",
+          "after_text": "葉の色が変わったとき、それが危険信号なのかどうかもわからない。",
+          "intent": "本文の例そのもの。ベランダに並ぶ鉢植え。生活感のある、ふつうのベランダ",
+          "query": "balcony potted plants",
+          "alt_queries": [
+            "apartment balcony garden",
+            "potted plants on balcony railing"
+          ],
+          "queries_used": [
+            "balcony potted plants (+32)"
+          ],
+          "pool_reviewed": {
+            "Unsplash": 8,
+            "Pexels": 8,
+            "Pixabay": 8,
+            "Openverse": 7
+          },
+          "note": "",
+          "candidates": [
+            {
+              "rank": 1,
+              "source": "Pexels",
+              "author": "Spain Buddy",
+              "license": "Pexels License",
+              "license_url": "https://www.pexels.com/license/",
+              "attribution_note": "クレジット任意（推奨）。商用利用可・許諾不要。",
+              "page_url": "https://www.pexels.com/photo/colorful-potted-plants-behind-iron-railing-40825880/",
+              "image_url": "https://images.pexels.com/photos/40825880/pexels-photo-40825880.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+              "thumb_url": "https://images.pexels.com/photos/40825880/pexels-photo-40825880.jpeg?auto=compress&cs=tinysrgb&h=350",
+              "width": 6000,
+              "height": 4000,
+              "aspect_ratio": 1.5,
+              "matched_query": "balcony potted plants",
+              "title": "",
+              "why": "柵に沿って鉢が並ぶ。本文の情景にほぼそのまま重なる。"
+            },
+            {
+              "rank": 2,
+              "source": "Unsplash",
+              "author": "Aleksey Cherenkevich",
+              "license": "Unsplash License",
+              "license_url": "https://unsplash.com/license",
+              "attribution_note": "クレジット推奨（例: Photo by 〈撮影者〉 on Unsplash）。商用利用可・許諾不要。",
+              "page_url": "https://unsplash.com/photos/green-plant-on-white-ceramic-pot-hyXD0-carj8",
+              "image_url": "https://images.unsplash.com/photo-1618483474128-991a146dc60b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwzfHxiYWxjb255JTIwcG90dGVkJTIwcGxhbnRzfGVufDB8fHx8MTc5NDIwMTkyNnww&ixlib=rb-4.1.0&q=80&w=1080",
+              "thumb_url": "https://images.unsplash.com/photo-1618483474128-991a146dc60b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwzfHxiYWxjb255JTIwcG90dGVkJTIwcGxhbnRzfGVufDB8fHx8MTc5NDIwMTkyNnww&ixlib=rb-4.1.0&q=80&w=400",
+              "width": 4288,
+              "height": 2848,
+              "aspect_ratio": 1.51,
+              "matched_query": "balcony potted plants",
+              "title": "",
+              "why": "窓とベランダと鉢。暮らしの気配が濃い。"
+            },
+            {
+              "rank": 3,
+              "source": "Openverse",
+              "author": "(表記なし)",
+              "license": "CC0 1.0",
+              "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+              "attribution_note": "CCライセンス。表示(BY)義務や改変・商用の可否がライセンスごとに異なるため、採用前に条文を確認。",
+              "page_url": "https://www.rawpixel.com/image/3292350/free-photo-image-balcony-indoor-plant-table",
+              "image_url": "https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdXB3azYxODIzMjIwLXdpa2ltZWRpYS1pbWFnZS1rb3drdTE5ai5qcGc.jpg",
+              "thumb_url": "https://api.openverse.org/v1/images/f2a28a58-c13d-47cd-8043-ca7dec9caa5c/thumb/",
+              "width": 5616,
+              "height": 3608,
+              "aspect_ratio": 1.56,
+              "matched_query": "balcony potted plants",
+              "title": "Balcony Kyiv",
+              "why": "小さなベランダに椅子と鉢。ふつうの生活の密度。CC0。"
+            },
+            {
+              "rank": 4,
+              "source": "Pixabay",
+              "author": "AnhNguyenPhotography",
+              "license": "Pixabay License",
+              "license_url": "https://pixabay.com/service/license-summary/",
+              "attribution_note": "クレジット任意。商用利用可。人物が写る場合の被写体の権利は別途確認。",
+              "page_url": "https://pixabay.com/photos/tree-rock-lotus-lotus-plant-flower-7391504/",
+              "image_url": "https://pixabay.com/get/g0bd567d2c9ba65dc9578a6ad412261b811a22b0c35b48729b249d567a7a1df5dc906bf212e63955e4bdbe11d5011ccbb5e45618a3897de0ae3740d55ed0f207c_1280.jpg",
+              "thumb_url": "https://pixabay.com/get/g7bf74a586e82cace936cd805446b5741612ce1216918de2c712c52e070e3d66db3748999c5d742ef405f6b0e5e08e4e4bf84c49e4ad1879c60921089e1fcfd8d_640.jpg",
+              "width": 3120,
+              "height": 2080,
+              "aspect_ratio": 1.5,
+              "matched_query": "balcony potted plants",
+              "title": "",
+              "why": "縁に並ぶ多肉の鉢。葉の色の変化が見やすい。"
+            }
+          ]
+        },
+        {
+          "id": "15-2",
+          "after_text": "気づいても、何をすればいいかわからない。",
+          "intent": "水やりという具体的な行動。じょうろで鉢に水をやる手元",
+          "query": "watering can plant hands",
+          "alt_queries": [
+            "watering potted plant",
+            "hand watering houseplant"
+          ],
+          "queries_used": [
+            "watering can plant hands (+32)"
+          ],
+          "pool_reviewed": {
+            "Unsplash": 16,
+            "Pexels": 12,
+            "Pixabay": 24,
+            "Openverse": 21
+          },
+          "note": "追加検索（hand watering flower pot ほか）で第1・第2候補を入れ替えました。Openverseは20件返りましたが、じょうろの静物か人物の顔が写るものばかりで、「鉢に水をやる手元」に合うものがありませんでした。",
+          "candidates": [
+            {
+              "rank": 1,
+              "source": "Unsplash",
+              "author": "Árpád Czapp",
+              "license": "Unsplash License",
+              "license_url": "https://unsplash.com/license",
+              "attribution_note": "クレジット推奨（例: Photo by 〈撮影者〉 on Unsplash）。商用利用可・許諾不要。",
+              "page_url": "https://unsplash.com/photos/a-hand-holding-a-potted-plant-THSZSdzROQQ",
+              "image_url": "https://images.unsplash.com/photo-1657019942370-a22a8eb5967d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwxNHx8aGFuZCUyMHdhdGVyaW5nJTIwZmxvd2VyJTIwcG90fGVufDB8fHx8MTc5NDIwNDY1MXww&ixlib=rb-4.1.0&q=80&w=1080",
+              "thumb_url": "https://images.unsplash.com/photo-1657019942370-a22a8eb5967d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwxNHx8aGFuZCUyMHdhdGVyaW5nJTIwZmxvd2VyJTIwcG90fGVufDB8fHx8MTc5NDIwNDY1MXww&ixlib=rb-4.1.0&q=80&w=400",
+              "width": 5184,
+              "height": 3456,
+              "aspect_ratio": 1.5,
+              "matched_query": "hand watering flower pot",
+              "title": "",
+              "why": "ベランダの鉢にじょうろで水をやる手元。15-1のベランダからそのまま地続きになる。"
+            },
+            {
+              "rank": 2,
+              "source": "Pexels",
+              "author": "Thirdman",
+              "license": "Pexels License",
+              "license_url": "https://www.pexels.com/license/",
+              "attribution_note": "クレジット任意（推奨）。商用利用可・許諾不要。",
+              "page_url": "https://www.pexels.com/photo/a-person-watering-a-plant-7659467/",
+              "image_url": "https://images.pexels.com/photos/7659467/pexels-photo-7659467.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+              "thumb_url": "https://images.pexels.com/photos/7659467/pexels-photo-7659467.jpeg?auto=compress&cs=tinysrgb&h=350",
+              "width": 6687,
+              "height": 4458,
+              "aspect_ratio": 1.5,
+              "matched_query": "hand watering flower pot",
+              "title": "",
+              "why": "素焼きの鉢に水を注ぐ手元。鉢がはっきり写り、温度のある色。"
+            },
+            {
+              "rank": 3,
+              "source": "Pexels",
+              "author": "cottonbro studio",
+              "license": "Pexels License",
+              "license_url": "https://www.pexels.com/license/",
+              "attribution_note": "クレジット任意（推奨）。商用利用可・許諾不要。",
+              "page_url": "https://www.pexels.com/photo/person-watering-a-potted-plant-4503268/",
+              "image_url": "https://images.pexels.com/photos/4503268/pexels-photo-4503268.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+              "thumb_url": "https://images.pexels.com/photos/4503268/pexels-photo-4503268.jpeg?auto=compress&cs=tinysrgb&h=350",
+              "width": 5927,
+              "height": 3951,
+              "aspect_ratio": 1.5,
+              "matched_query": "watering can plant hands",
+              "title": "",
+              "why": "銅のじょうろから鉢へ。手元だけが写り、色調も落ち着いている。"
+            },
+            {
+              "rank": 4,
+              "source": "Pixabay",
+              "author": "pasja1000",
+              "license": "Pixabay License",
+              "license_url": "https://pixabay.com/service/license-summary/",
+              "attribution_note": "クレジット任意。商用利用可。人物が写る場合の被写体の権利は別途確認。",
+              "page_url": "https://pixabay.com/photos/in-the-garden-gardener-watering-can-5333126/",
+              "image_url": "https://pixabay.com/get/gc944243bdb10852de40fffef9ed116f4154eb451c5bc2b2dc674782439e7e8479ef93fefbc6cdf32b3463f11df04017899167a6fec049130d1270f173a4ab5eb_1280.jpg",
+              "thumb_url": "https://pixabay.com/get/gbdf90c0db06c1e160dfc3102d706d605341afb12d3726ccdaabea26cdde1e611b010730dc4404b78c273070b7b0152a3a7505cab1163ccd6b3d65286624583d4_640.jpg",
+              "width": 5701,
+              "height": 3725,
+              "aspect_ratio": 1.53,
+              "matched_query": "watering can plant hands",
+              "title": "",
+              "why": "じょうろで水をやる後ろ姿。行動として引き気味に見せる。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "no": 17,
+      "date": "12/1",
+      "title": "マネージャーは、無理に部下の欠点を探さなくてよい",
+      "note_url": "https://note.com/arti_llc/n/n8e4ebbc68c3b",
+      "placements": [
+        {
+          "id": "17-1",
+          "after_text": "その一つひとつが、「マネージャーらしさ」として受け継がれていきます。",
+          "intent": "評価の面談。テーブルを挟んだ二人の手元。顔は写さない",
+          "query": "one on one meeting table hands",
+          "alt_queries": [
+            "two people talking across table coffee",
+            "meeting notebook table two people"
+          ],
+          "queries_used": [
+            "one on one meeting table hands (+26)",
+            "two people talking across table coffee (+0)",
+            "meeting notebook table two people (+0)"
+          ],
+          "pool_reviewed": {
+            "Unsplash": 12,
+            "Pexels": 8,
+            "Pixabay": 36,
+            "Openverse": 1
+          },
+          "note": "計画の長いクエリ（one on one meeting table hands）ではPixabayが風景・動物などを返したため、短いタグ的なクエリ（business meeting ほか）で追加検索しました。第1候補はその追加分です。Openverseはこのplacementでは該当なし。",
+          "candidates": [
+            {
+              "rank": 1,
+              "source": "Pixabay",
+              "author": "AymaneJed",
+              "license": "Pixabay License",
+              "license_url": "https://pixabay.com/service/license-summary/",
+              "attribution_note": "クレジット任意。商用利用可。人物が写る場合の被写体の権利は別途確認。",
+              "page_url": "https://pixabay.com/photos/laptop-office-hand-writing-3196481/",
+              "image_url": "https://pixabay.com/get/gfcde75a76167b798c3ca2c25f8a7c41e505f2981ee4769684422820790d12f5aa881a1c9872773e091b1663c88995f81cd47e67a7808ca44cfff99f432d69ad4_1280.jpg",
+              "thumb_url": "https://pixabay.com/get/g9c332bb2c1b14a0e67ee1f5af031eea466bf8f72d2096f473eea9ba4797efddec65b49dbd7c4196751d660d694dd2a23002b67a77087ca54a0f0965c743f3fed_640.jpg",
+              "width": 8736,
+              "height": 5824,
+              "aspect_ratio": 1.5,
+              "matched_query": "business meeting",
+              "title": "",
+              "why": "テーブル越しに書類を差し出す手と受け取る手。顔が入らず、intentにいちばん近い。"
+            },
+            {
+              "rank": 2,
+              "source": "Pexels",
+              "author": "MART  PRODUCTION",
+              "license": "Pexels License",
+              "license_url": "https://www.pexels.com/license/",
+              "attribution_note": "クレジット任意（推奨）。商用利用可・許諾不要。",
+              "page_url": "https://www.pexels.com/photo/person-in-gray-long-sleeve-shirt-sitting-beside-brown-wooden-table-7222869/",
+              "image_url": "https://images.pexels.com/photos/7222869/pexels-photo-7222869.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+              "thumb_url": "https://images.pexels.com/photos/7222869/pexels-photo-7222869.jpeg?auto=compress&cs=tinysrgb&h=350",
+              "width": 6000,
+              "height": 4000,
+              "aspect_ratio": 1.5,
+              "matched_query": "one on one meeting table hands",
+              "title": "",
+              "why": "テーブルを挟んだ二人の手元と書類。顔が入らない。"
+            },
+            {
+              "rank": 3,
+              "source": "Unsplash",
+              "author": "Gabrielle Henderson",
+              "license": "Unsplash License",
+              "license_url": "https://unsplash.com/license",
+              "attribution_note": "クレジット推奨（例: Photo by 〈撮影者〉 on Unsplash）。商用利用可・許諾不要。",
+              "page_url": "https://unsplash.com/photos/woman-signing-on-white-printer-paper-beside-woman-about-to-touch-the-documents-HJckKnwCXxQ",
+              "image_url": "https://images.unsplash.com/photo-1562564055-71e051d33c19?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwzfHxvbmUlMjBvbiUyMG9uZSUyMG1lZXRpbmclMjB0YWJsZSUyMGhhbmRzfGVufDB8fHx8MTc5NDIwMTkzMHww&ixlib=rb-4.1.0&q=80&w=1080",
+              "thumb_url": "https://images.unsplash.com/photo-1562564055-71e051d33c19?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwzfHxvbmUlMjBvbiUyMG9uZSUyMG1lZXRpbmclMjB0YWJsZSUyMGhhbmRzfGVufDB8fHx8MTc5NDIwMTkzMHww&ixlib=rb-4.1.0&q=80&w=400",
+              "width": 6000,
+              "height": 4000,
+              "aspect_ratio": 1.5,
+              "matched_query": "one on one meeting table hands",
+              "title": "",
+              "why": "書類に向かう二人の手。面談の実務感が出ている。"
+            },
+            {
+              "rank": 4,
+              "source": "Pexels",
+              "author": "cottonbro studio",
+              "license": "Pexels License",
+              "license_url": "https://www.pexels.com/license/",
+              "attribution_note": "クレジット任意（推奨）。商用利用可・許諾不要。",
+              "page_url": "https://www.pexels.com/photo/people-resting-their-hands-on-the-white-table-5900785/",
+              "image_url": "https://images.pexels.com/photos/5900785/pexels-photo-5900785.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+              "thumb_url": "https://images.pexels.com/photos/5900785/pexels-photo-5900785.jpeg?auto=compress&cs=tinysrgb&h=350",
+              "width": 3765,
+              "height": 2510,
+              "aspect_ratio": 1.5,
+              "matched_query": "one on one meeting table hands",
+              "title": "",
+              "why": "白いテーブルの上の手元。落ち着いたトーン。"
+            }
+          ]
+        },
+        {
+          "id": "17-2",
+          "after_text": "けれど同時に、心のほうが歪んでしまうことがある。",
+          "intent": "本文の『ギプス』の言い換え。支柱に結ばれて形を矯正される若木",
+          "query": "young tree tied to stake",
+          "alt_queries": [
+            "sapling support stake",
+            "tree staked garden"
+          ],
+          "queries_used": [
+            "young tree tied to stake (+24)",
+            "sapling support stake (+0)",
+            "tree staked garden (+6)"
+          ],
+          "pool_reviewed": {
+            "Unsplash": 8,
+            "Pexels": 8,
+            "Pixabay": 8,
+            "Openverse": 1
+          },
+          "note": "",
+          "candidates": [
+            {
+              "rank": 1,
+              "source": "Unsplash",
+              "author": "Nicolas Brulois",
+              "license": "Unsplash License",
+              "license_url": "https://unsplash.com/license",
+              "attribution_note": "クレジット推奨（例: Photo by 〈撮影者〉 on Unsplash）。商用利用可・許諾不要。",
+              "page_url": "https://unsplash.com/photos/white-feather-on-gray-metal-fence-KitfQ4JijrY",
+              "image_url": "https://images.unsplash.com/photo-1606525738609-d5301ea9fb78?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwxNXx8eW91bmclMjB0cmVlJTIwdGllZCUyMHRvJTIwc3Rha2V8ZW58MHx8fHwxNzk0MjAxOTM1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+              "thumb_url": "https://images.unsplash.com/photo-1606525738609-d5301ea9fb78?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwxNXx8eW91bmclMjB0cmVlJTIwdGllZCUyMHRvJTIwc3Rha2V8ZW58MHx8fHwxNzk0MjAxOTM1fDA&ixlib=rb-4.1.0&q=80&w=400",
+              "width": 6000,
+              "height": 4000,
+              "aspect_ratio": 1.5,
+              "matched_query": "young tree tied to stake",
+              "title": "",
+              "why": "支柱に紐で固く結ばれた若木。ギプスの比喩がそのまま写る。"
+            },
+            {
+              "rank": 2,
+              "source": "Pixabay",
+              "author": "Antranias",
+              "license": "Pixabay License",
+              "license_url": "https://pixabay.com/service/license-summary/",
+              "attribution_note": "クレジット任意。商用利用可。人物が写る場合の被写体の権利は別途確認。",
+              "page_url": "https://pixabay.com/photos/fastening-dew-rope-twisted-rope-1315777/",
+              "image_url": "https://pixabay.com/get/gb455730fbffe5271e1fd9094a8e63007ae10c8a3b66185eb9a5fb787093d085fd82c718dad5f55135cb05010f9aba4c3ff9437041efd25d08e8fe008e301d406_1280.jpg",
+              "thumb_url": "https://pixabay.com/get/g2d495e8b3f039e616b4081b8e1bfe7c85e7615385eadb65c40fd99674e7afaac3f4d576403d466b7f22e762b24bb921bc14d2bc317fb276f4b1b9536c0ef25ca_640.jpg",
+              "width": 5170,
+              "height": 3388,
+              "aspect_ratio": 1.53,
+              "matched_query": "young tree tied to stake",
+              "title": "",
+              "why": "太い縄で支柱に留められた幹。矯正の強さが出る。"
+            },
+            {
+              "rank": 3,
+              "source": "Pexels",
+              "author": "Daniel Żabiński",
+              "license": "Pexels License",
+              "license_url": "https://www.pexels.com/license/",
+              "attribution_note": "クレジット任意（推奨）。商用利用可・許諾不要。",
+              "page_url": "https://www.pexels.com/photo/autumn-landscape-in-rural-poland-31853828/",
+              "image_url": "https://images.pexels.com/photos/31853828/pexels-photo-31853828.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+              "thumb_url": "https://images.pexels.com/photos/31853828/pexels-photo-31853828.jpeg?auto=compress&cs=tinysrgb&h=350",
+              "width": 7499,
+              "height": 4999,
+              "aspect_ratio": 1.5,
+              "matched_query": "young tree tied to stake",
+              "title": "",
+              "why": "支柱つきの若木が整然と並ぶ。「そろえられる」側面。"
+            },
+            {
+              "rank": 4,
+              "source": "Unsplash",
+              "author": "Meg",
+              "license": "Unsplash License",
+              "license_url": "https://unsplash.com/license",
+              "attribution_note": "クレジット推奨（例: Photo by 〈撮影者〉 on Unsplash）。商用利用可・許諾不要。",
+              "page_url": "https://unsplash.com/photos/brown-wooden-stick-on-green-grass-during-daytime-ah9Df48axMs",
+              "image_url": "https://images.unsplash.com/photo-1588949282846-9fd534836d7c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwyfHx5b3VuZyUyMHRyZWUlMjB0aWVkJTIwdG8lMjBzdGFrZXxlbnwwfHx8fDE3OTQyMDE5MzV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+              "thumb_url": "https://images.unsplash.com/photo-1588949282846-9fd534836d7c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MjM3MjZ8MHwxfHNlYXJjaHwyfHx5b3VuZyUyMHRyZWUlMjB0aWVkJTIwdG8lMjBzdGFrZXxlbnwwfHx8fDE3OTQyMDE5MzV8MA&ixlib=rb-4.1.0&q=80&w=400",
+              "width": 5568,
+              "height": 3712,
+              "aspect_ratio": 1.5,
+              "matched_query": "young tree tied to stake",
+              "title": "",
+              "why": "幹と支柱の結び目のクローズアップ。"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
