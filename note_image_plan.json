@@ -1,0 +1,2498 @@
+{
+  "about": "note転載記事に入れる画像の位置と検索語の候補。各placementは『本文のこの一文の直後に入れる』という指定。写真は平井さんが選ぶ。queryは英語、alt_queriesは言い換え。",
+  "posts": [
+    {
+      "no": 4,
+      "date": "11/11",
+      "title": "「地形って何ですか」と聞かれて",
+      "arti_url": "https://www.arti.llc/「地形って何ですか」と聞かれて/",
+      "placements": [
+        {
+          "id": "4-1",
+          "after_text": "決してフレンドリーな体験ではなかったのです。",
+          "query": "taxi back seat passenger view",
+          "alt_queries": [
+            "inside taxi cab driver from behind",
+            "taxi interior city ride"
+          ],
+          "intent": "本文冒頭の、身構えて乗っていたタクシーの場面。後部座席から運転席と前方の道が見える車内"
+        },
+        {
+          "id": "4-2",
+          "after_text": "その理由をたどっていくと、目には見えない地形が少しずつ姿を現します。",
+          "query": "rainwater flowing down ground slope",
+          "alt_queries": [
+            "water trickling on sloped ground",
+            "rain stream on dirt path"
+          ],
+          "intent": "「水の流れを見ることで地面の傾きが見えてくる」という本文の比喩そのもの。地面を伝って低いほうへ流れていく雨水"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 5,
+      "date": "11/12",
+      "title": "エネルギーが落ちているなら、恐らくどこかの設計が壊れている",
+      "arti_url": "https://www.arti.llc/エネルギーが落ちているなら、恐らくどこかの設/",
+      "placements": [
+        {
+          "id": "5-1",
+          "after_text": "けれど、私はこの話を聞いたとき、極めて実践的であることへの衝撃と、深い納得があったことを覚えています。",
+          "query": "paper questionnaire checkboxes pen",
+          "alt_queries": [
+            "survey form clipboard checkmarks",
+            "filling out paper checklist"
+          ],
+          "intent": "ガンツが定期的にとっていたアンケート。紙の質問票にペンで印をつけている手元。地味な点検作業の感じが出ているもの"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 6,
+      "date": "11/13",
+      "title": "タクシーアプリの仕組みは、朝の点呼から現場に根づいた",
+      "arti_url": "https://www.arti.llc/仕組みは、朝の点呼から入っていった/",
+      "placements": [
+        {
+          "id": "6-1",
+          "after_text": "それを、かなり長い期間やっていたそうです。",
+          "query": "taxi depot early morning",
+          "alt_queries": [
+            "taxis parked garage dawn",
+            "taxi fleet lined up morning"
+          ],
+          "intent": "朝の点呼の現場。出庫前のタクシー会社の車庫に、車が並んでいる朝の風景"
+        },
+        {
+          "id": "6-2",
+          "after_text": "そこに入っていけたことが、大きかったそうです。",
+          "query": "card payment terminal in taxi",
+          "alt_queries": [
+            "paying fare card reader car",
+            "cashless payment terminal hand"
+          ],
+          "intent": "現金離れと決済端末の話。タクシー車内などでカード端末にかざして支払う手元"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 7,
+      "date": "11/16",
+      "title": "数字が整って見えるとき、現場では何が崩れているのか ――ミュラー『測りすぎ』を読む",
+      "arti_url": "https://www.arti.llc/数字がいちばん整って見えるとき/",
+      "placements": [
+        {
+          "id": "7-1",
+          "after_text": "けれども、生徒が受けるはずだった教育は、その分だけ痩せていきます。",
+          "query": "students taking test at desks",
+          "alt_queries": [
+            "exam answer sheet pencil student",
+            "classroom test papers desks"
+          ],
+          "intent": "テスト練習に時間を充てる学校の場面。机に向かって試験用紙に書き込む生徒たち"
+        },
+        {
+          "id": "7-2",
+          "after_text": "捕まえた売人は、すぐに別の誰かに置き換えられるだけだとしても。",
+          "query": "boarded up abandoned row house",
+          "alt_queries": [
+            "vacant house boarded windows",
+            "abandoned houses city street"
+          ],
+          "intent": "『ザ・ワイヤー』の、死体が捨てられる廃屋のイメージ。窓を板でふさいだ空き家の並ぶ通り"
+        },
+        {
+          "id": "7-3",
+          "after_text": "その代償は、手術を受ければ助かったかもしれない患者が、手術を受けられないまま、ほぼ確実に死に向かうことです。",
+          "query": "empty hospital operating room",
+          "alt_queries": [
+            "surgical lights operating table",
+            "quiet hospital corridor"
+          ],
+          "intent": "難しい症例を引き受けない病院の話。使われていない手術室の無人の手術台と照明"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 8,
+      "date": "11/17",
+      "title": "AIで仕事が速くなるほど、何が失われるのか",
+      "arti_url": "https://www.arti.llc/aiで仕事が速くなるほど、何が失われるのか/",
+      "placements": [
+        {
+          "id": "8-1",
+          "after_text": "この一言が、論文全体の問題意識をよく表しています。",
+          "query": "rusty old hand tools",
+          "alt_queries": [
+            "rusted metal tool close up",
+            "old rusty scissors"
+          ],
+          "intent": "「直感が錆びてきている」の比喩をそのまま。使われずに錆びた道具。使えば光っていたはずの金属が錆びている感じ"
+        },
+        {
+          "id": "8-2",
+          "after_text": "表面はなめらかに見える。けれど、その下の地盤は空洞化している。",
+          "query": "cracked asphalt road sinkhole",
+          "alt_queries": [
+            "asphalt road over water",
+            "collapsed road surface"
+          ],
+          "intent": "「水の上に敷かれたアスファルト」の比喩。表面はなめらかな舗装なのに、下が抜けて陥没しかけている道路"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 9,
+      "date": "11/18",
+      "title": "「合理的な愚か者」を生むUXについて",
+      "arti_url": "https://www.arti.llc/「合理的な愚か者」を生むuxについて/",
+      "placements": [
+        {
+          "id": "9-1",
+          "after_text": "その結果、牧草地は食べ尽くされ、やがて全員が飢える。",
+          "query": "sheep grazing bare pasture",
+          "alt_queries": [
+            "flock of sheep overgrazed field",
+            "sheep on dry grassland"
+          ],
+          "intent": "共有の牧草地の例そのもの。羊が群れて草を食む、草のまばらな牧草地"
+        },
+        {
+          "id": "9-2",
+          "after_text": "その選択は、短期的な利益を刈り取る設計にもなり得るし、信頼という共有地を耕す設計にもなり得る。",
+          "query": "freshly plowed farm field",
+          "alt_queries": [
+            "tilled soil furrows",
+            "farmer tilling soil"
+          ],
+          "intent": "「刈り取る」と対になる「耕す」の比喩。耕されて畝の立った土の畑"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 10,
+      "date": "11/19",
+      "title": "自分で登る、指示する、抱えて登る——マネジャーになるときに起きる、揺れの話",
+      "arti_url": "https://www.arti.llc/自分で登る、指示する、抱えて登る-マネジャ/",
+      "placements": [
+        {
+          "id": "10-1",
+          "after_text": "と声をかけている状態です。",
+          "query": "climber on mountain slope from below",
+          "alt_queries": [
+            "hiker on steep slope distant",
+            "mountain climber small figure"
+          ],
+          "intent": "ふもとから指示を出す比喩。登る人が遠く小さく見える、下から見上げた構図"
+        },
+        {
+          "id": "10-2",
+          "after_text": "それでも一緒に登り続ける。",
+          "query": "two hikers walking together trail",
+          "alt_queries": [
+            "two people climbing mountain path back view",
+            "helping hand hiking"
+          ],
+          "intent": "抱えて登る。同じ斜面を並んで登る二人の後ろ姿。10-1との距離感の差が出るもの"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 11,
+      "date": "11/20",
+      "title": "値段の書いていない店が教えてくれるUXの話",
+      "arti_url": "https://www.arti.llc/値段の書いていない店という、uxデザインについて/",
+      "placements": [
+        {
+          "id": "11-1",
+          "after_text": "お品書きに値段のない「おまかせ」の店に足を運ぶと、小さな緊張が走ります。",
+          "query": "sushi chef counter hands",
+          "alt_queries": [
+            "omakase counter",
+            "japanese restaurant counter wood"
+          ],
+          "intent": "おまかせの店のカウンター。板前の手元か、白木のカウンター。静かで少し緊張感のある空気"
+        },
+        {
+          "id": "11-2",
+          "after_text": "UXの観点から見れば、これは極めて教科書的な構図です。",
+          "query": "japanese calligraphy menu",
+          "alt_queries": [
+            "hanging scroll calligraphy",
+            "japanese handwritten menu board"
+          ],
+          "intent": "読める人にしか読めない。筆書きの品書きや掛け軸。次の見出し『読める人のためのUX』の直前に置く"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 12,
+      "date": "11/23",
+      "title": "何年やっても仮説は外れるからこそ、飽きるほど繰り返す",
+      "arti_url": "https://www.arti.llc/飽きるほど繰り返す/",
+      "placements": [
+        {
+          "id": "12-1",
+          "after_text": "あとは横から覗き込む。",
+          "query": "looking over shoulder at laptop user",
+          "alt_queries": [
+            "person testing website observer beside",
+            "two people one using computer watching"
+          ],
+          "intent": "「いないものとして扱ってください」と伝え、横から覗き込むテストの場面。パソコンを触る人と、その肩越しに画面を見る人"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 13,
+      "date": "11/24",
+      "title": "量から密度へ──機械協働時代の若手育成",
+      "arti_url": "https://www.arti.llc/量から密度へ──機械協働時代の若手育成/",
+      "placements": [
+        {
+          "id": "13-1",
+          "after_text": "何度も突き返されました。",
+          "query": "red pen corrections paper",
+          "alt_queries": [
+            "editing document red pen",
+            "marked up printed draft"
+          ],
+          "intent": "何度も突き返された資料。赤ペンがびっしり入った紙の資料"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 14,
+      "date": "11/25",
+      "title": "こういう時はこうするものだ、はどこから来たのか",
+      "arti_url": "https://www.arti.llc/こういう時はこうするものだ、はどこから来たの/",
+      "placements": [
+        {
+          "id": "14-1",
+          "after_text": "監視カメラなら取り外せても、自分のうちに生まれた「当たり前」は深く残ってしまう。",
+          "query": "security camera mounted on wall",
+          "alt_queries": [
+            "cctv camera building corner",
+            "surveillance camera close up"
+          ],
+          "intent": "本文の「監視カメラなら取り外せても」に響く、壁に取り付けられた監視カメラ。冒頭にパノプティコンの図版がすでにあるので1枚だけ"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 15,
+      "date": "11/27",
+      "title": "ペインを、でっち上げない",
+      "arti_url": "https://www.arti.llc/ペインを、でっち上げない/",
+      "placements": [
+        {
+          "id": "15-1",
+          "after_text": "葉の色が変わったとき、それが危険信号なのかどうかもわからない。",
+          "query": "balcony potted plants",
+          "alt_queries": [
+            "apartment balcony garden",
+            "potted plants on balcony railing"
+          ],
+          "intent": "本文の例そのもの。ベランダに並ぶ鉢植え。生活感のある、ふつうのベランダ"
+        },
+        {
+          "id": "15-2",
+          "after_text": "気づいても、何をすればいいかわからない。",
+          "query": "watering can plant hands",
+          "alt_queries": [
+            "watering potted plant",
+            "hand watering houseplant"
+          ],
+          "intent": "水やりという具体的な行動。じょうろで鉢に水をやる手元"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 16,
+      "date": "11/30",
+      "title": "人は他人を崖から突き落としうる――『風ノ旅ビト』開発者インタビューを読んで",
+      "arti_url": "https://www.arti.llc/人は他人を崖から突き落としうる――風ノ旅ビト/",
+      "placements": [
+        {
+          "id": "16-1",
+          "after_text": "名前も国も年齢も分からないまま、しばらく並んで歩いて、別れる。",
+          "query": "two people walking across sand dunes",
+          "alt_queries": [
+            "travelers walking desert dunes",
+            "figures on sand dune distance"
+          ],
+          "intent": "『風ノ旅ビト』の砂の世界で、見知らぬ二人が並んで歩く場面。広い砂丘を遠くから小さく歩く二人の姿"
+        },
+        {
+          "id": "16-2",
+          "after_text": "武器のない世界で、合理的であれば人は他人を崖から突き落とす。",
+          "query": "steep desert cliff edge",
+          "alt_queries": [
+            "sandstone cliff drop canyon",
+            "person standing near cliff edge"
+          ],
+          "intent": "テストプレイで起きた「崖から突き落とす」場面。荒涼とした砂岩の崖の縁と、その下の落差"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 17,
+      "date": "12/1",
+      "title": "マネージャーは、無理に部下の欠点を探さなくてよい",
+      "arti_url": "https://www.arti.llc/マネージャーは、無理に部下の欠点を探さなくて/",
+      "placements": [
+        {
+          "id": "17-1",
+          "after_text": "その一つひとつが、「マネージャーらしさ」として受け継がれていきます。",
+          "query": "one on one meeting table hands",
+          "alt_queries": [
+            "two people talking across table coffee",
+            "meeting notebook table two people"
+          ],
+          "intent": "評価の面談。テーブルを挟んだ二人の手元。顔は写さない"
+        },
+        {
+          "id": "17-2",
+          "after_text": "けれど同時に、心のほうが歪んでしまうことがある。",
+          "query": "young tree tied to stake",
+          "alt_queries": [
+            "sapling support stake",
+            "tree staked garden"
+          ],
+          "intent": "本文の『ギプス』の言い換え。支柱に結ばれて形を矯正される若木"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 18,
+      "date": "12/2",
+      "title": "当てる判断と、当たるようにする判断",
+      "arti_url": "https://www.arti.llc/当てる判断と、当たるようにする判断/",
+      "placements": [
+        {
+          "id": "18-1",
+          "after_text": "チェスの指し手や、火災現場の指揮官がそれにあたります。",
+          "query": "chess players hands on board",
+          "alt_queries": [
+            "chess game close up pieces",
+            "two people playing chess"
+          ],
+          "intent": "直感が磨かれる環境の例として本文に出るチェス。盤上で駒を動かす手元"
+        },
+        {
+          "id": "18-2",
+          "after_text": "人間のほうが賢いからではなく、判断と実行が一続きになっているからです。",
+          "query": "swimmer crossing open water",
+          "alt_queries": [
+            "open water swimming river",
+            "swimmer far from shore"
+          ],
+          "intent": "「なんとか向こう岸まで泳ぎ切る」という本文の比喩。広い水面を一人で泳いで渡っていく人"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 19,
+      "date": "12/3",
+      "title": "AI時代に残る仕事は、「知らないことを、知らなかった」を見つけることかもしれない",
+      "arti_url": "https://www.arti.llc/ai時代に残る仕事は、「知らないことを、知らなか/",
+      "placements": [
+        {
+          "id": "19-1",
+          "after_text": "こういう発見が生まれるのは、インタビューの最中に何かが引っかかったとき、観察中に予想と違う行動を見たとき、現場で感じた「あれ？」というごく小さな違和感からです。",
+          "query": "two people talking at kitchen table",
+          "alt_queries": [
+            "conversation at home table",
+            "interview in living room"
+          ],
+          "intent": "インタビューの現場。生活者の家の食卓などで向かい合って話を聞いている場面。会議室ではなく生活の場であること"
+        },
+        {
+          "id": "19-2",
+          "after_text": "そしてそれは、とても地道な作業です。フィールドに出る。話を聞く。観察する。違和感を書き留める。そこから問いを育てる。派手さはないけれど、こうした作業の積み重ねが、やがてすべての起点になる。",
+          "query": "handwritten notes in notebook",
+          "alt_queries": [
+            "field notebook pencil",
+            "writing notes outdoors notebook"
+          ],
+          "intent": "「違和感を書き留める」という動作。手書きのメモが書かれたノート、または現場でメモをとる手元"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 20,
+      "date": "12/4",
+      "title": "「管理しないUX」をつくってみたかった",
+      "arti_url": "https://www.arti.llc/「管理しないux」をつくってみたかった/",
+      "placements": [
+        {
+          "id": "20-1",
+          "after_text": "逆に、少し元気がないようにも見える。",
+          "query": "new leaf sprouting houseplant",
+          "alt_queries": [
+            "small plant new sprout pot",
+            "plant leaves close up pot"
+          ],
+          "intent": "本文の「新しい芽が出ている」「葉が増えている」。鉢植えから出てきた新芽や若い葉のアップ"
+        },
+        {
+          "id": "20-2",
+          "after_text": "むしろ、植物との関係をほんの少し見つめ直す時間になります。",
+          "query": "smartphone photographing potted plant",
+          "alt_queries": [
+            "taking photo of plant with phone",
+            "phone camera houseplant"
+          ],
+          "intent": "Plant Careでの使い方そのもの。スマートフォンで鉢植えの植物を撮っている手元。ベランダや窓辺だとなおよい"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 21,
+      "date": "12/7",
+      "title": "UXという言葉を、少し広げられたら",
+      "arti_url": "https://www.arti.llc/uxという言葉を、少し広げられたら/",
+      "placements": [
+        {
+          "id": "21-1",
+          "after_text": "日本ではとくに、UIと並べて語られることの多い言葉です（書店でもUIUXという棚に置かれているのを複数のお店で見ています）。",
+          "query": "bookstore shelf design books",
+          "alt_queries": [
+            "bookshop shelves browsing",
+            "books on store shelf spines"
+          ],
+          "intent": "本文の「書店でUIUXという棚に置かれている」場面。書店のデザイン書の棚"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 22,
+      "date": "12/8",
+      "title": "影で使われるAIを、組織はどう学習するのか",
+      "arti_url": "https://www.arti.llc/影で使われるaiを、組織はどう学習するのか/",
+      "placements": [
+        {
+          "id": "22-1",
+          "after_text": "迂回路の存在を嘆いても、禁止の看板を立てるだけでは変わらない。本当に必要なのは、なぜその迂回路が生まれたのかを理解し、より安全で自然な地形として設計し直すことだと思います。",
+          "query": "desire path worn through grass",
+          "alt_queries": [
+            "shortcut path across lawn",
+            "dirt footpath through park grass"
+          ],
+          "intent": "本文の「迂回路」「地形」の比喩。公式の舗装路を外れて、人が歩いてできた芝生の上のけもの道（デザイアパス）"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 24,
+      "date": "12/10",
+      "title": "自動化のあと、人に何が残るのか ――「自動化の皮肉」から40年",
+      "arti_url": "https://www.arti.llc/下流の「アイロニー」、上流の「仕事」/",
+      "placements": [
+        {
+          "id": "24-1",
+          "after_text": "まず、この論文が何を言っているのかを、簡単に紹介します。",
+          "query": "old aircraft cockpit gauges",
+          "alt_queries": [
+            "vintage cockpit instrument panel",
+            "power plant control room"
+          ],
+          "intent": "論文の舞台である「発電所とコックピット」。計器が並ぶ古い操縦席や制御室。1980年代くらいのアナログな雰囲気"
+        },
+        {
+          "id": "24-2",
+          "after_text": "すると、さきほどの三つの皮肉が、違った形で浮かび上がると私は考えています。",
+          "query": "mountain stream headwaters",
+          "alt_queries": [
+            "river source in mountains",
+            "small stream flowing from forest"
+          ],
+          "intent": "「下流から上流へ」の比喩。川の上流、源流に近い山の渓流。流れが始まる場所の感じ"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 25,
+      "date": "12/11",
+      "title": "コンセプトは、最初に決めるものなのか",
+      "arti_url": "https://www.arti.llc/コンセプトは、最初に決めるものなのか/",
+      "placements": [
+        {
+          "id": "25-1",
+          "after_text": "おおよそ、そういうことが書かれていたと思います。",
+          "query": "architectural study models cardboard",
+          "alt_queries": [
+            "architecture model making desk",
+            "white paper building models"
+          ],
+          "intent": "青木淳さんが建築家であることと、「作っては試し」の部分。机に並んだ検討用の建築模型。何案も作り直している感じ"
+        },
+        {
+          "id": "25-2",
+          "after_text": "曖昧なまま歩きはじめて、途中で何度もつまずいて、そのつまずきから、自分が本当に作りたかったものの輪郭を、少しずつ知っていくという仕事をコンセプトワークというのであれば、私には何の違和感もない。",
+          "query": "foggy forest trail walking",
+          "alt_queries": [
+            "person walking misty path",
+            "hiker on rocky trail fog"
+          ],
+          "intent": "「曖昧なまま歩きはじめて、つまずいて」の比喩。霧の中、足元の悪い道を歩いていく人。先がはっきり見えない感じ"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 26,
+      "date": "12/14",
+      "title": "運任せにしないサービス開発",
+      "arti_url": "https://www.arti.llc/運任せにしないサービス開発/",
+      "placements": [
+        {
+          "id": "26-1",
+          "after_text": "ただ、世の中に必要なものは何かを考え、試しては壊し、練り込んでつくったものと、成功の確率が同じだとは思えません。",
+          "query": "dice rolling on table",
+          "alt_queries": [
+            "throwing dice close up",
+            "pair of dice wooden table"
+          ],
+          "intent": "「運任せ」をそのまま。テーブルの上を転がるサイコロ。賭けのにおいが強すぎない、落ち着いた写真"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 27,
+      "date": "12/15",
+      "title": "フィードバックに身構えていた私が覚えた、揺れながら立つ技術",
+      "arti_url": "https://www.arti.llc/揺れる前提で立つ、という仕事の技術/",
+      "placements": [
+        {
+          "id": "27-1",
+          "after_text": "プロジェクトも必ず揺れる。余裕がなければ、簡単に倒れる。",
+          "query": "standing on boat deck waves",
+          "alt_queries": [
+            "sailor on rocking boat",
+            "person balancing on boat"
+          ],
+          "intent": "レーヤーの比喩そのもの。波で揺れる船の上に立つ人。膝を少し曲げて揺れを受けている姿だとなおよい"
+        },
+        {
+          "id": "27-2",
+          "after_text": "それだけのことです。",
+          "query": "handwritten schedule paper pencil",
+          "alt_queries": [
+            "paper planner pencil",
+            "timeline sketch notebook"
+          ],
+          "intent": "「普通にやれば、これだけかかる」を冷静に書く地味な技術。紙に鉛筆で書かれた手書きのスケジュールや工程表"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 28,
+      "date": "12/16",
+      "title": "接点が変わると育つ習慣もかわる",
+      "arti_url": "https://www.arti.llc/接点が変わると育つ習慣もかわる/",
+      "placements": [
+        {
+          "id": "28-1",
+          "after_text": "朝、決まった時間に届くものを、一定のまとまりとして受け取る。見出しをざっと眺めて、気になった記事を読み込む。そこには「編集された全体像を受け取る」という習慣や、世界の見方が育つ場であったのだろうと思います。",
+          "query": "reading newspaper morning coffee",
+          "alt_queries": [
+            "folded newspaper breakfast table",
+            "person reading newspaper"
+          ],
+          "intent": "新聞が主な接点だった時代の朝。食卓で新聞を広げて読んでいる場面"
+        },
+        {
+          "id": "28-2",
+          "after_text": "接点が変わると、育つ筋肉も変わる。この事実は、考えてみれば当たり前のことです。毎日長距離を歩く人と、毎日短距離を全力で走る人では、発達する筋肉が違います。それと同じように、毎日どんな接点に触れ、どんな行動を繰り返しているかが、その人の知的な習慣を形づくっていきます。",
+          "query": "person walking long country road",
+          "alt_queries": [
+            "long distance walker path",
+            "sprinter on running track"
+          ],
+          "intent": "本文の「毎日長距離を歩く人」。長い道をひとりで歩いていく人の後ろ姿。短距離走者の写真でもよい"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 29,
+      "date": "12/17",
+      "title": "壁打ちの仕事は、何に変わるのか",
+      "arti_url": "https://www.arti.llc/壁打ちの仕事は、何に変わるのか/",
+      "placements": [
+        {
+          "id": "29-1",
+          "after_text": "壁打ちは、コンサルティング営業における曖昧だけれど重要な仕事でした。",
+          "query": "tennis ball against wall",
+          "alt_queries": [
+            "hitting tennis ball practice wall",
+            "tennis wall practice"
+          ],
+          "intent": "「壁打ち」の字義どおりの姿。テニスの壁打ち練習。壁と、ボールと、ひとりで打つ人"
+        },
+        {
+          "id": "29-2",
+          "after_text": "壁打ちのような段階では、対話のなかで、これから登る山はどういうもので、どんな登り方をするとゴールにたどり着けそうか、というすり合わせを、近い解像度で行うことが大切だと今は思っています。",
+          "query": "hikers looking at mountain trail",
+          "alt_queries": [
+            "two hikers planning route mountain",
+            "mountain path view ahead"
+          ],
+          "intent": "「これから登る山」「どんな登り方をするか」の比喩。登る前に山を見上げ、ルートを見立てている二人"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 30,
+      "date": "12/18",
+      "title": "「ユーザになりきる」という言葉に感じる違和感",
+      "arti_url": "https://www.arti.llc/「ユーザーになりきる」という言葉が、少し苦手/",
+      "placements": [
+        {
+          "id": "30-1",
+          "after_text": "知識として説明することはできても、身体的なイメージが立ち上がらない。",
+          "query": "antique silver samovar",
+          "alt_queries": [
+            "vintage samovar tea",
+            "russian samovar table"
+          ],
+          "intent": "平田オリザのエピソードの「銀のサモワール」そのもの。古い銀色のサモワール。お茶の道具として使われている感じがあればなおよい"
+        },
+        {
+          "id": "30-2",
+          "after_text": "サモワールを知らないまま、冷凍ミカンを知らないまま、それでも「分かったつもり」になってしまう。その軽さが、どうしても引っかかるのです。",
+          "query": "vintage train compartment seats",
+          "alt_queries": [
+            "old train window seat",
+            "mandarin oranges on train window"
+          ],
+          "intent": "「列車で隣り合った人と話し、冷凍ミカンをもらう」場面。向かい合わせの古い列車の座席。窓辺にみかんがあれば理想"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 31,
+      "date": "12/21",
+      "title": "ピアノの階段は、やがて風景になる ――日常に溶け込むデザイン",
+      "arti_url": "https://www.arti.llc/溶け込むデザイン/",
+      "placements": [
+        {
+          "id": "31-1",
+          "after_text": "使う人の行為を邪魔せず、静かに支えるものであるべきだと。",
+          "query": "minimal vintage radio design",
+          "alt_queries": [
+            "Dieter Rams Braun radio",
+            "simple 1960s transistor radio"
+          ],
+          "intent": "Dieter Ramsの「良いデザインは目立たない」。主張しない、抑制された古いラジオなどの家電プロダクト"
+        },
+        {
+          "id": "31-2",
+          "after_text": "たとえば以前紹介したモンダーマンの「標識がない交差点」のデザインは、その極地かもしれません。（過去投稿）",
+          "query": "street intersection without traffic signs",
+          "alt_queries": [
+            "shared space street pedestrians cyclists",
+            "town square road no signs"
+          ],
+          "intent": "モンダーマンの「標識がない交差点」。信号や標識のない広場のような交差点を、人・自転車・車が自然に行き交っている"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 32,
+      "date": "12/22",
+      "title": "自律性という筋力について",
+      "arti_url": "https://www.arti.llc/自律性という筋力について/",
+      "placements": [
+        {
+          "id": "32-1",
+          "after_text": "数千羽のムクドリが、まるで一つの生き物のように空を動きます。旋回し、収縮し、広がり、また形を変える。あの複雑な動きに、指揮をとるリーダーは存在しません。飛行経路を指示する司令塔も、許可を出す上位者もいない。それぞれの鳥が、隣の鳥の動きにわずかに反応しながら動くだけで、群れ全体として驚くほど有機的な動きが生まれます。",
+          "query": "starling murmuration sky",
+          "alt_queries": [
+            "flock of starlings sunset",
+            "bird flock swirling"
+          ],
+          "intent": "本文の例そのもの。ムクドリの大群が一つの生き物のように空でうねる様子（マーマレーション）"
+        },
+        {
+          "id": "32-2",
+          "after_text": "これを「人間の代替」として見るのは一面的だと思っています。もう一つの見方として、組織化によって弱っていた自律性を取り戻す補助輪として機能するのではないか、ということです。",
+          "query": "bicycle training wheels",
+          "alt_queries": [
+            "child bike training wheels",
+            "kid learning to ride bike"
+          ],
+          "intent": "本文の「補助輪」の比喩。補助輪のついた自転車、またはそれで練習する子ども"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 33,
+      "date": "12/24",
+      "title": "遊園地か、原っぱか、砂場か ――人が勝手に遊び始める場の設計",
+      "arti_url": "https://www.arti.llc/遊園地か、原っぱか。それとも砂場か。/",
+      "placements": [
+        {
+          "id": "33-1",
+          "after_text": "それでも全体としては、体験の方向性が揃いやすい構造になっていると言えそうです。",
+          "query": "amusement park queue line",
+          "alt_queries": [
+            "theme park rides crowd",
+            "roller coaster amusement park"
+          ],
+          "intent": "遊び方が決まっている遊園地。列に並ぶ人、決まった導線と乗り物"
+        },
+        {
+          "id": "33-2",
+          "after_text": "これらが揃うことで、行動が途切れず、次の行動へとつながっていきます。",
+          "query": "children playing in sandbox",
+          "alt_queries": [
+            "kids digging sand playground",
+            "sandpit toys"
+          ],
+          "intent": "本文の砂場そのもの。公園の砂場で手を動かして遊ぶ子どもたち。複数人で関わっている様子があればなおよい"
+        },
+        {
+          "id": "33-3",
+          "after_text": "「ここがお城」「これは川」といった前提が共有されると、遊びは一気に広がり、別の遊びを呼び込みます。",
+          "query": "sand castle with water channel",
+          "alt_queries": [
+            "child pouring water sand",
+            "sandcastle moat"
+          ],
+          "intent": "「ここがお城」「これは川」。砂の山に水の流れる溝が掘られた、子どもの作った砂の城"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 34,
+      "date": "12/25",
+      "title": "借りた力を、自分の実力に変えていく時間について",
+      "arti_url": "https://www.arti.llc/借りた力を、自分の実力に変えていく時間につい/",
+      "placements": [],
+      "no_image_reason": "森有正の読書から考えた、知識と経験の差という内面の話で、写真にできる具体物がほとんどないため"
+    },
+    {
+      "no": 116,
+      "date": "12/28",
+      "title": "必要なときほど、乗り換えられない",
+      "arti_url": "https://www.arti.llc/必要なときほど、乗り換えられない/",
+      "placements": [
+        {
+          "id": "116-1",
+          "after_text": "キーボードを交換するのは簡単でも、指が覚えた動きを交換するのは簡単ではありません。",
+          "query": "vintage typewriter keys close up",
+          "alt_queries": [
+            "fingers typing on old typewriter",
+            "antique typewriter keyboard"
+          ],
+          "intent": "QWERTY配列が生まれたタイプライター。古いタイプライターのキーと、それを打つ指"
+        },
+        {
+          "id": "116-2",
+          "after_text": "切実な場面ほど、その場をしのぐ手のほうが先に来ます。",
+          "query": "writing in pocket notepad outdoors",
+          "alt_queries": [
+            "notepad pen hands standing outside",
+            "jotting notes small notebook street"
+          ],
+          "intent": "屋外で人の話を聞きながら、紙とペンを出してメモする場面。立ったまま小さなメモ帳に書く手元"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 36,
+      "date": "1/4",
+      "title": "人の性向を形づくる、見えない仕組み",
+      "arti_url": "https://www.arti.llc/さらに外側を見る──-行動の、その前にあるもの/",
+      "placements": [
+        {
+          "id": "36-1",
+          "after_text": "つまり、演奏するという行為そのものが、その人の世界のなかで“選択肢として見えている”こと自体が、外側の環境の積み重ねによって支えられているのかもしれません。",
+          "query": "child practicing piano at home",
+          "alt_queries": [
+            "kid playing piano living room",
+            "family piano lesson"
+          ],
+          "intent": "本文の楽器演奏の例。家庭で子どもがピアノを弾いている場面。演奏が自然に生活の中にある感じ"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 117,
+      "date": "1/5",
+      "title": "戻らない、がっかりするから",
+      "arti_url": "https://www.arti.llc/戻らない、がっかりするから/",
+      "placements": [
+        {
+          "id": "117-1",
+          "after_text": "設計したものがその後どう使われ、どこで崩れ、どう作り変えられたのかを見なければ、次の設計は良くならない。",
+          "query": "old house with added extension",
+          "alt_queries": [
+            "renovated old building addition",
+            "house remodeling construction"
+          ],
+          "intent": "『How Buildings Learn』の、使う人に作り変えられ続ける建物。古い家に後から増築や改装が重ねられた様子"
+        },
+        {
+          "id": "117-2",
+          "after_text": "ナレーションは、それで失敗だとわかるのだと誰かが言ってやるべきだった、と突き放します。",
+          "query": "bucket catching water leak ceiling",
+          "alt_queries": [
+            "water dripping from ceiling",
+            "leaking roof indoors bucket"
+          ],
+          "intent": "ライトの建物の雨漏り。天井から垂れる水をバケツで受けている室内"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 118,
+      "date": "1/6",
+      "title": "ひびを見に戻る",
+      "arti_url": "https://www.arti.llc/ひびを面白がる/",
+      "placements": [
+        {
+          "id": "118-1",
+          "after_text": "直せなくても、何が起きているかを見て、書き残しておくことは、誰にも止められていません。",
+          "query": "person inspecting crack in wall",
+          "alt_queries": [
+            "hand touching cracked plaster wall",
+            "looking closely at old wall crack"
+          ],
+          "intent": "「診に行く」場面。古い壁のひびを近くで見ている人や、ひびに触れる手元。本文のファサードのクラックと、見て書き残す行為をつなぐ"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 119,
+      "date": "1/7",
+      "title": "水が出て、はじめてポンプになる",
+      "arti_url": "https://www.arti.llc/水が出て、はじめてポンプになる/",
+      "placements": [
+        {
+          "id": "119-1",
+          "after_text": "それで水は出ていた。",
+          "query": "water flowing from hand pump",
+          "alt_queries": [
+            "hand pump water bucket village",
+            "old water pump spout pouring"
+          ],
+          "intent": "鉄の棒で直したポンプから水が出ている場面に響く。手押しポンプの口から水が流れ出る様子"
+        },
+        {
+          "id": "119-2",
+          "after_text": "落とすことまで、勘定に入っています。",
+          "query": "old wrenches and hammer laid out",
+          "alt_queries": [
+            "spanner tools on workbench",
+            "hand tools arranged on ground"
+          ],
+          "intent": "手引書の工具一覧の図に響く。レンチやハンマーなど、使い込まれた工具が並んでいる"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 120,
+      "date": "1/8",
+      "title": "屋根を載せた人、屋根を外した人",
+      "arti_url": "https://www.arti.llc/屋根を載せた人、屋根を外した人/",
+      "placements": [
+        {
+          "id": "120-1",
+          "after_text": "その隣に、壁を塗り替え、窓を小さく直した家が建っている。",
+          "query": "colorful modernist row houses",
+          "alt_queries": [
+            "flat roof houses painted colors",
+            "row of small houses different colors"
+          ],
+          "intent": "ペサックの住宅地の描写そのもの。平らな屋根の、色の違う家が並んでいる街並み"
+        },
+        {
+          "id": "120-2",
+          "after_text": "それでも当時は、ずいぶん笑われた返事でした。",
+          "query": "hand holding old iphone",
+          "alt_queries": [
+            "iphone 4 in hand",
+            "holding smartphone by edges"
+          ],
+          "intent": "iPhone 4のアンテナ問題の「持ち方」。古いiPhoneを手で握っている手元"
+        },
+        {
+          "id": "120-3",
+          "after_text": "誰に言われたわけでもなく、自分で選んで、食器棚を置いてきた。",
+          "query": "antique wooden sideboard",
+          "alt_queries": [
+            "old french cupboard",
+            "carved wooden dish cabinet"
+          ],
+          "intent": "置いてきた「ルイ13世様式の食器棚」。重厚な古い木の食器棚"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 39,
+      "date": "1/11",
+      "title": "まずは、聞くという仕事",
+      "arti_url": "https://www.arti.llc/まずは、聞くという仕事/",
+      "placements": [
+        {
+          "id": "39-1",
+          "after_text": "相手がどこに行きたいのか分からないまま、こちらだけが“価値の地図”を広げても、同行は起こらない。",
+          "query": "two people looking at paper map",
+          "alt_queries": [
+            "travelers reading map together",
+            "unfolded map on table hands"
+          ],
+          "intent": "本文の「価値の地図を広げる」の比喩。二人で一枚の紙の地図をのぞき込み、行き先を一緒に確かめている手元や姿"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 40,
+      "date": "1/12",
+      "title": "中央集権的な安定は、波の大きい時代に脆くなる",
+      "arti_url": "https://www.arti.llc/中央集権的な安定は、波の大きい時代に脆くなる/",
+      "placements": [
+        {
+          "id": "40-1",
+          "after_text": "つまり、平時には「安定」として機能していたものが、変化の大きい時代には「慣性」になります。",
+          "query": "large ocean waves",
+          "alt_queries": [
+            "rough sea big waves",
+            "stormy ocean swell"
+          ],
+          "intent": "本文全体の比喩「波の大きい時代」そのもの。うねりの大きい海の波。人や船は入れず、波だけでよい"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 41,
+      "date": "1/14",
+      "title": "仮説は、いつ立てるのか——「きちんと聞く」と「素早く考える」は矛盾しない",
+      "arti_url": "https://www.arti.llc/仮説は、いつ立てるのか-「きちんと聞く」と/",
+      "placements": [
+        {
+          "id": "41-1",
+          "after_text": "という主旨の話だったように記憶しています。",
+          "query": "calendar deadline marked",
+          "alt_queries": [
+            "desk calendar circled date",
+            "paper calendar red circle"
+          ],
+          "intent": "「悪魔のグラフ」の話で、仮説が描かれるのは結局「締め切りの1週間前」。日付に印のついた紙のカレンダー"
+        },
+        {
+          "id": "41-2",
+          "after_text": "仮説は、結論ではなく、仮置きのレンズのようなものです。そのレンズを通して世界を見ながら、「違うな」「ここは合っているな」と調整していく。",
+          "query": "hand holding magnifying lens",
+          "alt_queries": [
+            "looking through lens outdoors",
+            "magnifying glass close up"
+          ],
+          "intent": "仮説を「仮置きのレンズ」にたとえた比喩。手に持ったレンズ越しに景色を見ている様子"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 42,
+      "date": "1/18",
+      "title": "その人にとっての「快適」に、知らないうちに寄っていく",
+      "arti_url": "https://www.arti.llc/その人にとっての「快適」に、知らないうちに寄/",
+      "placements": [
+        {
+          "id": "42-1",
+          "after_text": "銀行をその都度選ぶというより、一度決めれば、その後はあまり意識しないインフラという感覚だったと言うほうが近いのかもしれません。",
+          "query": "bank ATM machine",
+          "alt_queries": [
+            "person using ATM",
+            "ATM cash withdrawal"
+          ],
+          "intent": "現金中心の生活で「現金が必要になればATMへ行く」場面。街なかのATMでお金を下ろす様子"
+        },
+        {
+          "id": "42-2",
+          "after_text": "そういう場面が一つずつ増えていく。",
+          "query": "smartphone contactless payment",
+          "alt_queries": [
+            "paying with phone at store",
+            "mobile payment terminal"
+          ],
+          "intent": "「ある店ではスマートフォンで払う」場面そのもの。レジの端末にスマートフォンをかざす手元"
+        },
+        {
+          "id": "42-3",
+          "after_text": "いつの間にか、そちらを歩く回数のほうが増えている。",
+          "query": "desire path through grass",
+          "alt_queries": [
+            "worn footpath in grass",
+            "shortcut path park lawn"
+          ],
+          "intent": "「古い道の横に少し歩きやすい道ができ、いつの間にかそちらを歩くようになる」比喩。芝生に踏み固められてできた近道"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 38,
+      "date": "1/19",
+      "title": "私たちは「低い橋」を作っていないだろうか",
+      "arti_url": "https://www.arti.llc/私たちは「低い橋」を作っていないだろうか/",
+      "placements": [
+        {
+          "id": "38-1",
+          "after_text": "橋が低いことで、バスはその道路に入ることができません。結果として、その先にあるビーチにはバスでは行けなくなり、そこを訪れる人々は自然と限られ、白人ばかりになったそうです。",
+          "query": "low stone bridge over parkway",
+          "alt_queries": [
+            "old stone overpass road",
+            "low arch bridge over road"
+          ],
+          "intent": "ウィナーの「低い橋」そのもの。公園道路の上に架かる、背の低い石造りの橋"
+        },
+        {
+          "id": "38-2",
+          "after_text": "たとえば、特定の言語でしか書かれていない張り紙も、ある意味では「低い橋」なのかもしれません。読める人には情報が届き、読めない人には届かない。情報の設計もまた、誰が通れるのかを決めてしまうからです。",
+          "query": "paper notice taped on door",
+          "alt_queries": [
+            "handwritten sign on wall",
+            "printed notice on glass door"
+          ],
+          "intent": "本文の「特定の言語でしか書かれていない張り紙」。ドアや壁に貼られた紙の張り紙。文字が読めなくてもよい"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 44,
+      "date": "1/21",
+      "title": "「ジャーニーを描く」という仕事についての、ひとつの誤解",
+      "arti_url": "https://www.arti.llc/「ジャーニーを描く」という仕事についての、ひ/",
+      "placements": [],
+      "no_image_reason": "ジャーニーの描き方という考え方の話で、写真にできる具体的な場面や物が本文にほとんど出てこない"
+    },
+    {
+      "no": 45,
+      "date": "1/25",
+      "title": "優れているものほど、変わるのが遅くなる",
+      "arti_url": "https://www.arti.llc/優れているものほど、変わるのが遅くなる/",
+      "placements": [
+        {
+          "id": "45-1",
+          "after_text": "既存の道が十分によく機能していたから、高速道路を急いで整備する必然が、相対的に弱かった。そういう見方があります。",
+          "query": "tree lined country road france",
+          "alt_queries": [
+            "french countryside road",
+            "rural road plane trees"
+          ],
+          "intent": "本文の例そのもの。手入れの行き届いた、並木のあるフランスの一般道。走ること自体が旅の一部になるような風景"
+        },
+        {
+          "id": "45-2",
+          "after_text": "根回しは、意思決定のリスクを事前に分散する機能を持っています。",
+          "query": "handwritten paper forms clipboard",
+          "alt_queries": [
+            "paper form filled by hand",
+            "clipboard checklist pen"
+          ],
+          "intent": "現場の紙の帳票。「誰でも使えて、電源も要らず、書き込みができる」紙に手書きで記入されたもの"
+        },
+        {
+          "id": "45-3",
+          "after_text": "変化は、必然が育ったときに起きました。",
+          "query": "french highway autoroute",
+          "alt_queries": [
+            "european motorway traffic",
+            "highway through countryside"
+          ],
+          "intent": "のちに整備が進んだフランスの高速道路。田園を抜ける高速道路の風景"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 46,
+      "date": "1/26",
+      "title": "それっぽく整える“だけ”の仕事は、すぐに限界が来る",
+      "arti_url": "https://www.arti.llc/それっぽく整えるだけの仕事は、すぐに限界/",
+      "placements": [
+        {
+          "id": "46-1",
+          "after_text": "資料は、そのまま捨てられる。",
+          "query": "crumpled paper documents trash",
+          "alt_queries": [
+            "stack of printed documents",
+            "crumpled paper wastebasket"
+          ],
+          "intent": "時間をかけて整えた資料が開かれずに捨てられる場面。くしゃくしゃの紙や、ごみ箱に入った印刷物"
+        },
+        {
+          "id": "46-2",
+          "after_text": "回路は、ゆっくりではあっても、やり続ければつながります。太くもなります。",
+          "query": "dumbbell workout hands",
+          "alt_queries": [
+            "lifting dumbbells gym",
+            "weight training close up"
+          ],
+          "intent": "「筋トレのようなものだと思って」という本文の比喩。ダンベルを持ち上げる手元など、地道な反復の感じ"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 47,
+      "date": "1/28",
+      "title": "一次情報に触れる価値について",
+      "arti_url": "https://www.arti.llc/調査の価値について/",
+      "placements": [
+        {
+          "id": "47-1",
+          "after_text": "バイアスを極力除いて、聞いた言葉、見た反応、感じた違和感を、できるだけ歪めずに拾い上げる。",
+          "query": "handwritten notes notebook interview",
+          "alt_queries": [
+            "field notes notebook pen",
+            "taking notes during conversation"
+          ],
+          "intent": "生活者に会って聞いた言葉を、そのまま拾い上げたメモ。手書きのノートとペンの手元"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 48,
+      "date": "2/1",
+      "title": "UXは態度の仕事（1）UXデザインは、「態度」の仕事",
+      "arti_url": "https://www.arti.llc/uxデザインは、「態度」の仕事/",
+      "placements": [],
+      "no_image_reason": "連載のイントロダクションで、態度・組織など抽象的な話だけで具体物が出てこない"
+    },
+    {
+      "no": 49,
+      "date": "2/2",
+      "title": "UXは態度の仕事（2）内製化が進む時代に考える：UXを専門にする会社のスタンス",
+      "arti_url": "https://www.arti.llc/内製化が進む時代に考える：uxを専門にする会社の/",
+      "placements": [],
+      "no_image_reason": "外部のUX専門会社のスタンスという抽象的な話で、写真にできる具体物が出てこない"
+    },
+    {
+      "no": 50,
+      "date": "2/3",
+      "title": "UXは態度の仕事（3）UX組織において、経営が設計すべき「働く人のエクスペリエンス」",
+      "arti_url": "https://www.arti.llc/ux組織において、経営が設計すべき「働く人のエク/",
+      "placements": [],
+      "no_image_reason": "組織運営の考え方の話で、写真にできる具体的な場面や物が出てこない"
+    },
+    {
+      "no": 51,
+      "date": "2/4",
+      "title": "UXは態度の仕事（4）UXの仕事では、「更新し続ける態度」が評価される",
+      "arti_url": "https://www.arti.llc/uxの仕事では、「更新し続ける態度」が評価される/",
+      "placements": [
+        {
+          "id": "51-1",
+          "after_text": "最初は本当に、どんぐりの背比べ。",
+          "query": "acorns in a row",
+          "alt_queries": [
+            "acorns on wooden table",
+            "pile of acorns"
+          ],
+          "intent": "本文の比喩「どんぐりの背比べ」そのもの。似た大きさのどんぐりが並んでいる様子"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 52,
+      "date": "2/5",
+      "title": "会員制度の条件を、誰も決めていなかった",
+      "arti_url": "https://www.arti.llc/何を、システムに決めてもらうのか/",
+      "placements": [
+        {
+          "id": "52-1",
+          "after_text": "いまのポイントの条件も、たまたま入っているシステムでそれしかできないから、そうなっている。",
+          "query": "loyalty stamp card",
+          "alt_queries": [
+            "point card wallet",
+            "rewards card coffee shop"
+          ],
+          "intent": "会員制度のポイントという具体物。お店のポイントカードやスタンプカード"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 53,
+      "date": "2/8",
+      "title": "悪意のない人たちが、なぜ社会を歪めてしまうのか",
+      "arti_url": "https://www.arti.llc/善良な人がつくる歪みについて/",
+      "placements": [
+        {
+          "id": "53-1",
+          "after_text": "その対抗の姿勢そのものが、思想の存在意義のようにも見えました。",
+          "query": "stack of old books library",
+          "alt_queries": [
+            "books piled on desk",
+            "reading in library"
+          ],
+          "intent": "大学院時代に権力論やカルチュラル・スタディーズの文献を多く読んだ場面。机に積まれた本や図書館"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 121,
+      "date": "2/9",
+      "title": "「あとで直しましょう」という甘い毒",
+      "arti_url": "https://www.arti.llc/「あとで直しましょう」という甘い毒/",
+      "placements": [
+        {
+          "id": "121-1",
+          "after_text": "けれど、その報告書にあった「今後の論点」はたいてい忘れられます。",
+          "query": "dusty binders on office shelf",
+          "alt_queries": [
+            "old file folders on shelf",
+            "stack of forgotten documents"
+          ],
+          "intent": "報告書の「今後の論点」が忘れられていく様子。棚に並んだまま開かれないファイルや綴じた書類"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 55,
+      "date": "2/11",
+      "title": "波風を立てない合理性が、組織の文化になるとき",
+      "arti_url": "https://www.arti.llc/善もまた、凡庸である-合理性のスケールにつ/",
+      "placements": [],
+      "no_image_reason": "判断の合理性という抽象的な話で、場面の描写も具体物もほとんどない"
+    },
+    {
+      "no": 56,
+      "date": "2/12",
+      "title": "AIが仕事を引き受けたとき、若手はどこで学ぶのか",
+      "arti_url": "https://www.arti.llc/若手が学ぶ場所のこと/",
+      "placements": [
+        {
+          "id": "56-1",
+          "after_text": "仕事なら、競合の比較表を作るのではなく、ある問いについて自分なりの結論まで出す。",
+          "query": "cooking simple breakfast kitchen",
+          "alt_queries": [
+            "making breakfast at home",
+            "eggs toast frying pan"
+          ],
+          "intent": "whole task learning の例「玉ねぎだけを切るのではなく、簡単な朝食を一食つくる」。家の台所で朝食を一通りつくっている様子"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 57,
+      "date": "2/15",
+      "title": "「クソゲー」になるUX、「良ゲー」になるUX",
+      "arti_url": "https://www.arti.llc/「クソゲー」になるux、「良ゲー」になるux/",
+      "placements": [
+        {
+          "id": "57-1",
+          "after_text": "その一点にあるように思えます。",
+          "query": "hands holding game controller",
+          "alt_queries": [
+            "playing video game controller",
+            "gamer hands gamepad"
+          ],
+          "intent": "ゲームの難しさの話から始まる記事。ゲームのコントローラーを握る手元"
+        },
+        {
+          "id": "57-2",
+          "after_text": "（教え上手な格闘家の先生が、「負ける理由が自分でわかるくらいの習熟レベルに進んだら、一度コテンパンに負けさせる」という高度な設計をされていましたが、なかなか真似しにくいですね）",
+          "query": "martial arts sparring dojo",
+          "alt_queries": [
+            "grappling training mat",
+            "judo practice dojo"
+          ],
+          "intent": "本文に出てくる格闘家の先生の稽古。道場で組み合って練習している様子"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 122,
+      "date": "2/16",
+      "title": "誰が、ちゃぶ台を返すのか",
+      "arti_url": "https://www.arti.llc/誰が、ちゃぶ台を返すのか/",
+      "placements": [
+        {
+          "id": "122-1",
+          "after_text": "ゲームボーイ版は五百万本以上売れたそうです。",
+          "query": "original game boy handheld",
+          "alt_queries": [
+            "vintage game boy console",
+            "retro handheld game console"
+          ],
+          "intent": "本文に出てくるゲームボーイそのもの。初代の携帯ゲーム機"
+        },
+        {
+          "id": "122-2",
+          "after_text": "ちゃぶ台を返すのは、返す側にも相当な覚悟がいります。",
+          "query": "japanese low table tatami room",
+          "alt_queries": [
+            "round wooden low table",
+            "chabudai tatami room"
+          ],
+          "intent": "「ちゃぶ台」そのもの。畳の部屋に置かれた丸い低い卓。ひっくり返す場面ではなく、卓が静かに置かれている写真でよい"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 59,
+      "date": "2/18",
+      "title": "UX起点という考え方を、組織に入れるときに起きがちなこと",
+      "arti_url": "https://www.arti.llc/ux起点という考え方が、組織に入るときに起きがち/",
+      "placements": [],
+      "no_image_reason": "UX起点を組織に入れる難しさという抽象的な話で、写真にできる具体物が出てこない"
+    },
+    {
+      "no": 60,
+      "date": "2/22",
+      "title": "知恵は、放っておくと迷信になる",
+      "arti_url": "https://www.arti.llc/知恵は、放っておくと迷信になる/",
+      "placements": [
+        {
+          "id": "60-1",
+          "after_text": "この話が、ずっと頭に残っています。",
+          "query": "acupuncture needles treatment",
+          "alt_queries": [
+            "acupuncture close up",
+            "acupuncturist hands needles"
+          ],
+          "intent": "友人の鍼灸師の話から始まる記事。鍼を打つ手元や、鍼そのもの"
+        },
+        {
+          "id": "60-2",
+          "after_text": "ニールセンのヒューリスティクスは、そうした環境の中で、人間が機械に振り回されないための切実な知恵でした。",
+          "query": "old crt computer monitor",
+          "alt_queries": [
+            "vintage desktop computer",
+            "retro pc keyboard monitor"
+          ],
+          "intent": "2000年前後、PCやWebに向き合う時間が限られていた時代。ブラウン管モニターの古いパソコン"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 61,
+      "date": "2/23",
+      "title": "デザインプロセスの何が変わったのか",
+      "arti_url": "https://www.arti.llc/デザインプロセスの何が変わったのか/",
+      "placements": [],
+      "no_image_reason": "本文にすでに2枚の画像（IDEOの試作・Paper Prototyping）があり、それ以外に写真にできる具体物がない"
+    },
+    {
+      "no": 123,
+      "date": "2/25",
+      "title": "悪意のないたらい回しと、ジャーニーの活用",
+      "arti_url": "https://www.arti.llc/誰も間違っていない、たらい回し/",
+      "placements": [
+        {
+          "id": "123-1",
+          "after_text": "そして三日後にかかってきた電話で、最初にした説明を、もう一度はじめからすることになる。",
+          "query": "person on phone waiting on hold",
+          "alt_queries": [
+            "frustrated woman on phone call",
+            "man holding phone to ear waiting"
+          ],
+          "intent": "電話窓口で保留され、説明を繰り返す顧客。電話を耳に当てて待っている人"
+        },
+        {
+          "id": "123-2",
+          "after_text": "係員は明らかに同情しているけれど、会社のポリシーなので何もできない。",
+          "query": "airport check-in counter",
+          "alt_queries": [
+            "airline counter passenger",
+            "airport service desk queue"
+          ],
+          "intent": "本の序盤に出てくる航空会社のカウンターの場面。空港のチェックインカウンター"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 63,
+      "date": "3/1",
+      "title": "「使用体験へのフォーカス」という正論と、切実な反論",
+      "arti_url": "https://www.arti.llc/「使用体験へのフォーカス」という正論と、切実/",
+      "placements": [
+        {
+          "id": "63-1",
+          "after_text": "一期一会になろうが、「広告量で勝負」というパラダイムは、いまも確かに生きています。",
+          "query": "crowded billboards city street",
+          "alt_queries": [
+            "advertising signs downtown",
+            "many billboards at night"
+          ],
+          "intent": "「広告量で勝負」を目に見える形で。街なかに広告看板がひしめいている様子"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 64,
+      "date": "3/2",
+      "title": "リーダーシップ・パイプラインを、別の角度から読む",
+      "arti_url": "https://www.arti.llc/リーダーシップ・パイプラインを、別の角度から/",
+      "placements": [
+        {
+          "id": "64-1",
+          "after_text": "この直線モデルは、多くの組織で前提になっています。",
+          "query": "concrete staircase going up",
+          "alt_queries": [
+            "stairs ascending from below",
+            "outdoor stone steps upward"
+          ],
+          "intent": "本文の「成長の階段」の比喩そのもの。上へ続く階段。人は写っていなくてよい"
+        },
+        {
+          "id": "64-2",
+          "after_text": "その違和感を手がかりに、もう一度地形を眺め直してみることも、無駄ではないように思うのです。",
+          "query": "winding road through hills",
+          "alt_queries": [
+            "curving country road landscape",
+            "aerial view winding road"
+          ],
+          "intent": "「直線は自然の地形ではなく、設計です」と響く、地形に沿って曲がる道。一直線ではない道筋"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 65,
+      "date": "3/4",
+      "title": "最初の単機能を決めるという仕事",
+      "arti_url": "https://www.arti.llc/最初の単機能を決めるという仕事/",
+      "placements": [
+        {
+          "id": "65-1",
+          "after_text": "普段、自分でブログを書くときなどにUnsplashで検索して、その後同じキーワードでPexelsを検索して、と繰り返していたことが煩雑だったのでそれを解消したかったのです。",
+          "query": "laptop screen photo grid",
+          "alt_queries": [
+            "browsing photos on laptop",
+            "person searching images computer"
+          ],
+          "intent": "本文のフリーストック写真の横断検索。ノートPCの画面に写真が並んでいる様子"
+        },
+        {
+          "id": "65-2",
+          "after_text": "そこまでいかなければ、その機能は育たないのです。",
+          "query": "hand reaching for smartphone on table",
+          "alt_queries": [
+            "picking up phone from desk",
+            "phone on kitchen table hand"
+          ],
+          "intent": "「特別な意識をしなくても、手が伸びる」。暮らしの中で自然に手に取られる道具の手元"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 66,
+      "date": "3/8",
+      "title": "ポケモンGOがつくりたかった風景を、10年後に考える",
+      "arti_url": "https://www.arti.llc/つくりたかったのは、どんな風景だったのか/",
+      "placements": [
+        {
+          "id": "66-1",
+          "after_text": "少しして、Pokémon GOのレイドなのだと気づきました。",
+          "query": "crowd looking at smartphones street",
+          "alt_queries": [
+            "people standing staring at phones",
+            "group of strangers using phones outdoors"
+          ],
+          "intent": "池袋の人だかり。年齢も服装もばらばらな人たちが、街角で立ち止まってそれぞれスマートフォンを見ている"
+        },
+        {
+          "id": "66-2",
+          "after_text": "そういう時間をつくりたかったのだ――そんな話だったと記憶していました。",
+          "query": "father and child walking summer evening",
+          "alt_queries": [
+            "parent and kid walking at dusk",
+            "dad and son walking street night"
+          ],
+          "intent": "ハンケが語った、夏の夜に父と子が一緒に歩く風景。画面ではなく、歩いている二人の後ろ姿"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 67,
+      "date": "3/9",
+      "title": "収束しすぎる時代に、どう発散するか",
+      "arti_url": "https://www.arti.llc/収束しすぎる時代に、どう発散するか/",
+      "placements": [
+        {
+          "id": "67-1",
+          "after_text": "そうしたものを一覧できる。",
+          "query": "design sketches spread on table",
+          "alt_queries": [
+            "many paper sketches side by side",
+            "wireframe drawings laid out"
+          ],
+          "intent": "「複数の案を横に並べ」「一覧できる」場。机の上に何案ものスケッチが並ぶ様子（Figmaのキャンバスを紙に置き換え）"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 68,
+      "date": "3/11",
+      "title": "「正しい言葉」より、現実に近い言葉",
+      "arti_url": "https://www.arti.llc/借り物の言葉で考えない/",
+      "placements": [
+        {
+          "id": "68-1",
+          "after_text": "私自身が雑に言葉を使ってきたという反省もしているのですが、どうも違和感があったのは、実務で意味があること以上に、「正しい定義」のようなものが独り歩きしているシーンです。どこかの教科書にあるのかもしれませんが、権威のある文脈で定義された言葉が空虚に感じるところもあり、こんなことにエネルギーを使いたくないと感じたところもありました。",
+          "query": "thick textbook open on desk",
+          "alt_queries": [
+            "old dictionary pages close up",
+            "stack of textbooks"
+          ],
+          "intent": "本文の「どこかの教科書にある」「正しい定義」。分厚い教科書や辞書のページ"
+        },
+        {
+          "id": "68-2",
+          "after_text": "ただ、すり合わせの目的は、同じ定義を暗記することではなく、同じ現象を一緒に見ようとすること、あるいはどんなアプローチで山を登ろうとするかを不格好でも伝えあうことなのだと思います。",
+          "query": "hikers climbing mountain trail together",
+          "alt_queries": [
+            "climbers on rocky slope",
+            "people hiking up mountain path"
+          ],
+          "intent": "本文の「どんなアプローチで山を登ろうとするか」。連れ立って山道を登る人たち"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 124,
+      "date": "3/15",
+      "title": "組織を「びっくりさせない」",
+      "arti_url": "https://www.arti.llc/組織を「びっくりさせない」/",
+      "placements": [
+        {
+          "id": "124-1",
+          "after_text": "外からは不格好に見えても、そこには今日を回すための知恵が詰まっています。",
+          "query": "handwritten note taped on machine",
+          "alt_queries": [
+            "sticky notes on factory equipment",
+            "labels written on old machine"
+          ],
+          "intent": "「手書きのメモが貼られた設備」そのもの。現場で継ぎ足されてきた工夫の跡が見える機械"
+        },
+        {
+          "id": "124-2",
+          "after_text": "ただ、だからといって、いまのやり方を変える理由にはならない――その温度感が、強く印象に残っています。",
+          "query": "factory worker operating machine",
+          "alt_queries": [
+            "worker at factory machinery",
+            "hands working on factory equipment"
+          ],
+          "intent": "話を聞いた工場の現場。いつも通り機械を動かしている作業者の姿"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 70,
+      "date": "3/16",
+      "title": "「本気のゲーム」が変わるとき──ブルデューを手がかりに考える組織の重心",
+      "arti_url": "https://www.arti.llc/イルーシオとハビトゥスから考える、組織の重心/",
+      "placements": [
+        {
+          "id": "70-1",
+          "after_text": "陸上競技でも、「速く走る」「遠くに跳ぶ」といったことに共通の意義を置き、真剣に信じるからこそ競技が成立します。外から見れば単なるルールに過ぎませんが、内側では本気の対象になります。",
+          "query": "sprinters on running track",
+          "alt_queries": [
+            "athletes racing on track",
+            "long jump athlete sand pit"
+          ],
+          "intent": "本文の陸上競技の例。速く走る・遠くに跳ぶことに本気になっている選手"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 71,
+      "date": "3/18",
+      "title": "画面の外で働くAI ――配車アプリに見た、都市を調律する知性",
+      "arti_url": "https://www.arti.llc/都市を調律する知性/",
+      "placements": [
+        {
+          "id": "71-1",
+          "after_text": "そんな発想で体験を滑らかにしているんだ、というお話でした。",
+          "query": "taxis on city street night",
+          "alt_queries": [
+            "aerial view city traffic cars",
+            "taxi waiting on street corner"
+          ],
+          "intent": "DiDiの配車の話。街を走るタクシーや車の流れ。都市を上から眺めた構図でもよい"
+        },
+        {
+          "id": "71-2",
+          "after_text": "楽器のわずかなズレを整えるように、都市の中の小さな歪みをならしていく。",
+          "query": "tuning guitar pegs close up",
+          "alt_queries": [
+            "musician tuning instrument",
+            "violin tuning pegs hands"
+          ],
+          "intent": "本文の「楽器のわずかなズレを整える」比喩。楽器を調律する手元"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 72,
+      "date": "3/22",
+      "title": "意図に応答する世界へ──UXデザインはどこへ向かうのか",
+      "arti_url": "https://www.arti.llc/意図に応答する世界へ──uxデザインはどこへ向か/",
+      "placements": [
+        {
+          "id": "72-1",
+          "after_text": "ARグラスが視界に紙を浮かび上がらせ、ペンが手元に差し出される。",
+          "query": "notebook and pen on desk",
+          "alt_queries": [
+            "hand holding pen over paper",
+            "open notebook with pen"
+          ],
+          "intent": "「メモを取りたい」と思ったときに差し出される紙とペン。ARの紙を現物の紙とペンに置き換え"
+        },
+        {
+          "id": "72-2",
+          "after_text": "思えば、スマートフォンは非常に便利ですが、わざわざポケットから取り出すアクションは「自然」ではありませんね。",
+          "query": "taking phone out of pocket",
+          "alt_queries": [
+            "hand pulling smartphone from jeans",
+            "man reaching into pocket phone"
+          ],
+          "intent": "「わざわざポケットから取り出すアクション」。ポケットからスマートフォンを出す手元"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 73,
+      "date": "3/23",
+      "title": "レビューは外部化される。では何が残るのか",
+      "arti_url": "https://www.arti.llc/レビューは外部化される。では何が残るのか/",
+      "placements": [
+        {
+          "id": "73-1",
+          "after_text": "現場に行き、人と話し、使われ方を見て、沈黙を見て、手元を見て、表情を見る。",
+          "query": "observing person using smartphone",
+          "alt_queries": [
+            "hands using phone close up",
+            "user testing product hands"
+          ],
+          "intent": "現場で「使われ方を見て、手元を見て」いる場面。人が道具を使っている手元"
+        },
+        {
+          "id": "73-2",
+          "after_text": "でも、同じところで何度も手が止まる。",
+          "query": "finger hesitating over phone screen",
+          "alt_queries": [
+            "thumb hovering touchscreen",
+            "confused person looking at phone"
+          ],
+          "intent": "「同じところで何度も手が止まる」。画面の上で指が止まっている様子"
+        },
+        {
+          "id": "73-3",
+          "after_text": "観察メモを取ることもできます。",
+          "query": "handwritten field notes notebook",
+          "alt_queries": [
+            "notebook with handwritten notes",
+            "writing notes in notebook outdoors"
+          ],
+          "intent": "「観察メモを取る」。手書きの観察メモが書かれたノート"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 74,
+      "date": "3/25",
+      "title": "「これじゃない」を手放さない ――直感の錆への抵抗",
+      "arti_url": "https://www.arti.llc/「これじゃない」を手放さない-――直感の錆への/",
+      "placements": [
+        {
+          "id": "74-1",
+          "after_text": "私が手放したくないと思ったその力には、すでに名前がついていたのです。intuition rust ——直感の錆。",
+          "query": "rusty metal tool close up",
+          "alt_queries": [
+            "rust on old iron",
+            "rusted blade texture"
+          ],
+          "intent": "本文の「直感の錆」の比喩。錆びた金属の道具"
+        },
+        {
+          "id": "74-2",
+          "after_text": "計算する力も、漢字を手で書く力も退化しました。それで困ってはいません。手放してよかったと思っています。",
+          "query": "calculator on desk",
+          "alt_queries": [
+            "old pocket calculator",
+            "hand using calculator"
+          ],
+          "intent": "本文の「電卓や漢字変換」の例。手放してよかった道具としての電卓"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 75,
+      "date": "3/29",
+      "title": "それでも、段差は自分でつける ――組織はそれを消しにくる",
+      "arti_url": "https://www.arti.llc/それでも、段差は自分でつける-――組織はそれを/",
+      "placements": [
+        {
+          "id": "75-1",
+          "after_text": "これはつまり、こういうことです。組織にとって、あなたの段差は――立ち止まり、粘り、あえて自分でやってみる、あの一手間は――短期的には、ただの非効率です。",
+          "query": "single stone step garden path",
+          "alt_queries": [
+            "step in stone walkway",
+            "small stair step outdoors"
+          ],
+          "intent": "本文の「段差」の比喩。道の途中にある一段の段差"
+        },
+        {
+          "id": "75-2",
+          "after_text": "週に一度でも、AIを外して自分の手でやる。刃を研ぐように。",
+          "query": "sharpening knife on whetstone",
+          "alt_queries": [
+            "whetstone blade hands",
+            "honing kitchen knife"
+          ],
+          "intent": "「刃を研ぐように」。砥石で刃物を研ぐ手元"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 76,
+      "date": "3/30",
+      "title": "手軽なところから始めない、という育成の選択",
+      "arti_url": "https://www.arti.llc/手軽なところから始めない、という育成の選択/",
+      "placements": [
+        {
+          "id": "76-1",
+          "after_text": "資料の見た目を整える、情報を整理する、伝わる形にする。即効性もあり、実務に直結する知識が詰まっている。",
+          "query": "design book open on desk",
+          "alt_queries": [
+            "open book with layout pages",
+            "reading book on wooden table"
+          ],
+          "intent": "入門書から学び始める場面。机の上に開かれたデザインの本（特定の書名は不要）"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 77,
+      "date": "4/1",
+      "title": "溶け込む意思　-　Dieter Ramsの原則を「環境のデザイン」文脈で読み直す",
+      "arti_url": "https://www.arti.llc/溶け込む意思　-　dieter-ramsの原則を「環境のデザイン/",
+      "placements": [
+        {
+          "id": "77-1",
+          "after_text": "棚に置かれ、机の上にあり、いつの間にか生活の一部になっている。",
+          "query": "vintage radio on wooden shelf",
+          "alt_queries": [
+            "vintage braun radio",
+            "retro audio device on desk"
+          ],
+          "intent": "60年代のブラウン製品のように、棚や机の上で生活に溶け込んでいる古い家電。冒頭にしか具体物がないため冒頭に置く"
+        },
+        {
+          "id": "77-2",
+          "after_text": "何と並び、何に囲まれて存在するのか。",
+          "query": "minimal living room shelf objects",
+          "alt_queries": [
+            "home interior shelf with objects",
+            "quiet room with furniture"
+          ],
+          "intent": "「何と並び、何に囲まれて存在するのか」。暮らしの中で物が並んでいる棚や部屋"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 78,
+      "date": "4/5",
+      "title": "VRであることを忘れる設計",
+      "arti_url": "https://www.arti.llc/vrであることを忘れる設計/",
+      "placements": [
+        {
+          "id": "78-1",
+          "after_text": "足りない部分は、想像力が補っていた。",
+          "query": "retro video game pixel screen",
+          "alt_queries": [
+            "old game console controller",
+            "8-bit game on old tv"
+          ],
+          "intent": "本文の「粗いポリゴンやドット絵」の古いゲーム機の体験"
+        },
+        {
+          "id": "78-2",
+          "after_text": "そのとき初めて、「これはVRでなければ生まれなかったかもしれない」と感じました。",
+          "query": "person wearing vr headset",
+          "alt_queries": [
+            "vr headset user room",
+            "woman using virtual reality headset"
+          ],
+          "intent": "VR空間で人と向き合っている体験。ヘッドセットをかぶった人"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 79,
+      "date": "4/6",
+      "title": "何時間で作ったかより、何回違和感を感じ、作り直したか",
+      "arti_url": "https://www.arti.llc/何時間で作ったかより、何回違和感を感じ、作り/",
+      "placements": [
+        {
+          "id": "79-1",
+          "after_text": "実際に触ってみる。日常の中で使ってみる。そこで、「なんか違う」「ここで止まる」「気持ちよくない」「意味はわかるけど、使いたくならない」といった違和感が生まれる。",
+          "query": "finger tapping smartphone screen",
+          "alt_queries": [
+            "hand touching phone app",
+            "using mobile app close up"
+          ],
+          "intent": "「実際に触ってみる」。作ったものを指で触っている手元"
+        },
+        {
+          "id": "79-2",
+          "after_text": "動くものをすぐにつくれる。日々の中で触れる。触った瞬間に違和感が立ち上がる。その違和感をすぐに言葉にし、すぐに次の形に戻せる。",
+          "query": "using phone at kitchen table",
+          "alt_queries": [
+            "person using phone at home morning",
+            "smartphone in daily life home"
+          ],
+          "intent": "「動くものをすぐにつくれる。日々の中で触れる」。家の中のふだんの場面でスマホを使っている様子"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 80,
+      "date": "4/8",
+      "title": "信号を減らした交差点は、なぜ安全になるのか ――やわらかい設計",
+      "arti_url": "https://www.arti.llc/やわらかい設計/",
+      "placements": [
+        {
+          "id": "80-1",
+          "after_text": "そして、その関与の中で秩序が立ち上がるようにしている。",
+          "query": "intersection without traffic lights",
+          "alt_queries": [
+            "cyclists and cars crossing street",
+            "shared space street europe"
+          ],
+          "intent": "モンダーマンの信号のない交差点。車・自転車・歩行者が互いを見ながら行き交う様子"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 81,
+      "date": "4/12",
+      "title": "「やわらかい設計」をどう実践するか",
+      "arti_url": "https://www.arti.llc/「やわらかい設計」をどう実践するか/",
+      "placements": [
+        {
+          "id": "81-1",
+          "after_text": "砂場では、遊び方が固定されていません。「ごっこ遊び」から「山の高さを競う」という別の行動を呼び、「山から流す水の流れのランダムさ」へと遊びが連なっていきます。",
+          "query": "sand mountain with water stream",
+          "alt_queries": [
+            "kids pouring water on sand",
+            "children digging sandbox"
+          ],
+          "intent": "「山から流す水の流れのランダムさ」。砂山と水の流れ"
+        },
+        {
+          "id": "81-2",
+          "after_text": "交差点では、空間が重なり合うことで、関わらざるを得ない状況が生まれます。",
+          "query": "pedestrians crossing busy intersection",
+          "alt_queries": [
+            "crowded crosswalk from above",
+            "cyclists sharing road with cars"
+          ],
+          "intent": "「空間が重なり合うことで、関わらざるを得ない」交差点。人や車が同じ空間で交わる様子"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 82,
+      "date": "4/13",
+      "title": "若手の入口業務が消えるとき、一緒に消えるもの",
+      "arti_url": "https://www.arti.llc/合理化と、その場の魅力/",
+      "placements": [
+        {
+          "id": "82-1",
+          "after_text": "調べる。まとめる。書く。直す。顧客の反応を見る。怒られる。またやり直す。そういう摩擦の中で、人は何かを育てていたのではないか。明確に言語化できる知識ではなく、「この状況でどう動くか」という判断の筋肉のようなもの。現実に触れ続けることでしか身につかない、ある種の感覚。",
+          "query": "red pen corrections on document",
+          "alt_queries": [
+            "edited paper with red marks",
+            "hand correcting printed draft"
+          ],
+          "intent": "「書く。直す。…怒られる。またやり直す。」入口業務の摩擦。赤の入った書類"
+        },
+        {
+          "id": "82-2",
+          "after_text": "何度も作って壊すこと。",
+          "query": "paper prototype sketches hands",
+          "alt_queries": [
+            "crumpled paper drafts desk",
+            "hands making paper mockup"
+          ],
+          "intent": "「何度も作って壊すこと」。作っては捨てた試作や下書き"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 83,
+      "date": "4/15",
+      "title": "主体性は心の問題ではない、アーキテクチャの問題である",
+      "arti_url": "https://www.arti.llc/主体性は心の問題ではない、アーキテクチャの問/",
+      "placements": [
+        {
+          "id": "83-1",
+          "after_text": "なぜそれが必要なのかを考え、どう運用するかを試し、その結果を自分たちで受け止める。",
+          "query": "students talking in classroom",
+          "alt_queries": [
+            "high school students group discussion",
+            "classroom desks students"
+          ],
+          "intent": "生徒が自分たちで校則を話し合う場面。教室で話し合う生徒たち"
+        },
+        {
+          "id": "83-2",
+          "after_text": "周囲から見れば、ただそれだけの光景です。",
+          "query": "man dancing alone outdoor festival",
+          "alt_queries": [
+            "lone dancer on grass",
+            "people dancing at outdoor festival"
+          ],
+          "intent": "TEDの動画の、野外フェスで一人で踊り始める男性。周囲はまだ眺めているだけ"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 84,
+      "date": "4/19",
+      "title": "「お前はどうしたいの？」は何を起動しているのかーーマネージャの投げかけの意義",
+      "arti_url": "https://www.arti.llc/優れたマネージャーは何をしているのかーーやわ/",
+      "placements": [],
+      "no_image_reason": "上司と部下のやりとりの話で、写真にできる具体物がない（会話場面はビジネスのストック写真になる）"
+    },
+    {
+      "no": 85,
+      "date": "4/20",
+      "title": "AIに、失われつつある「厳しさ」を返される",
+      "arti_url": "https://www.arti.llc/aiに、失われつつある「厳しさ」を返される/",
+      "placements": [],
+      "no_image_reason": "Claude Skillsと厳しさの話で、写真にできる具体物がない"
+    },
+    {
+      "no": 86,
+      "date": "4/22",
+      "title": "設計しすぎない、という設計 ――ゆだねるデザイン",
+      "arti_url": "https://www.arti.llc/ゆだねるデザイン/",
+      "placements": [
+        {
+          "id": "86-1",
+          "after_text": "ゆだねるデザインとは、この原っぱに近い。",
+          "query": "children playing open grass field",
+          "alt_queries": [
+            "kids running in meadow",
+            "empty grassy field park"
+          ],
+          "intent": "本文の「原っぱ」そのもの。遊具のない草地で子どもが自由に遊んでいる様子。遊園地ではなく、何もない広場"
+        },
+        {
+          "id": "86-2",
+          "after_text": "包丁は、結果を規定しません。その代わり、使い手に大きくゆだねています。",
+          "query": "peeling apple with knife",
+          "alt_queries": [
+            "hands peeling apple kitchen knife",
+            "apple peel spiral knife"
+          ],
+          "intent": "包丁でリンゴの皮をむく手元。使い手しだいで仕上がりが変わる道具としての包丁"
+        },
+        {
+          "id": "86-3",
+          "after_text": "だらっと座ることや、姿勢を崩すことや、その場に応じた自由な振る舞いが、場の質を高めることもあります。",
+          "query": "person lounging relaxed armchair",
+          "alt_queries": [
+            "slouching on sofa reading",
+            "sitting casually on floor cushion"
+          ],
+          "intent": "エルゴノミクスの椅子と対になる、姿勢を崩してくつろぐ人。だらっと座る自由さが伝わるもの"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 87,
+      "date": "4/26",
+      "title": "設計しすぎることの違和感",
+      "arti_url": "https://www.arti.llc/設計しすぎることの違和感/",
+      "placements": [
+        {
+          "id": "87-1",
+          "after_text": "遊園地はある程度固定されていても、原っぱでの遊びは固定されていないでしょう。",
+          "query": "children playing in open field",
+          "alt_queries": [
+            "kids playing on grass meadow",
+            "empty grassy field"
+          ],
+          "intent": "本文の原っぱの比喩。決まった遊び方のない草地で、子どもが思い思いに遊んでいる様子"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 125,
+      "date": "4/27",
+      "title": "買っているのは、「位置」だった",
+      "arti_url": "https://www.arti.llc/買っているのは、位置だった/",
+      "placements": [
+        {
+          "id": "125-1",
+          "after_text": "そもそも順番待ちの列に並ぶために、誰かの紹介が必要な場合もある。",
+          "query": "wine cellar bottles rack",
+          "alt_queries": [
+            "rare wine bottles in cellar",
+            "old wine bottles dusty shelf"
+          ],
+          "intent": "希少で高額なワインの世界。セラーに静かに眠るワインのボトル"
+        },
+        {
+          "id": "125-2",
+          "after_text": "そして、それでも購入する。",
+          "query": "luxury sports car in garage",
+          "alt_queries": [
+            "supercar parked showroom",
+            "classic sports car close up"
+          ],
+          "intent": "3億円の超高級車の話。ガレージやショールームに置かれた高級スポーツカー"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 89,
+      "date": "4/29",
+      "title": "親指の爪に描けるか？──古びない設計のための覚書",
+      "arti_url": "https://www.arti.llc/親指の爪に描けるか？──古びない設計のための/",
+      "placements": [
+        {
+          "id": "89-1",
+          "after_text": "ここで言われていた「サムネイル」とは、意図を、極限まで要約できているかという投げかけでした。",
+          "query": "thumbnail sketches pencil notebook",
+          "alt_queries": [
+            "small rough sketches sketchbook",
+            "pencil sketch tiny drawings paper"
+          ],
+          "intent": "「親指の爪に描く」くらい小さなラフスケッチが並んだノート。意図を極限まで要約した絵のイメージ"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 90,
+      "date": "5/3",
+      "title": "環境に埋め込まれたフィードバック",
+      "arti_url": "https://www.arti.llc/環境に埋め込まれたフィードバック/",
+      "placements": [
+        {
+          "id": "90-1",
+          "after_text": "一方で、消費が少ない家庭では、メーターは玄関前にあり、家族が一日に何度もその前を通ります。",
+          "query": "electricity meter house front door",
+          "alt_queries": [
+            "electric meter on house wall",
+            "home entrance utility meter"
+          ],
+          "intent": "本文の例そのもの。家の玄関先・外壁にある電力メーター。暮らしの動線の中に見えている情報"
+        },
+        {
+          "id": "90-2",
+          "after_text": "乗車が終わるとすぐに、お互いに評価が行われます。",
+          "query": "rating driver on smartphone app",
+          "alt_queries": [
+            "star rating phone screen hand",
+            "passenger smartphone in car"
+          ],
+          "intent": "配車サービスの乗車直後に、スマートフォンで星の評価をつける手元。行動のすぐ隣にあるフィードバック"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 91,
+      "date": "5/4",
+      "title": "ひらめきが熱いうちに、コアを作る",
+      "arti_url": "https://www.arti.llc/hot-dog-while-hot/",
+      "placements": [
+        {
+          "id": "91-1",
+          "after_text": "くだものや牛乳のように。",
+          "query": "fresh fruit and milk bottle",
+          "alt_queries": [
+            "milk carton expiration date",
+            "fresh fruit market basket"
+          ],
+          "intent": "「ひらめきは生鮮食品」という比喩から、くだものや牛乳そのもの。鮮度があって傷んでいくもの"
+        },
+        {
+          "id": "91-2",
+          "after_text": "まず、おいしいホットドッグがあるかどうかです。",
+          "query": "hot dog close up hands",
+          "alt_queries": [
+            "freshly made hot dog",
+            "hot dog stand vendor"
+          ],
+          "intent": "本文の比喩そのもの。屋台や看板ではなく、湯気の立つできたてのホットドッグを手に持った様子"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 92,
+      "date": "5/6",
+      "title": "良さそうな解決策は、正しいとは限らない",
+      "arti_url": "https://www.arti.llc/良さそうな解決策は、正しいとは限らない/",
+      "placements": [
+        {
+          "id": "92-1",
+          "after_text": "つまり魚を増やすために植えた水草が、魚を減らしてしまった。",
+          "query": "floating plants covering pond surface",
+          "alt_queries": [
+            "water lettuce on pond",
+            "duckweed covered water"
+          ],
+          "intent": "水面を覆う浮き草。光を遮って水中を暗くしてしまう様子が伝わるもの"
+        },
+        {
+          "id": "92-2",
+          "after_text": "その代わり、マングースはもっと捕まえやすい動物を捕食し、天然記念物のアマミノクロウサギが絶滅の危機に瀕してしまった。",
+          "query": "mongoose in grass",
+          "alt_queries": [
+            "mongoose standing alert",
+            "small indian mongoose"
+          ],
+          "intent": "奄美大島に放たれたマングース。草むらにいる一匹の姿"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 93,
+      "date": "5/10",
+      "title": "強引な解決策は、エネルギーの向きを歪める",
+      "arti_url": "https://www.arti.llc/強引な解決策は、エネルギーの向きを歪める/",
+      "placements": [],
+      "no_image_reason": "組織の施策やエネルギーの向きをめぐる抽象的な論で、写真にできる具体物がない"
+    },
+    {
+      "no": 94,
+      "date": "5/11",
+      "title": "事業の浮沈を、外からどこまで感じられるか",
+      "arti_url": "https://www.arti.llc/事業の浮沈を、外からどこまで感じられるか/",
+      "placements": [
+        {
+          "id": "94-1",
+          "after_text": "コンサルタントが引き受けているのは、そこで「やるべき」と断言する怖さだと思っています。",
+          "query": "printed report pages on desk",
+          "alt_queries": [
+            "consulting report document binder",
+            "hand holding printed report"
+          ],
+          "intent": "「この報告書にかいてあることさ、本当にやるぞ？」と言われた紙の報告書。机の上の印刷された資料"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 95,
+      "date": "5/13",
+      "title": "懐の深いシステムが文化を育てる",
+      "arti_url": "https://www.arti.llc/懐の深いシステムが文化を育てる/",
+      "placements": [
+        {
+          "id": "95-1",
+          "after_text": "とても小さな場所ですが、それもまた漫画が生まれる場所です。",
+          "query": "hand drawing comic with pencil",
+          "alt_queries": [
+            "child drawing comic on paper",
+            "pencil manga sketch desk"
+          ],
+          "intent": "学級新聞に漫画を描く少女のイメージから、紙に鉛筆で漫画を描く手元。上手でなくてもいい、小さな表現の場"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 96,
+      "date": "5/17",
+      "title": "UXデザインにおけるコンセプトワークとは｜「期待を立ち上げる」視点",
+      "arti_url": "https://www.arti.llc/uxデザインにおけるコンセプトワークとは｜「期待/",
+      "placements": [
+        {
+          "id": "96-1",
+          "after_text": "そうした摩擦を一つずつ減らしていくことで、体験は確実に改善されます。これはUXの基礎であり、多くの現場でまず求められる価値でもあります。",
+          "query": "rock on hiking trail",
+          "alt_queries": [
+            "stone blocking footpath",
+            "stepping over rock on path"
+          ],
+          "intent": "「躓きの石」の比喩。道の上に転がる石。つまずきの原因を取り除く仕事のイメージ"
+        },
+        {
+          "id": "96-2",
+          "after_text": "期待の立ち上げとは、このようなジャンプを伴って立ち上がるものです。正確である必要はありません。むしろ、多少飛躍しているほうがいい。",
+          "query": "small intimate wedding dinner family",
+          "alt_queries": [
+            "small backyard wedding",
+            "intimate wedding table candles"
+          ],
+          "intent": "本文の「小さな結婚式」。家族だけの手作り感のある、密度の高い祝いの場"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 98,
+      "date": "5/20",
+      "title": "方法論は、味方か、支配者か",
+      "arti_url": "https://www.arti.llc/方法論という、静かな力/",
+      "placements": [],
+      "no_image_reason": "方法論と場の力学をめぐる抽象的な論で、写真にできる具体物がない"
+    },
+    {
+      "no": 99,
+      "date": "5/24",
+      "title": "Adaptive UXという、誠実な支援者の設計",
+      "arti_url": "https://www.arti.llc/adaptive-uxという、誠実な支援者の設計/",
+      "placements": [
+        {
+          "id": "99-1",
+          "after_text": "それは、すでに私たちの日常になりました。",
+          "query": "scrolling phone feed hands",
+          "alt_queries": [
+            "music playlist on smartphone",
+            "person browsing recommendations phone"
+          ],
+          "intent": "レコメンドやプレイリストが差し出される日常。スマートフォンでフィードを眺める手元"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 100,
+      "date": "5/25",
+      "title": "知のシステムの一部としての人間、という視点",
+      "arti_url": "https://www.arti.llc/知を深めるシステムを設計する/",
+      "placements": [
+        {
+          "id": "100-1",
+          "after_text": "観察したことが違和感になり、違和感を確かめるために本を読み、読んだことをプロトタイプに落とし、それを誰かと議論し、ブログに書くことで自分の中で整理し、レビューボットに投げることでまた別の角度が見つかる。",
+          "query": "desk with open books and notebook",
+          "alt_queries": [
+            "reading book taking notes",
+            "notebook laptop books desk"
+          ],
+          "intent": "本文に並ぶ営みのうち、本を読みノートに書く作業机。読書とメモと画面が並んで置かれている様子"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 101,
+      "date": "5/27",
+      "title": "状況志向で考えるということ – Adaptive UX時代の考え方",
+      "arti_url": "https://www.arti.llc/状況志向で考えるということ/",
+      "placements": [
+        {
+          "id": "101-1",
+          "after_text": "かなり高い頻度で起きています。",
+          "query": "used car lot browsing",
+          "alt_queries": [
+            "person looking at used cars",
+            "used car dealership row"
+          ],
+          "intent": "本文の「判断を急がされている中古車探し」の場面。中古車販売店で車を見て回る人"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 102,
+      "date": "5/31",
+      "title": "「堕落」と呼ばれてきたものたちと、アテンション・エコノミー",
+      "arti_url": "https://www.arti.llc/アテンション・エコノミーを、善悪で切り分ける/",
+      "placements": [
+        {
+          "id": "102-1",
+          "after_text": "気づかないうちに、ゴシップ、過激な動画、怒りを煽る話題、かわいい動物たちに囲まれていく。",
+          "query": "scrolling smartphone in bed night",
+          "alt_queries": [
+            "watching short videos on phone",
+            "phone screen glow dark room"
+          ],
+          "intent": "「つい見てしまう」状態。夜、ベッドでスマートフォンをスクロールし続ける様子"
+        },
+        {
+          "id": "102-2",
+          "after_text": "その一方で、規制や距離の取り方が模索される中で、一部は文化や表現として定着していった。",
+          "query": "vintage television set living room",
+          "alt_queries": [
+            "retro tv family watching",
+            "old comic books stack"
+          ],
+          "intent": "かつて「堕落の象徴」と言われたテレビや漫画。昔のテレビのある居間など、時代を感じるもの"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 103,
+      "date": "6/1",
+      "title": "かつて触れた知が、いまのUXデザインにつながっている",
+      "arti_url": "https://www.arti.llc/かつて触れた知が、いまのuxにつながっている/",
+      "placements": [
+        {
+          "id": "103-1",
+          "after_text": "また、送り手が込めた「意味」は、そのまま受け手に届くわけではないという、スチュアート・ホールの提示は、意味が形成されていくなかでも複雑な相互作用があることを教えてくれました。",
+          "query": "old books stack library desk",
+          "alt_queries": [
+            "worn paperback books",
+            "reading old book desk lamp"
+          ],
+          "intent": "大学院時代に読んでいた理論書のイメージ。使い込まれた本が積まれた机"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 105,
+      "date": "6/7",
+      "title": "その場所から生えてくる体験を考える",
+      "arti_url": "https://www.arti.llc/そこから生えるものを考える/",
+      "placements": [
+        {
+          "id": "105-1",
+          "after_text": "ツムトアの『建築を考える』の言葉を使うなら、その風景から\"生え出した\"ように見えるものを作ろうとしているように見える。",
+          "query": "seedling sprouting from soil",
+          "alt_queries": [
+            "sprout growing from ground",
+            "plant emerging between stones"
+          ],
+          "intent": "本文の「生え出す」を植物にずらしたもの。土や石の間から芽が出ている様子。置かれたのではなく、その場所から生えてくる感じ"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 106,
+      "date": "6/8",
+      "title": "可変ミルクシェイクという思考実験── 機械協働時代のジョブ理論を考える",
+      "arti_url": "https://www.arti.llc/可変ミルクシェイクという思考実験──-機械協働/",
+      "placements": [
+        {
+          "id": "106-1",
+          "after_text": "長距離通勤をするドライバーは、退屈な時間を持たせるために、粘性が高く、すぐに飲み終わらないミルクシェイクを“雇う”。",
+          "query": "milkshake in car cup holder",
+          "alt_queries": [
+            "drinking milkshake while driving",
+            "milkshake cup straw car"
+          ],
+          "intent": "本文の例そのもの。通勤の車内、ドリンクホルダーに置かれたミルクシェイク"
+        },
+        {
+          "id": "106-2",
+          "after_text": "提示タイミングは空腹予測に基づく。",
+          "query": "row of milkshakes different flavors",
+          "alt_queries": [
+            "assorted milkshakes glasses",
+            "milkshake sizes colors"
+          ],
+          "intent": "「可変ミルクシェイク」の思考実験。色も量も違うミルクシェイクが並び、状況に合わせて変わるイメージ"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 107,
+      "date": "6/10",
+      "title": "遊び心は、軽薄ではない",
+      "arti_url": "https://www.arti.llc/あなたは、創造的ですか？/",
+      "placements": [
+        {
+          "id": "107-1",
+          "after_text": "違うおもちゃ同士が、ひとつの物語の中でつながっていく。",
+          "query": "child playing with mixed toys floor",
+          "alt_queries": [
+            "toy train and stuffed animals",
+            "kid playing lego and plush toys"
+          ],
+          "intent": "本文の例そのもの。電車のおもちゃ、ぬいぐるみ、ブロックを混ぜて遊ぶ子ども。用途を忘れてつなぎ直している遊び"
+        }
+      ],
+      "no_image_reason": ""
+    },
+    {
+      "no": 108,
+      "date": "6/14",
+      "title": "方法論の組織への浸透 ――「ケースで引っ張る」という前進の仕方",
+      "arti_url": "https://www.arti.llc/方法論更新について：誰も染められたくない/",
+      "placements": [],
+      "no_image_reason": "方法論の浸透をめぐる抽象的な論で、写真にできる具体物がない"
+    }
+  ]
+}

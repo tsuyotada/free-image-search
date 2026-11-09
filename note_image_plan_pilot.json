@@ -1,0 +1,114 @@
+{
+  "about": "note転載記事に入れる画像の計画（試作5本）。各placementは『本文のこの一文の直後に、この写真を入れる』という指定。検索語は英語。queryで当たらなければalt_queriesを順に試す。",
+  "style_rules": [
+    "人の顔がはっきり写る写真は避ける（手元、後ろ姿、遠景はよい）",
+    "落ち着いた色調。強い彩度や広告っぽい演出は避ける",
+    "横長（3:2〜16:9）を優先",
+    "文字やロゴが目立つ写真は避ける（品書き・掛け軸の文字は例外）"
+  ],
+  "posts": [
+    {
+      "no": 10,
+      "date": "11/19",
+      "title": "自分で登る、指示する、抱えて登る——マネジャーになるときに起きる、揺れの話",
+      "note_url": "https://note.com/arti_llc/n/n84969d05f768",
+      "placements": [
+        {
+          "id": "10-1",
+          "after_text": "と声をかけている状態です。",
+          "query": "climber on mountain slope from below",
+          "alt_queries": ["hiker on steep slope distant", "mountain climber small figure"],
+          "intent": "ふもとから指示を出す比喩。登る人が遠く小さく見える、下から見上げた構図"
+        },
+        {
+          "id": "10-2",
+          "after_text": "それでも一緒に登り続ける。",
+          "query": "two hikers walking together trail",
+          "alt_queries": ["two people climbing mountain path back view", "helping hand hiking"],
+          "intent": "抱えて登る。同じ斜面を並んで登る二人の後ろ姿。10-1との距離感の差が出るもの"
+        }
+      ]
+    },
+    {
+      "no": 11,
+      "date": "11/20",
+      "title": "値段の書いていない店が教えてくれるUXの話",
+      "note_url": "https://note.com/arti_llc/n/n43d0551c6fc7",
+      "placements": [
+        {
+          "id": "11-1",
+          "after_text": "お品書きに値段のない「おまかせ」の店に足を運ぶと、小さな緊張が走ります。",
+          "query": "sushi chef counter hands",
+          "alt_queries": ["omakase counter", "japanese restaurant counter wood"],
+          "intent": "おまかせの店のカウンター。板前の手元か、白木のカウンター。静かで少し緊張感のある空気"
+        },
+        {
+          "id": "11-2",
+          "after_text": "UXの観点から見れば、これは極めて教科書的な構図です。",
+          "query": "japanese calligraphy menu",
+          "alt_queries": ["hanging scroll calligraphy", "japanese handwritten menu board"],
+          "intent": "読める人にしか読めない。筆書きの品書きや掛け軸。次の見出し『読める人のためのUX』の直前に置く"
+        }
+      ]
+    },
+    {
+      "no": 13,
+      "date": "11/24",
+      "title": "量から密度へ──機械協働時代の若手育成",
+      "note_url": "https://note.com/arti_llc/n/n215bd8dce2c1",
+      "placements": [
+        {
+          "id": "13-1",
+          "after_text": "何度も突き返されました。",
+          "query": "red pen corrections paper",
+          "alt_queries": ["editing document red pen", "marked up printed draft"],
+          "intent": "何度も突き返された資料。赤ペンがびっしり入った紙の資料"
+        }
+      ]
+    },
+    {
+      "no": 15,
+      "date": "11/27",
+      "title": "ペインを、でっち上げない",
+      "note_url": "https://note.com/arti_llc/n/n6cf020d0cfa9",
+      "placements": [
+        {
+          "id": "15-1",
+          "after_text": "葉の色が変わったとき、それが危険信号なのかどうかもわからない。",
+          "query": "balcony potted plants",
+          "alt_queries": ["apartment balcony garden", "potted plants on balcony railing"],
+          "intent": "本文の例そのもの。ベランダに並ぶ鉢植え。生活感のある、ふつうのベランダ"
+        },
+        {
+          "id": "15-2",
+          "after_text": "気づいても、何をすればいいかわからない。",
+          "query": "watering can plant hands",
+          "alt_queries": ["watering potted plant", "hand watering houseplant"],
+          "intent": "水やりという具体的な行動。じょうろで鉢に水をやる手元"
+        }
+      ]
+    },
+    {
+      "no": 17,
+      "date": "12/1",
+      "title": "マネージャーは、無理に部下の欠点を探さなくてよい",
+      "note_url": "https://note.com/arti_llc/n/n8e4ebbc68c3b",
+      "placements": [
+        {
+          "id": "17-1",
+          "after_text": "その一つひとつが、「マネージャーらしさ」として受け継がれていきます。",
+          "query": "one on one meeting table hands",
+          "alt_queries": ["two people talking across table coffee", "meeting notebook table two people"],
+          "intent": "評価の面談。テーブルを挟んだ二人の手元。顔は写さない"
+        },
+        {
+          "id": "17-2",
+          "after_text": "けれど同時に、心のほうが歪んでしまうことがある。",
+          "query": "young tree tied to stake",
+          "alt_queries": ["sapling support stake", "tree staked garden"],
+          "intent": "本文の『ギプス』の言い換え。支柱に結ばれて形を矯正される若木"
+        }
+      ]
+    }
+  ]
+}
